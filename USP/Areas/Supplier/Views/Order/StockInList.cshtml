@@ -1,0 +1,73 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Title";
+}
+
+@section themes{
+    <link href="~/Static/Css/usp/usp.order.stockinlist.css" rel="stylesheet" />
+}
+<!--操作按钮开始-->
+@*<div id="toolbarmenu" class="datagrid-toolbar" style="padding-bottom: 3px">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="usp.order.stockinlist.add('/Supplier/Order/Add');">添加</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="usp.order.stockinlist.edit('#datagrid', '/Supplier/Order/Edit?id=');">编辑</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="usp.order.stockinlist.cancel('#datagrid', '/Supplier/Order/Cancel');">注销</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="usp.order.stockinlist.active('#datagrid', '/Supplier/Order/Active'); ">激活</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-ok" plain="true" onclick="usp.order.stockinlist.audit('#datagrid', '/Supplier/Order/Audit');">审核</a>
+            </td>
+        </tr>
+    </table>
+</div>*@
+<!--操作按钮结束-->
+<!--搜索开始-->
+<div id="toolbarsearch" style="padding: 3px" class="datagrid-toolbar">
+    入库日期<input id="beginTime" class="easyui-datebox" />- <input id="endTime" class="easyui-datebox" />
+    <input id="searchbox"/>
+    <div id="mm"></div>
+</div>
+<!--搜索结束-->
+<!--列表-->
+<table id="datagrid"></table>
+
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.order.stockinlist.js"></script>
+    <script>
+ 
+        $(function () {
+            usp.init();
+            usp.order.stockinlist.init("#datagrid", '/Supplier/Order/StockInList', "#toolbarmenu", "#toolbarsearch");
+
+            if ('@TempData["resultMsgType"]' == 'success') {
+                toastr.success('@TempData["resultMsg"]');
+            } else if ('@TempData["resultMsgType"]' == 'error') {
+                toastr.error('@TempData["resultMsg"]');
+            }
+        });
+    </script>
+}

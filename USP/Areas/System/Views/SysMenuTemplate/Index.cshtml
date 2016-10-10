@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "审核菜单模板管理";
+}
+<table id="menutemplate"></table>
+<div id="tb" style="height: auto">
+    <table>
+        <tr>
+            <td>
+                <label for="">公司类型:</label>
+                <select  class="easyui-combobox" id="corpTypecombobox" name="corpType" style="width:150px;"></select>
+            </td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a id="js-edit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">设置</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a id="js-audit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true">审核</a></td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.menutemplate.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.sysytem.menutemplate.initMenutemplateDataGrid('#menutemplate', '/System/SysMenuTemplate/Index', 0);
+            usp.sysytem.menutemplate.menuCombobox('#corpTypecombobox', '/System/SysMenuTemplate/Index','#menutemplate')
+
+            usp.init();
+            $('#js-edit').on('click', function () {
+                usp.sysytem.menutemplate.edit($('#corpTypecombobox').combobox('getValue'))
+            })
+
+            $('#js-audit').on('click', function () {
+                usp.sysytem.menutemplate.audit($('#corpTypecombobox').combobox('getValue'))
+            })
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            }
+        });
+    </script>
+}

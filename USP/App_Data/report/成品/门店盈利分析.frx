@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/23/2016 12:59:09" ReportInfo.Modified="09/27/2016 15:12:21" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlquQ+MGUuFmwCkhAb0ntbeLNzC7sK8p+JIv/aYxEi/dDLK5qUTaroHqda6ZvH32vUKIlCXO0FAoFRuJaB4jKzV44bAVnXQyonz5K+w1LVlzy0iR+qxLmf7DnykPcPj43Fzu+snnBnu7MnCjG7+/7w2t7l0GTJC9Efc51l+8G5dwmVl/bavjW3zpyd+05ccRhPFP30/GEZ4a0RAASN9/OsD9w==">
+      <TableDataSource Name="Table" Alias="经营及费用" DataType="System.Int32" Enabled="true" SelectCommand="EXEC HXN_RPT_SaleForBZTypAndVesion2 @FDATE,@FDATE2,@FNUMBER">
+        <Column Name="PRONAME" DataType="System.String"/>
+        <Column Name="BZNUMBER" DataType="System.String"/>
+        <Column Name="V1COT" DataType="System.Decimal"/>
+        <Column Name="V1MAOLI" DataType="System.Decimal"/>
+        <Column Name="V1MAOLILV" DataType="System.Decimal"/>
+        <Column Name="V1PLZB" DataType="System.Decimal"/>
+        <Column Name="V2SAL" DataType="System.Decimal"/>
+        <Column Name="V2COT" DataType="System.Decimal"/>
+        <Column Name="V2MAOLI" DataType="System.Decimal"/>
+        <Column Name="V2MAOLILV" DataType="System.Decimal"/>
+        <Column Name="V2PLZB" DataType="System.Decimal"/>
+        <Column Name="V3SAL" DataType="System.Decimal"/>
+        <Column Name="V3COT" DataType="System.Decimal"/>
+        <Column Name="V3MAOLI" DataType="System.Decimal"/>
+        <Column Name="V3MAOLILV" DataType="System.Decimal"/>
+        <Column Name="V3PLZB" DataType="System.Decimal"/>
+        <Column Name="V4SAL" DataType="System.Decimal"/>
+        <Column Name="V4COT" DataType="System.Decimal"/>
+        <Column Name="V4MAOLI" DataType="System.Decimal"/>
+        <Column Name="V4MAOLILV" DataType="System.Decimal"/>
+        <Column Name="V4PLZB" DataType="System.Decimal"/>
+        <Column Name="V5SAL" DataType="System.Decimal"/>
+        <Column Name="V5COT" DataType="System.Decimal"/>
+        <Column Name="V5MAOLI" DataType="System.Decimal"/>
+        <Column Name="V5MAOLILV" DataType="System.Decimal"/>
+        <Column Name="V5PLZB" DataType="System.Decimal"/>
+        <Column Name="OtherSAL" DataType="System.Decimal"/>
+        <Column Name="OtherCOT" DataType="System.Decimal"/>
+        <Column Name="OtherMAOLI" DataType="System.Decimal"/>
+        <Column Name="OtherMAOLILV" DataType="System.Decimal"/>
+        <Column Name="OtherPLZB" DataType="System.Decimal"/>
+        <Column Name="ALLSAL" DataType="System.Decimal"/>
+        <Column Name="ALLCOT" DataType="System.Decimal"/>
+        <Column Name="ALLMAOLI" DataType="System.Decimal"/>
+        <Column Name="ALLMAOLILV" DataType="System.Decimal"/>
+        <Column Name="ALLPLZB" DataType="System.Decimal"/>
+        <Column Name="SJSALAMT" DataType="System.Decimal"/>
+        <Column Name="BBSALAMT" DataType="System.Decimal"/>
+        <Column Name="BZSALAMT" DataType="System.Decimal"/>
+        <Column Name="CHAE" DataType="System.Decimal"/>
+        <Column Name="DCLV" DataType="System.Decimal"/>
+        <Column Name="CHAYI" DataType="System.Decimal"/>
+        <Column Name="ZHEKOULV" DataType="System.Decimal"/>
+        <Column Name="COSTALL" DataType="System.Decimal"/>
+        <Column Name="MAOLILVALL" DataType="System.Decimal"/>
+        <Column Name="FEIYONGALL" DataType="System.Decimal"/>
+        <Column Name="FEIYONGLV" DataType="System.Decimal"/>
+        <Column Name="JINGLIRUN" DataType="System.Decimal"/>
+        <Column Name="JINGLILV" DataType="System.Decimal"/>
+        <Column Name="V1SAL" DataType="System.Decimal"/>
+        <Column Name="F1" DataType="System.Decimal"/>
+        <Column Name="F2" DataType="System.Decimal"/>
+        <Column Name="F3" DataType="System.Decimal"/>
+        <Column Name="F4" DataType="System.Decimal"/>
+        <Column Name="F5" DataType="System.Decimal"/>
+        <Column Name="F6" DataType="System.Decimal"/>
+        <Column Name="F7" DataType="System.Decimal"/>
+        <Column Name="F8" DataType="System.Decimal"/>
+        <Column Name="F9" DataType="System.Decimal"/>
+        <Column Name="F10" DataType="System.Decimal"/>
+        <Column Name="F11" DataType="System.Decimal"/>
+        <Column Name="F12" DataType="System.Decimal"/>
+        <Column Name="F13" DataType="System.Decimal"/>
+        <Column Name="F14" DataType="System.Decimal"/>
+        <Column Name="F15" DataType="System.Decimal"/>
+        <Column Name="F16" DataType="System.Decimal"/>
+        <Column Name="F17" DataType="System.Decimal"/>
+        <Column Name="F18" DataType="System.Decimal"/>
+        <Column Name="F19" DataType="System.Decimal"/>
+        <Column Name="F20" DataType="System.Decimal"/>
+        <Column Name="F21" DataType="System.Decimal"/>
+        <Column Name="F22" DataType="System.Decimal"/>
+        <Column Name="F23" DataType="System.Decimal"/>
+        <Column Name="F24" DataType="System.Decimal"/>
+        <Column Name="F25" DataType="System.Decimal"/>
+        <Column Name="F26" DataType="System.Decimal"/>
+        <Column Name="F27" DataType="System.Decimal"/>
+        <Column Name="F28" DataType="System.Decimal"/>
+        <CommandParameter Name="FDATE" DataType="22" Expression="[DATESTR]"/>
+        <CommandParameter Name="FDATE2" DataType="22" Expression="[DATEEND]"/>
+        <CommandParameter Name="FNUMBER" DataType="22" Expression="[FNUMBER]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table8" Alias="门店基本信息" DataType="System.Int32" Enabled="true" SelectCommand=" select * from RPT_GET_BRANCH2(@FDATE,@FDATE2,@FNUMBER)">
+        <Column Name="MDNAME" DataType="System.String"/>
+        <Column Name="MIANJI" DataType="System.Decimal"/>
+        <Column Name="RENSHU" DataType="System.Int32"/>
+        <Column Name="LEIXING" DataType="System.String"/>
+        <Column Name="DIANZHANG" DataType="System.String"/>
+        <Column Name="PHONENO" DataType="System.String"/>
+        <Column Name="SHANGQUAN" DataType="System.String"/>
+        <Column Name="YEARMONTH1" DataType="System.String"/>
+        <Column Name="YEARMONTH2" DataType="System.String"/>
+        <CommandParameter Name="FDATE" DataType="22" Expression="[DATESTR]"/>
+        <CommandParameter Name="FDATE2" DataType="22" Expression="[DATEEND]"/>
+        <CommandParameter Name="FNUMBER" DataType="22" Expression="[FNUMBER]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table9" Alias="空" DataType="System.Int32" Enabled="true" SelectCommand="select 2 d">
+        <Column Name="d" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="DATESTR" DataType="System.String"/>
+    <Parameter Name="FNUMBER" DataType="System.String"/>
+    <Parameter Name="DATEEND" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="320" Guides="1247.4">
+    <ReportTitleBand Name="ReportTitle1" Width="1134" Height="113.4">
+      <TextObject Name="Text2" Top="47.25" Width="1209.6" Height="18.9" Text="门店:[门店基本信息.MDNAME] [门店基本信息.YEARMONTH1]至[门店基本信息.YEARMONTH2] 盈利分析表" HorzAlign="Center" Font="宋体, 16pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="117.4" Width="1134" Height="94.52" PrintOn="FirstPage">
+      <TableObject Name="Table1" Width="1134" Height="94.52" Dock="Top">
+        <TableColumn Name="Column1" Width="92.75"/>
+        <TableColumn Name="Column2" Width="87.08"/>
+        <TableColumn Name="Column3" Width="87.08"/>
+        <TableColumn Name="Column4" Width="95.01"/>
+        <TableColumn Name="Column5" Width="85.94"/>
+        <TableColumn Name="Column6" Width="84.43"/>
+        <TableColumn Name="Column7" Width="87.08"/>
+        <TableColumn Name="Column8" Width="87.08"/>
+        <TableColumn Name="Column9" Width="93.88"/>
+        <TableColumn Name="Column10" Width="86.32"/>
+        <TableColumn Name="Column11" Width="90.1"/>
+        <TableColumn Name="Column12" Width="74.83"/>
+        <TableColumn Name="Column13" Width="82.92"/>
+        <TableRow Name="Row1" Height="18.91">
+          <TableCell Name="Cell1" Text="一、门店信息" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="13"/>
+          <TableCell Name="Cell2" Font="宋体, 9pt"/>
+          <TableCell Name="Cell3" Font="宋体, 9pt"/>
+          <TableCell Name="Cell4" Font="宋体, 9pt"/>
+          <TableCell Name="Cell5" Font="宋体, 9pt"/>
+          <TableCell Name="Cell26" Font="宋体, 9pt"/>
+          <TableCell Name="Cell27" Font="宋体, 9pt"/>
+          <TableCell Name="Cell28" Font="宋体, 9pt"/>
+          <TableCell Name="Cell29" Font="宋体, 9pt"/>
+          <TableCell Name="Cell30" Font="宋体, 9pt"/>
+          <TableCell Name="Cell31" Font="宋体, 9pt"/>
+          <TableCell Name="Cell32" Font="宋体, 9pt"/>
+          <TableCell Name="Cell33" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="18.91" AutoSize="true">
+          <TableCell Name="Cell6" Border.Lines="All" Fill.Color="Gainsboro" Text="面积" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[门店基本信息.MIANJI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Fill.Color="Gainsboro" Text="人员数量" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="[门店基本信息.RENSHU]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Fill.Color="Gainsboro" Text="店型" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="[门店基本信息.LEIXING]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell35" Border.Lines="All" Fill.Color="Gainsboro" Text="商圈" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell36" Border.Lines="All" Text="[门店基本信息.SHANGQUAN]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Fill.Color="Gainsboro" Text="店长" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="[门店基本信息.DIANZHANG]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell39" Border.Lines="All" Fill.Color="Gainsboro" Text="电话" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell40" Border.Lines="All" Text="[门店基本信息.PHONENO]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell41" Border.Lines="All" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row15">
+          <TableCell Name="Cell228" Text="保本销售额达成及售价折扣情况：" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="13"/>
+          <TableCell Name="Cell229" Font="宋体, 9pt"/>
+          <TableCell Name="Cell230" Font="宋体, 9pt"/>
+          <TableCell Name="Cell231" Font="宋体, 9pt"/>
+          <TableCell Name="Cell232" Font="宋体, 9pt"/>
+          <TableCell Name="Cell233" Font="宋体, 9pt"/>
+          <TableCell Name="Cell234" Font="宋体, 9pt"/>
+          <TableCell Name="Cell235" Font="宋体, 9pt"/>
+          <TableCell Name="Cell236" Font="宋体, 9pt"/>
+          <TableCell Name="Cell237" Font="宋体, 9pt"/>
+          <TableCell Name="Cell238" Font="宋体, 9pt"/>
+          <TableCell Name="Cell239" Font="宋体, 9pt"/>
+          <TableCell Name="Cell240" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row16">
+          <TableCell Name="Cell241" Border.Lines="All" Fill.Color="Gainsboro" Text="保本销额" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell242" Border.Lines="All" Fill.Color="Gainsboro" Text="实际销额" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell243" Border.Lines="All" Fill.Color="Gainsboro" Text="差额" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell244" Border.Lines="All" Fill.Color="Gainsboro" Text="达成率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell245" Border.Lines="All" Fill.Color="Gainsboro" Text="标准零售" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell246" Border.Lines="All" Fill.Color="Gainsboro" Text="差异" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell247" Border.Lines="All" Fill.Color="Gainsboro" Text="折扣率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell248" Border.Lines="All" Fill.Color="Gainsboro" Text="成本总额" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell249" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell250" Border.Lines="All" Fill.Color="Gainsboro" Text="费用总额" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell251" Border.Lines="All" Fill.Color="Gainsboro" Text="费用率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell252" Border.Lines="All" Fill.Color="Gainsboro" Text="净利润" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell253" Border.Lines="All" Fill.Color="Gainsboro" Text="净利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row17" AutoSize="true">
+          <TableCell Name="Cell254" Border.Lines="All" Text="[经营及费用.BBSALAMT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell255" Border.Lines="All" Text="[经营及费用.SJSALAMT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell256" Border.Lines="All" Text="[经营及费用.CHAE]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell257" Border.Lines="All" Text="[经营及费用.DCLV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell258" Border.Lines="All" Text="[经营及费用.BZSALAMT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell259" Border.Lines="All" Text="[经营及费用.CHAYI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell260" Border.Lines="All" Text="[经营及费用.ZHEKOULV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell261" Border.Lines="All" Text="[经营及费用.COSTALL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell262" Border.Lines="All" Text="[经营及费用.MAOLILVALL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell263" Border.Lines="All" Text="[经营及费用.FEIYONGALL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell264" Border.Lines="All" Text="[经营及费用.FEIYONGLV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell265" Border.Lines="All" Text="[经营及费用.JINGLIRUN]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell266" Border.Lines="All" Text="[经营及费用.JINGLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="276.62" Width="1134" Height="18.9" DataSource="Table">
+      <TableObject Name="Table3" Width="1134" Height="18.9" Dock="Top">
+        <TableColumn Name="Column27" Width="92.75"/>
+        <TableColumn Name="Column28" Width="87.07"/>
+        <TableColumn Name="Column29" Width="87.07"/>
+        <TableColumn Name="Column30" Width="94.88"/>
+        <TableColumn Name="Column31" Width="85.83"/>
+        <TableColumn Name="Column32" Width="84.32"/>
+        <TableColumn Name="Column33" Width="86.94"/>
+        <TableColumn Name="Column34" Width="86.94"/>
+        <TableColumn Name="Column35" Width="94.63"/>
+        <TableColumn Name="Column36" Width="86.21"/>
+        <TableColumn Name="Column37" Width="89.99"/>
+        <TableColumn Name="Column120" Width="74.87"/>
+        <TableColumn Name="Column121" Width="82.92"/>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell91" Border.Lines="All" Text="[经营及费用.PRONAME]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell92" Border.Lines="All" Text="[经营及费用.V1SAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell93" Border.Lines="All" Text="[经营及费用.V1COT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell94" Border.Lines="All" Text="[经营及费用.V1MAOLI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell95" Border.Lines="All" Text="[经营及费用.V1MAOLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell116" Border.Lines="All" Text="[经营及费用.V1PLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell117" Border.Lines="All" Text="[经营及费用.V2SAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell118" Border.Lines="All" Text="[经营及费用.V2COT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell119" Border.Lines="All" Text="[经营及费用.V2MAOLI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell120" Border.Lines="All" Text="[经营及费用.V2MAOLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell121" Border.Lines="All" Text="[经营及费用.V2PLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell325" Font="宋体, 9pt"/>
+          <TableCell Name="Cell326" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader1" Top="215.92" Width="1134" Height="56.7">
+        <TableObject Name="Table2" Width="1134" Height="56.7" Dock="Top">
+          <TableColumn Name="Column14" Width="92.75"/>
+          <TableColumn Name="Column15" Width="87.09"/>
+          <TableColumn Name="Column16" Width="87.09"/>
+          <TableColumn Name="Column17" Width="94.95"/>
+          <TableColumn Name="Column18" Width="85.92"/>
+          <TableColumn Name="Column19" Width="84.41"/>
+          <TableColumn Name="Column20" Width="87.09"/>
+          <TableColumn Name="Column21" Width="87.09"/>
+          <TableColumn Name="Column22" Width="93.86"/>
+          <TableColumn Name="Column23" Width="86.3"/>
+          <TableColumn Name="Column24" Width="90.08"/>
+          <TableColumn Name="Column118" Width="74.88"/>
+          <TableColumn Name="Column119" Width="82.92"/>
+          <TableRow Name="Row3">
+            <TableCell Name="Cell42" Text="二、经营分析" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="11"/>
+            <TableCell Name="Cell43" Font="宋体, 9pt"/>
+            <TableCell Name="Cell44" Font="宋体, 9pt"/>
+            <TableCell Name="Cell45" Font="宋体, 9pt"/>
+            <TableCell Name="Cell46" Font="宋体, 9pt"/>
+            <TableCell Name="Cell67" Font="宋体, 9pt"/>
+            <TableCell Name="Cell68" Font="宋体, 9pt"/>
+            <TableCell Name="Cell69" Font="宋体, 9pt"/>
+            <TableCell Name="Cell70" Font="宋体, 9pt"/>
+            <TableCell Name="Cell71" Font="宋体, 9pt"/>
+            <TableCell Name="Cell72" Font="宋体, 9pt"/>
+            <TableCell Name="Cell319" Font="宋体, 9pt"/>
+            <TableCell Name="Cell322" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row4">
+            <TableCell Name="Cell47" Border.Lines="All" Fill.Color="Gainsboro" Text="产品种类" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell48" Border.Lines="All" Fill.Color="Gainsboro" Text="1.0" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="5"/>
+            <TableCell Name="Cell49" Font="宋体, 9pt"/>
+            <TableCell Name="Cell50" Font="宋体, 9pt"/>
+            <TableCell Name="Cell51" Font="宋体, 9pt"/>
+            <TableCell Name="Cell75" Font="宋体, 9pt"/>
+            <TableCell Name="Cell76" Border.Lines="All" Fill.Color="Gainsboro" Text="2.0" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="5"/>
+            <TableCell Name="Cell77" Font="宋体, 9pt"/>
+            <TableCell Name="Cell78" Font="宋体, 9pt"/>
+            <TableCell Name="Cell79" Font="宋体, 9pt"/>
+            <TableCell Name="Cell80" Font="宋体, 9pt"/>
+            <TableCell Name="Cell320" Font="宋体, 9pt"/>
+            <TableCell Name="Cell323" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row5">
+            <TableCell Name="Cell52" Border.Lines="All" Fill.Color="Gainsboro" Text="项目" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell53" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell54" Border.Lines="All" Fill.Color="Gainsboro" Text="销售成本" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell55" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell56" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell83" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell84" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell85" Border.Lines="All" Fill.Color="Gainsboro" Text="销售成本" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell86" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell87" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell88" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell321" Font="宋体, 9pt"/>
+            <TableCell Name="Cell324" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data2" Top="360.22" Width="1134" Height="18.9" DataSource="Table">
+      <TableObject Name="Table10" Width="1134" Height="18.9" Dock="Top">
+        <TableColumn Name="Column53" Width="92.75"/>
+        <TableColumn Name="Column54" Width="87.03"/>
+        <TableColumn Name="Column55" Width="87.03"/>
+        <TableColumn Name="Column56" Width="94.74"/>
+        <TableColumn Name="Column57" Width="85.83"/>
+        <TableColumn Name="Column58" Width="84.32"/>
+        <TableColumn Name="Column59" Width="87.03"/>
+        <TableColumn Name="Column60" Width="87.03"/>
+        <TableColumn Name="Column61" Width="94.74"/>
+        <TableColumn Name="Column62" Width="86.21"/>
+        <TableColumn Name="Column63" Width="89.99"/>
+        <TableColumn Name="Column124" Width="74.87"/>
+        <TableColumn Name="Column125" Width="82.92"/>
+        <TableRow Name="Row10">
+          <TableCell Name="Cell163" Border.Lines="All" Text="[经营及费用.PRONAME]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell164" Border.Lines="All" Text="[经营及费用.V3SAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell165" Border.Lines="All" Text="[经营及费用.V3COT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell166" Border.Lines="All" Text="[经营及费用.V3MAOLI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell167" Border.Lines="All" Text="[经营及费用.V3MAOLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell168" Border.Lines="All" Text="[经营及费用.V3PLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell169" Border.Lines="All" Text="[经营及费用.V4SAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell170" Border.Lines="All" Text="[经营及费用.V4COT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell171" Border.Lines="All" Text="[经营及费用.V4MAOLI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell172" Border.Lines="All" Text="[经营及费用.V4MAOLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell173" Border.Lines="All" Text="[经营及费用.V4PLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell333" Font="宋体, 9pt"/>
+          <TableCell Name="Cell334" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader2" Top="299.52" Width="1134" Height="56.7">
+        <TableObject Name="Table10" Width="1134" Height="56.7" Dock="Top">
+          <TableColumn Name="Column40" Width="92.75"/>
+          <TableColumn Name="Column41" Width="87.11"/>
+          <TableColumn Name="Column42" Width="87.11"/>
+          <TableColumn Name="Column43" Width="94.82"/>
+          <TableColumn Name="Column44" Width="85.92"/>
+          <TableColumn Name="Column45" Width="84.41"/>
+          <TableColumn Name="Column46" Width="87.11"/>
+          <TableColumn Name="Column47" Width="87.11"/>
+          <TableColumn Name="Column48" Width="93.86"/>
+          <TableColumn Name="Column49" Width="86.3"/>
+          <TableColumn Name="Column50" Width="90.08"/>
+          <TableColumn Name="Column122" Width="74.88"/>
+          <TableColumn Name="Column123" Width="82.92"/>
+          <TableRow Name="Row7">
+            <TableCell Name="Cell124" VertAlign="Center" Font="宋体, 9pt, style=Bold" ColSpan="11"/>
+            <TableCell Name="Cell125" Font="宋体, 9pt"/>
+            <TableCell Name="Cell126" Font="宋体, 9pt"/>
+            <TableCell Name="Cell127" Font="宋体, 9pt"/>
+            <TableCell Name="Cell128" Font="宋体, 9pt"/>
+            <TableCell Name="Cell129" Font="宋体, 9pt"/>
+            <TableCell Name="Cell130" Font="宋体, 9pt"/>
+            <TableCell Name="Cell131" Font="宋体, 9pt"/>
+            <TableCell Name="Cell132" Font="宋体, 9pt"/>
+            <TableCell Name="Cell133" Font="宋体, 9pt"/>
+            <TableCell Name="Cell134" Font="宋体, 9pt"/>
+            <TableCell Name="Cell327" Font="宋体, 9pt"/>
+            <TableCell Name="Cell330" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row8">
+            <TableCell Name="Cell137" Border.Lines="All" Fill.Color="Gainsboro" Text="产品种类" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell138" Border.Lines="All" Fill.Color="Gainsboro" Text="2.5" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="5"/>
+            <TableCell Name="Cell139" Font="宋体, 9pt"/>
+            <TableCell Name="Cell140" Font="宋体, 9pt"/>
+            <TableCell Name="Cell141" Font="宋体, 9pt"/>
+            <TableCell Name="Cell142" Font="宋体, 9pt"/>
+            <TableCell Name="Cell143" Border.Lines="All" Fill.Color="Gainsboro" Text="3.0" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="5"/>
+            <TableCell Name="Cell144" Font="宋体, 9pt"/>
+            <TableCell Name="Cell145" Font="宋体, 9pt"/>
+            <TableCell Name="Cell146" Font="宋体, 9pt"/>
+            <TableCell Name="Cell147" Font="宋体, 9pt"/>
+            <TableCell Name="Cell328" Font="宋体, 9pt"/>
+            <TableCell Name="Cell331" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row9">
+            <TableCell Name="Cell150" Border.Lines="All" Fill.Color="Gainsboro" Text="项目" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell151" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell152" Border.Lines="All" Fill.Color="Gainsboro" Text="销售成本" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell153" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell154" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell155" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell156" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell157" Border.Lines="All" Fill.Color="Gainsboro" Text="销售成本" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell158" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell159" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell160" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell329" Font="宋体, 9pt"/>
+            <TableCell Name="Cell332" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data3" Top="443.82" Width="1134" Height="18.9" DataSource="Table">
+      <TableObject Name="Table10" Width="1134" Height="18.9" Dock="Top">
+        <TableColumn Name="Column79" Width="92.75"/>
+        <TableColumn Name="Column80" Width="87.1"/>
+        <TableColumn Name="Column81" Width="87.1"/>
+        <TableColumn Name="Column82" Width="94.94"/>
+        <TableColumn Name="ml4" Width="85.87"/>
+        <TableColumn Name="Column84" Width="84.36"/>
+        <TableColumn Name="Column85" Width="87.1"/>
+        <TableColumn Name="Column86" Width="87.1"/>
+        <TableColumn Name="Column87" Width="93.81"/>
+        <TableColumn Name="Column88" Width="86.25"/>
+        <TableColumn Name="Column89" Width="90.03"/>
+        <TableColumn Name="Column90" Width="74.91"/>
+        <TableColumn Name="Column91" Width="82.92"/>
+        <TableRow Name="Row14">
+          <TableCell Name="Cell215" Border.Lines="All" Text="[经营及费用.PRONAME]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell216" Border.Lines="All" Text="[经营及费用.V5SAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell217" Border.Lines="All" Text="[经营及费用.V5COT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell218" Border.Lines="All" Text="[经营及费用.V5MAOLI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell219" Border.Lines="All" Text="[经营及费用.V5MAOLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell220" Border.Lines="All" Text="[经营及费用.V5PLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell221" Border.Lines="All" Text="[经营及费用.OtherSAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell222" Border.Lines="All" Text="[经营及费用.OtherPLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell223" Border.Lines="All" Text="[经营及费用.ALLSAL]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell224" Border.Lines="All" Text="[经营及费用.ALLCOT]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell225" Border.Lines="All" Text="[经营及费用.ALLMAOLI]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell226" Border.Lines="All" Text="[经营及费用.ALLMAOLILV]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell227" Border.Lines="All" Text="[经营及费用.ALLPLZB]" VertAlign="Bottom" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader3" Top="383.12" Width="1134" Height="56.7">
+        <TableObject Name="Table10" Width="1134" Height="56.7" Dock="Top">
+          <TableColumn Name="Column66" Width="92.75"/>
+          <TableColumn Name="Column67" Width="87.1"/>
+          <TableColumn Name="Column68" Width="87.1"/>
+          <TableColumn Name="Column69" Width="94.94"/>
+          <TableColumn Name="Column70" Width="85.87"/>
+          <TableColumn Name="Column71" Width="84.36"/>
+          <TableColumn Name="Column72" Width="87.1"/>
+          <TableColumn Name="Column73" Width="87.1"/>
+          <TableColumn Name="Column74" Width="93.81"/>
+          <TableColumn Name="Column75" Width="86.25"/>
+          <TableColumn Name="Column76" Width="90.03"/>
+          <TableColumn Name="Column77" Width="74.91"/>
+          <TableColumn Name="Column78" Width="82.92"/>
+          <TableRow Name="Row11">
+            <TableCell Name="Cell176" VertAlign="Center" Font="宋体, 9pt, style=Bold" ColSpan="13"/>
+            <TableCell Name="Cell177" Font="宋体, 9pt"/>
+            <TableCell Name="Cell178" Font="宋体, 9pt"/>
+            <TableCell Name="Cell179" Font="宋体, 9pt"/>
+            <TableCell Name="Cell180" Font="宋体, 9pt"/>
+            <TableCell Name="Cell181" Font="宋体, 9pt"/>
+            <TableCell Name="Cell182" Font="宋体, 9pt"/>
+            <TableCell Name="Cell183" Font="宋体, 9pt"/>
+            <TableCell Name="Cell184" Font="宋体, 9pt"/>
+            <TableCell Name="Cell185" Font="宋体, 9pt"/>
+            <TableCell Name="Cell186" Font="宋体, 9pt"/>
+            <TableCell Name="Cell187" Font="宋体, 9pt"/>
+            <TableCell Name="Cell188" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row12">
+            <TableCell Name="Cell189" Border.Lines="All" Fill.Color="Gainsboro" Text="产品种类" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell190" Border.Lines="All" Fill.Color="Gainsboro" Text="4.0" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="5"/>
+            <TableCell Name="Cell191" Font="宋体, 9pt"/>
+            <TableCell Name="Cell192" Font="宋体, 9pt"/>
+            <TableCell Name="Cell193" Font="宋体, 9pt"/>
+            <TableCell Name="Cell194" Font="宋体, 9pt"/>
+            <TableCell Name="Cell195" Border.Lines="All" Fill.Color="Gainsboro" Text="其他" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="2"/>
+            <TableCell Name="Cell196" Font="宋体, 9pt"/>
+            <TableCell Name="Cell197" Border.Lines="All" Fill.Color="Gainsboro" Text="合计" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt" ColSpan="5"/>
+            <TableCell Name="Cell198" Font="宋体, 9pt"/>
+            <TableCell Name="Cell199" Font="宋体, 9pt"/>
+            <TableCell Name="Cell200" Font="宋体, 9pt"/>
+            <TableCell Name="Cell201" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row13">
+            <TableCell Name="Cell202" Border.Lines="All" Fill.Color="Gainsboro" Text="项目" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell203" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell204" Border.Lines="All" Fill.Color="Gainsboro" Text="销售成本" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell205" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell206" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell207" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell208" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell209" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell210" Border.Lines="All" Fill.Color="Gainsboro" Text="销售额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell211" Border.Lines="All" Fill.Color="Gainsboro" Text="销售成本" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell212" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利额" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell213" Border.Lines="All" Fill.Color="Gainsboro" Text="毛利率%" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell214" Border.Lines="All" Fill.Color="Gainsboro" Text="品类占比%" VertAlign="Bottom" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data7" Top="508.52" Width="1134" Height="18.9">
+      <TableObject Name="Table10" Width="1134" Height="18.9" Dock="Top">
+        <TableColumn Name="Column191" Width="92.76"/>
+        <TableColumn Name="Column192" Width="87.14"/>
+        <TableColumn Name="Column193" Width="87.14"/>
+        <TableColumn Name="Column194" Width="95.07"/>
+        <TableColumn Name="Column195" Width="84.57"/>
+        <TableColumn Name="Column196" Width="84.57"/>
+        <TableColumn Name="Column197" Width="87.14"/>
+        <TableColumn Name="Column198" Width="87.14"/>
+        <TableColumn Name="Column199" Width="93.94"/>
+        <TableColumn Name="Column200" Width="86.38"/>
+        <TableColumn Name="Column201" Width="90.16"/>
+        <TableColumn Name="Column202" Width="75.04"/>
+        <TableColumn Name="Column203" Width="82.93"/>
+        <TableRow Name="Row30" AutoSize="true">
+          <TableCell Name="Cell439" Border.Lines="All" Text="[经营及费用.F7]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell440" Border.Lines="All" Text="[经营及费用.F11]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell441" Border.Lines="All" Text="[经营及费用.F24]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell442" Border.Lines="All" Text="[经营及费用.F15]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell443" Border.Lines="All" Text="[经营及费用.F8]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell444" Border.Lines="All" Text="[经营及费用.F13]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell445" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell446" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell447" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell448" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell449" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell450" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell451" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader7" Top="466.72" Width="1134" Height="37.8">
+        <TableObject Name="Table10" Width="1134" Height="37.8" Dock="Top">
+          <TableColumn Name="Column178" Width="92.76"/>
+          <TableColumn Name="Column179" Width="87.15"/>
+          <TableColumn Name="Column180" Width="87.15"/>
+          <TableColumn Name="Column181" Width="95.08"/>
+          <TableColumn Name="Column182" Width="84.5"/>
+          <TableColumn Name="Column183" Width="84.5"/>
+          <TableColumn Name="Column184" Width="87.15"/>
+          <TableColumn Name="Column185" Width="87.15"/>
+          <TableColumn Name="Column186" Width="93.95"/>
+          <TableColumn Name="Column187" Width="86.39"/>
+          <TableColumn Name="Column188" Width="90.17"/>
+          <TableColumn Name="Column189" Width="75.05"/>
+          <TableColumn Name="Column190" Width="82.93"/>
+          <TableRow Name="Row28">
+            <TableCell Name="Cell413" Text="三、固定费用" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="13"/>
+            <TableCell Name="Cell414" Font="宋体, 9pt"/>
+            <TableCell Name="Cell415" Font="宋体, 9pt"/>
+            <TableCell Name="Cell416" Font="宋体, 9pt"/>
+            <TableCell Name="Cell417" Font="宋体, 9pt"/>
+            <TableCell Name="Cell418" Font="宋体, 9pt"/>
+            <TableCell Name="Cell419" Font="宋体, 9pt"/>
+            <TableCell Name="Cell420" Font="宋体, 9pt"/>
+            <TableCell Name="Cell421" Font="宋体, 9pt"/>
+            <TableCell Name="Cell422" Font="宋体, 9pt"/>
+            <TableCell Name="Cell423" Font="宋体, 9pt"/>
+            <TableCell Name="Cell424" Font="宋体, 9pt"/>
+            <TableCell Name="Cell425" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row29">
+            <TableCell Name="Cell426" Border.Lines="All" Fill.Color="Gainsboro" Text="房租费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell427" Border.Lines="All" Fill.Color="Gainsboro" Text="装修费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell428" Border.Lines="All" Fill.Color="Gainsboro" Text="折旧费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell429" Border.Lines="All" Fill.Color="Gainsboro" Text="水电气费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell430" Border.Lines="All" Fill.Color="Gainsboro" Text="工资" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell431" Border.Lines="All" Fill.Color="Gainsboro" Text="社保" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell432" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell433" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell434" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell435" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell436" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell437" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell438" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data8" Top="573.22" Width="1134" Height="18.9">
+      <TableObject Name="Table10" Width="1134" Height="18.9" Dock="Top">
+        <TableColumn Name="Column217" Width="92.76"/>
+        <TableColumn Name="Column218" Width="87.14"/>
+        <TableColumn Name="Column219" Width="87.14"/>
+        <TableColumn Name="Column220" Width="95.07"/>
+        <TableColumn Name="Column221" Width="84.57"/>
+        <TableColumn Name="Column222" Width="84.57"/>
+        <TableColumn Name="Column223" Width="87.14"/>
+        <TableColumn Name="Column224" Width="87.14"/>
+        <TableColumn Name="Column225" Width="93.94"/>
+        <TableColumn Name="Column226" Width="86.38"/>
+        <TableColumn Name="Column227" Width="90.16"/>
+        <TableColumn Name="Column228" Width="75.04"/>
+        <TableColumn Name="Column229" Width="82.93"/>
+        <TableRow Name="Row33" AutoSize="true">
+          <TableCell Name="Cell478" Border.Lines="All" Text="[经营及费用.F1]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell479" Border.Lines="All" Text="[经营及费用.F2]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell480" Border.Lines="All" Text="[经营及费用.F3]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell481" Border.Lines="All" Text="[经营及费用.F4]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell482" Border.Lines="All" Text="[经营及费用.F5]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell483" Border.Lines="All" Text="[经营及费用.F6]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell484" Border.Lines="All" Text="[经营及费用.F9]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell485" Border.Lines="All" Text="[经营及费用.F10]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell486" Border.Lines="All" Text="[经营及费用.F12]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell487" Border.Lines="All" Text="[经营及费用.F14]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell488" Border.Lines="All" Text="[经营及费用.F16]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell489" Border.Lines="All" Text="[经营及费用.F17]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell490" Border.Lines="All" Text="[经营及费用.F18]" VertAlign="Bottom" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader8" Top="531.42" Width="1134" Height="37.8">
+        <TableObject Name="Table10" Width="1134" Height="37.8" Dock="Top">
+          <TableColumn Name="Column204" Width="92.76"/>
+          <TableColumn Name="Column205" Width="87.15"/>
+          <TableColumn Name="Column206" Width="87.15"/>
+          <TableColumn Name="Column207" Width="95.08"/>
+          <TableColumn Name="Column208" Width="84.5"/>
+          <TableColumn Name="Column209" Width="84.5"/>
+          <TableColumn Name="Column210" Width="87.15"/>
+          <TableColumn Name="Column211" Width="87.15"/>
+          <TableColumn Name="Column212" Width="93.95"/>
+          <TableColumn Name="Column213" Width="86.39"/>
+          <TableColumn Name="Column214" Width="90.17"/>
+          <TableColumn Name="Column215" Width="75.05"/>
+          <TableColumn Name="Column216" Width="82.93"/>
+          <TableRow Name="Row31">
+            <TableCell Name="Cell452" Text="四、变动费用" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="13"/>
+            <TableCell Name="Cell453" Font="宋体, 9pt"/>
+            <TableCell Name="Cell454" Font="宋体, 9pt"/>
+            <TableCell Name="Cell455" Font="宋体, 9pt"/>
+            <TableCell Name="Cell456" Font="宋体, 9pt"/>
+            <TableCell Name="Cell457" Font="宋体, 9pt"/>
+            <TableCell Name="Cell458" Font="宋体, 9pt"/>
+            <TableCell Name="Cell459" Font="宋体, 9pt"/>
+            <TableCell Name="Cell460" Font="宋体, 9pt"/>
+            <TableCell Name="Cell461" Font="宋体, 9pt"/>
+            <TableCell Name="Cell462" Font="宋体, 9pt"/>
+            <TableCell Name="Cell463" Font="宋体, 9pt"/>
+            <TableCell Name="Cell464" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row32">
+            <TableCell Name="Cell465" Border.Lines="All" Fill.Color="Gainsboro" Text="办公费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell466" Border.Lines="All" Fill.Color="Gainsboro" Text="保险费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell467" Border.Lines="All" Fill.Color="Gainsboro" Text="差旅费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell468" Border.Lines="All" Fill.Color="Gainsboro" Text="产品促销折扣" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell469" Border.Lines="All" Fill.Color="Gainsboro" Text="促销费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell470" Border.Lines="All" Fill.Color="Gainsboro" Text="电话/网络费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell471" Border.Lines="All" Fill.Color="Gainsboro" Text="会务费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell472" Border.Lines="All" Fill.Color="Gainsboro" Text="客诉费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell473" Border.Lines="All" Fill.Color="Gainsboro" Text="汽车费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell474" Border.Lines="All" Fill.Color="Gainsboro" Text="市内交通费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell475" Border.Lines="All" Fill.Color="Gainsboro" Text="税费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell476" Border.Lines="All" Fill.Color="Gainsboro" Text="维修费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell477" Border.Lines="All" Fill.Color="Gainsboro" Text="物业费" VertAlign="Bottom" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data9" Top="619.02" Width="1134" Height="18.9">
+      <TableObject Name="Table10" Width="1134" Height="18.9" Dock="Top">
+        <TableColumn Name="Column243" Width="92.76"/>
+        <TableColumn Name="Column244" Width="87.14"/>
+        <TableColumn Name="Column245" Width="87.14"/>
+        <TableColumn Name="Column246" Width="95.07"/>
+        <TableColumn Name="Column247" Width="84.57"/>
+        <TableColumn Name="Column248" Width="84.57"/>
+        <TableColumn Name="Column249" Width="87.14"/>
+        <TableColumn Name="Column250" Width="87.14"/>
+        <TableColumn Name="Column251" Width="93.94"/>
+        <TableColumn Name="Column252" Width="86.38"/>
+        <TableColumn Name="Column253" Width="90.16"/>
+        <TableColumn Name="Column254" Width="75.04"/>
+        <TableColumn Name="Column255" Width="82.93"/>
+        <TableRow Name="Row35" AutoSize="true">
+          <TableCell Name="Cell504" Border.Lines="All" Text="[经营及费用.F19]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell505" Border.Lines="All" Text="[经营及费用.F20]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell506" Border.Lines="All" Text="[经营及费用.F21]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell507" Border.Lines="All" Text="[经营及费用.F22]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell508" Border.Lines="All" Text="[经营及费用.F23]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell509" Border.Lines="All" Text="[经营及费用.F25]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell510" Border.Lines="All" Text="[经营及费用.F26]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell511" Border.Lines="All" Text="[经营及费用.F27]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell512" Border.Lines="All" Text="[经营及费用.F28]" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell513" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell514" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell515" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell516" Border.Lines="All" VertAlign="Bottom" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader9" Top="596.12" Width="1134" Height="18.9">
+        <TableObject Name="Table10" Width="1134" Height="18.9" Dock="Top">
+          <TableColumn Name="Column230" Width="92.76"/>
+          <TableColumn Name="Column231" Width="87.15"/>
+          <TableColumn Name="Column232" Width="87.15"/>
+          <TableColumn Name="Column233" Width="95.08"/>
+          <TableColumn Name="Column234" Width="84.5"/>
+          <TableColumn Name="Column235" Width="84.5"/>
+          <TableColumn Name="Column236" Width="87.15"/>
+          <TableColumn Name="Column237" Width="87.15"/>
+          <TableColumn Name="Column238" Width="93.95"/>
+          <TableColumn Name="Column239" Width="86.39"/>
+          <TableColumn Name="Column240" Width="90.17"/>
+          <TableColumn Name="Column241" Width="75.05"/>
+          <TableColumn Name="Column242" Width="82.93"/>
+          <TableRow Name="Row34">
+            <TableCell Name="Cell491" Border.Lines="All" Fill.Color="Gainsboro" Text="业务宣传费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell492" Border.Lines="All" Fill.Color="Gainsboro" Text="业务招待费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell493" Border.Lines="All" Fill.Color="Gainsboro" Text="银行手续费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell494" Border.Lines="All" Fill.Color="Gainsboro" Text="邮寄费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell495" Border.Lines="All" Fill.Color="Gainsboro" Text="运费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell496" Border.Lines="All" Fill.Color="Gainsboro" Text="职工福利费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell497" Border.Lines="All" Fill.Color="Gainsboro" Text="终端市场费" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell498" Border.Lines="All" Fill.Color="Gainsboro" Text="转让费摊销" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell499" Border.Lines="All" Fill.Color="Gainsboro" Text="其他" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell500" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell501" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell502" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+            <TableCell Name="Cell503" Border.Lines="All" Fill.Color="Gainsboro" VertAlign="Bottom" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="641.92" Width="1134" Height="37.8"/>
+  </ReportPage>
+</Report>

@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "曲线图";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-right"><a href="/System/Test/Index" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-chevron-left"></span>返回</a></div>
+        <span class="glyphicon glyphicon-list"></span> 曲线图
+    </div>
+</div>
+
+<div id="container" style="min-width:700px;height:400px"></div>
+
+@section scripts{
+    <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script>
+        $(function () {
+            $.post("/System/Test/CurveData", function (res) {
+                var m = JSON.parse("[" + res.Month + "]");
+                var r = JSON.parse("[" + res.RainFall + "]");
+                var t = JSON.parse("[" + res.Temperature + "]");
+                $('#container').highcharts({
+                    chart: {
+                        zoomType: 'xy'
+                    },
+                    title: {
+                        text: '月份-气温-雨量'
+                    },
+                    subtitle: {
+                        text: '来源: www.baidu.com'
+                    },
+                    xAxis: [{
+                        categories: m
+                    }],
+                    yAxis: [{
+                        labels: {
+                            format: '{value}°C',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        },
+                        title: {
+                            text: '温度',
+                            style: {
+                                color: '#89A54E'
+                            }
+                        }
+                    }, {
+                        title: {
+                            text: '雨量',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        labels: {
+                            format: '{value} mm',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        opposite: true
+                    }],
+                    tooltip: {
+                        shared: true
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'left',
+                        x: 120,
+                        verticalAlign: 'top',
+                        y: 100,
+                        floating: true,
+                        backgroundColor: '#FFFFFF'
+                    },
+                    series: [{
+                        name: '雨量',
+                        color: '#4572A7',
+                        type: 'column',
+                        yAxis: 1,
+                        data: r,
+                        tooltip: {
+                            valueSuffix: ' mm'
+                        }
+
+                    }, {
+                        name: '温度',
+                        color: '#89A54E',
+                        type: 'spline',
+                        data: t,
+                        tooltip: {
+                            valueSuffix: '°C'
+                        }
+                    }]
+                });
+
+            }, 'Json')
+        });
+    </script>
+}
+
+

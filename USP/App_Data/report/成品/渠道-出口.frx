@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/23/2016 12:59:09" ReportInfo.Modified="09/01/2016 11:08:00" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlquQ+MGUuFmwCkhAb0ntbeLNzC7sK8p+JIv/aYxEi/dDLK5qUTaroHqda6ZvH32vUKIlCXO0FAoFRuJaB4jKzV44bAVnXQyonz5K+w1LVlzy0iR+qxLmf7DnykPcPj43Fzu+snnBnu7MnCjG7+/7w2t7l0GTJC9Efc51l+8G5dwmVl/bavjW3zpyd+05ccRhPF3OamDs+S/nCgNl9479HFeg==">
+      <TableDataSource Name="Table" Alias="销售指标" DataType="System.Int32" Enabled="true" SelectCommand="EXEC [HXN_CW_QuDao_XiaoShouZhiBiao_ALL] @ORGID,@YEAR,@MONTH,'CK'">
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <Column Name="项目" DataType="System.String"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+        <CommandParameter Name="YEAR" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="MONTH" DataType="22" Expression="[月]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table8" Alias="回款指标" DataType="System.Int32" Enabled="true" SelectCommand="EXEC [HXN_CW_QuDao_HuiKuanZhiBiao_ALL] @ORGID,@YEAR,@MONTH,'CK'">
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <Column Name="项目" DataType="System.String"/>
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+        <CommandParameter Name="YEAR" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="MONTH" DataType="22" Expression="[月]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table9" Alias="利润指标" DataType="System.Int32" Enabled="true" SelectCommand="EXEC [HXN_CW_QuDao_LiRun_ALL] @ORGID,@YEAR,@MONTH,'CK'">
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <Column Name="指标" DataType="System.String"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+        <CommandParameter Name="YEAR" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="MONTH" DataType="22" Expression="[月]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table10" Alias="空" DataType="System.Int32" Enabled="true" SelectCommand="select 1 c">
+        <Column Name="c" DataType="System.Int32"/>
+        <CommandParameter Name="ORGID" DataType="22"/>
+        <CommandParameter Name="YEAR" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="MONTH" DataType="22" Expression="[月]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table11" Alias="基础资料" DataType="System.Int32" Enabled="true" SelectCommand="EXEC HXN_CW_ZONGJINGLI_JCZL @ORGID">
+        <Column Name="负责人" DataType="System.String"/>
+        <Column Name="职务" DataType="System.String"/>
+        <Column Name="下属人数" DataType="System.Int32"/>
+        <Column Name="公司人数" DataType="System.Int32"/>
+        <Column Name="资产总数" DataType="System.Decimal"/>
+        <Column Name="管辖部门" DataType="System.String"/>
+        <Column Name="直接上级" DataType="System.String"/>
+        <Column Name="直接下级" DataType="System.String"/>
+        <Column Name="部门人数" DataType="System.Int32"/>
+        <Column Name="后勤人数" DataType="System.Int32"/>
+        <Column Name="员工人数" DataType="System.Int32"/>
+        <Column Name="经销商数量" DataType="System.Int32"/>
+        <Column Name="直营平台数量" DataType="System.Int32"/>
+        <Column Name="系统数量" DataType="System.Int32"/>
+        <Column Name="KA平台数量" DataType="System.Int32"/>
+        <Column Name="A853门店数量" DataType="System.Int32"/>
+        <Column Name="加盟商数量" DataType="System.Int32"/>
+        <Column Name="旗舰店数量" DataType="System.Int32"/>
+        <Column Name="旗舰店占比" DataType="System.Decimal"/>
+        <Column Name="A型店数量" DataType="System.Int32"/>
+        <Column Name="A型店占比" DataType="System.Decimal"/>
+        <Column Name="B型店数量" DataType="System.Int32"/>
+        <Column Name="B型店占比" DataType="System.Decimal"/>
+        <Column Name="店中店数量" DataType="System.Int32"/>
+        <Column Name="店中店占比" DataType="System.Decimal"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table12" Alias="效率指标" DataType="System.Int32" Enabled="true" SelectCommand="EXEC [HXN_CW_QuDao_XiaoLvZB_ALL] @ORGID,@YEAR,@MONTH,'CK'">
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <Column Name="指标" DataType="System.String"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+        <CommandParameter Name="YEAR" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="MONTH" DataType="22" Expression="[月]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="年" DataType="System.String"/>
+    <Parameter Name="月" DataType="System.String"/>
+    <Parameter Name="组织ID" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="250" Guides="869.4,869.4">
+    <ReportTitleBand Name="ReportTitle1" Width="869.4" Height="66.15">
+      <TextObject Name="Text1" Top="9.45" Width="869.4" Height="18.9" Text="好想你枣业股份有限公司" HorzAlign="Center" Font="宋体, 16pt, style=Bold"/>
+      <TextObject Name="Text2" Top="37.8" Width="869.4" Height="18.9" Text="2016年_ _月份进出口事业部经营管理分析表" HorzAlign="Center" Font="宋体, 16pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="70.15" Width="869.4" Height="88.83" PrintOn="FirstPage">
+      <TextObject Name="Text3" Left="774.9" Width="94.5" Height="18.9" Text="金额单位:万元" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TableObject Name="Table3" Top="28.35" Width="869.4" Height="60.48" Dock="Bottom">
+        <TableColumn Name="Column15" Width="113.4"/>
+        <TableColumn Name="Column16" Width="94.5"/>
+        <TableColumn Name="Column17" Width="94.5"/>
+        <TableColumn Name="Column18" Width="94.5"/>
+        <TableColumn Name="Column19" Width="94.5"/>
+        <TableColumn Name="Column20" Width="94.5"/>
+        <TableColumn Name="Column21" Width="94.5"/>
+        <TableColumn Name="Column22" Width="94.5"/>
+        <TableColumn Name="Column23" Width="94.5"/>
+        <TableRow Name="Row46" Height="22.68">
+          <TableCell Name="Cell48" Text="一、基本情况" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+          <TableCell Name="Cell49" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell50" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell450" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell451" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell73" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell74" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell75" HorzAlign="Center" Font="宋体, 16pt"/>
+          <TableCell Name="Cell76" HorzAlign="Center" Font="宋体, 16pt"/>
+        </TableRow>
+        <TableRow Name="Row7">
+          <TableCell Name="Cell452" Text="负责人" Font="宋体, 9pt"/>
+          <TableCell Name="Cell453" Text="[基础资料.负责人]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell55" Text="职务" Font="宋体, 9pt"/>
+          <TableCell Name="Cell56" Text="[基础资料.职务]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell57" Text="管辖区域" Font="宋体, 9pt"/>
+          <TableCell Name="Cell77" Text="[基础资料.管辖部门]" Font="宋体, 9pt" ColSpan="4"/>
+          <TableCell Name="Cell78" Font="宋体, 9pt"/>
+          <TableCell Name="Cell79" Font="宋体, 9pt"/>
+          <TableCell Name="Cell80" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row8">
+          <TableCell Name="Cell58" Text="总人数" Font="宋体, 9pt"/>
+          <TableCell Name="Cell59" Text="[基础资料.部门人数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell60" Text="经销商数量" Font="宋体, 9pt"/>
+          <TableCell Name="Cell61" Text="[基础资料.经销商数量]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell62" Font="宋体, 9pt"/>
+          <TableCell Name="Cell81" Font="宋体, 9pt" ColSpan="4"/>
+          <TableCell Name="Cell82" Font="宋体, 9pt"/>
+          <TableCell Name="Cell83" Font="宋体, 9pt"/>
+          <TableCell Name="Cell84" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="208.56" Width="869.4" Height="18.9" DataSource="Table">
+      <TableObject Name="Table2" Width="869.4" Height="18.9" Dock="Fill">
+        <TableColumn Name="Column6" Width="134.4"/>
+        <TableColumn Name="Column7" Width="87.15"/>
+        <TableColumn Name="Column8" Width="96.6"/>
+        <TableColumn Name="Column9" Width="87.15"/>
+        <TableColumn Name="Column10" Width="87.15"/>
+        <TableColumn Name="Column11" Width="96.6"/>
+        <TableColumn Name="Column12" Width="96.6"/>
+        <TableColumn Name="Column13" Width="87.15"/>
+        <TableColumn Name="Column14" Width="96.6"/>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell21" Text="[销售指标.项目]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell22" Text="[销售指标.本月数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell23" Text="[销售指标.去年同期数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell24" Text="[销售指标.增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell25" Text="[销售指标.增长率]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell44" Text="[销售指标.本年累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell45" Text="[销售指标.去年同期累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell46" Text="[销售指标.累计增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell47" Text="[销售指标.累计同比增长率]" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader1" Top="162.98" Width="869.4" Height="41.58">
+        <TableObject Name="Table7" Width="869.4" Height="41.58" Dock="Fill">
+          <TableColumn Name="Column51" Width="134.4"/>
+          <TableColumn Name="Column52" Width="87.15"/>
+          <TableColumn Name="Column53" Width="96.6"/>
+          <TableColumn Name="Column54" Width="87.15"/>
+          <TableColumn Name="Column55" Width="87.15"/>
+          <TableColumn Name="Column56" Width="96.6"/>
+          <TableColumn Name="Column57" Width="96.6"/>
+          <TableColumn Name="Column58" Width="87.15"/>
+          <TableColumn Name="Column59" Width="96.6"/>
+          <TableRow Name="Row18" Height="22.68">
+            <TableCell Name="Cell166" Text="二、销售指标" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell167" Font="宋体, 9pt"/>
+            <TableCell Name="Cell168" Font="宋体, 9pt"/>
+            <TableCell Name="Cell169" Font="宋体, 9pt"/>
+            <TableCell Name="Cell170" Font="宋体, 9pt"/>
+            <TableCell Name="Cell171" Font="宋体, 9pt"/>
+            <TableCell Name="Cell172" Font="宋体, 9pt"/>
+            <TableCell Name="Cell173" Font="宋体, 9pt"/>
+            <TableCell Name="Cell174" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row19">
+            <TableCell Name="Cell175" Text="项目" Font="宋体, 9pt"/>
+            <TableCell Name="Cell176" Text="本月数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell177" Text="去年同期数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell178" Text="增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell179" Text="增长率" Font="宋体, 9pt"/>
+            <TableCell Name="Cell180" Text="本年累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell181" Text="去年同期累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell182" Text="累计增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell183" Text="累计同比增长率" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data2" Top="277.04" Width="869.4" Height="18.9" DataSource="Table8">
+      <TableObject Name="Table4" Width="869.4" Height="18.9" Dock="Fill">
+        <TableColumn Name="Column24" Width="134.4"/>
+        <TableColumn Name="Column25" Width="87.15"/>
+        <TableColumn Name="Column26" Width="96.6"/>
+        <TableColumn Name="Column27" Width="87.15"/>
+        <TableColumn Name="Column28" Width="87.15"/>
+        <TableColumn Name="Column29" Width="96.6"/>
+        <TableColumn Name="Column30" Width="96.6"/>
+        <TableColumn Name="Column31" Width="87.15"/>
+        <TableColumn Name="Column32" Width="96.6"/>
+        <TableRow Name="Row11">
+          <TableCell Name="Cell103" Text="[回款指标.项目]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell104" Text="[回款指标.本月数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell105" Text="[回款指标.去年同期数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell106" Text="[回款指标.增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell107" Text="[回款指标.增长率]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell108" Text="[回款指标.本年累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell109" Text="[回款指标.去年同期累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell110" Text="[回款指标.累计增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell111" Text="[回款指标.累计同比增长率]" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader2" Top="231.46" Width="869.4" Height="41.58">
+        <TableObject Name="Table13" Width="869.4" Height="41.58" Dock="Fill">
+          <TableColumn Name="Column60" Width="134.4"/>
+          <TableColumn Name="Column61" Width="87.15"/>
+          <TableColumn Name="Column62" Width="96.6"/>
+          <TableColumn Name="Column63" Width="87.15"/>
+          <TableColumn Name="Column64" Width="87.15"/>
+          <TableColumn Name="Column65" Width="96.6"/>
+          <TableColumn Name="Column66" Width="96.6"/>
+          <TableColumn Name="Column67" Width="87.15"/>
+          <TableColumn Name="Column68" Width="96.6"/>
+          <TableRow Name="Row20" Height="22.68">
+            <TableCell Name="Cell184" Text="三、回款指标" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell185" Font="宋体, 9pt"/>
+            <TableCell Name="Cell186" Font="宋体, 9pt"/>
+            <TableCell Name="Cell187" Font="宋体, 9pt"/>
+            <TableCell Name="Cell188" Font="宋体, 9pt"/>
+            <TableCell Name="Cell189" Font="宋体, 9pt"/>
+            <TableCell Name="Cell190" Font="宋体, 9pt"/>
+            <TableCell Name="Cell191" Font="宋体, 9pt"/>
+            <TableCell Name="Cell192" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row21">
+            <TableCell Name="Cell193" Text="项目" Font="宋体, 9pt"/>
+            <TableCell Name="Cell194" Text="本月数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell195" Text="去年同期数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell196" Text="增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell197" Text="增长率" Font="宋体, 9pt"/>
+            <TableCell Name="Cell198" Text="本年累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell199" Text="去年同期累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell200" Text="累计增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell201" Text="累计同比增长率" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data3" Top="345.52" Width="869.4" Height="18.9" DataSource="Table9">
+      <TableObject Name="Table5" Width="869.4" Height="18.9" Dock="Fill">
+        <TableColumn Name="Column33" Width="134.4"/>
+        <TableColumn Name="Column34" Width="87.15"/>
+        <TableColumn Name="Column35" Width="96.6"/>
+        <TableColumn Name="Column36" Width="87.15"/>
+        <TableColumn Name="Column37" Width="87.15"/>
+        <TableColumn Name="Column38" Width="96.6"/>
+        <TableColumn Name="Column39" Width="96.6"/>
+        <TableColumn Name="Column40" Width="87.15"/>
+        <TableColumn Name="Column41" Width="96.6"/>
+        <TableRow Name="Row14">
+          <TableCell Name="Cell130" Text="[利润指标.指标]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell131" Text="[利润指标.本月数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell132" Text="[利润指标.去年同期数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell133" Text="[利润指标.增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell134" Text="[利润指标.增长率]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell135" Text="[利润指标.本年累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell136" Text="[利润指标.去年同期累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell137" Text="[利润指标.累计增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell138" Text="[利润指标.累计同比增长率]" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader3" Top="299.94" Width="869.4" Height="41.58">
+        <TableObject Name="Table13" Width="869.4" Height="41.58" Dock="Fill">
+          <TableColumn Name="Column69" Width="134.4"/>
+          <TableColumn Name="Column70" Width="87.15"/>
+          <TableColumn Name="Column71" Width="96.6"/>
+          <TableColumn Name="Column72" Width="87.15"/>
+          <TableColumn Name="Column73" Width="87.15"/>
+          <TableColumn Name="Column74" Width="96.6"/>
+          <TableColumn Name="Column75" Width="96.6"/>
+          <TableColumn Name="Column76" Width="87.15"/>
+          <TableColumn Name="Column77" Width="96.6"/>
+          <TableRow Name="Row22" Height="22.68">
+            <TableCell Name="Cell202" Text="四、利润指标" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell203" Font="宋体, 9pt"/>
+            <TableCell Name="Cell204" Font="宋体, 9pt"/>
+            <TableCell Name="Cell205" Font="宋体, 9pt"/>
+            <TableCell Name="Cell206" Font="宋体, 9pt"/>
+            <TableCell Name="Cell207" Font="宋体, 9pt"/>
+            <TableCell Name="Cell208" Font="宋体, 9pt"/>
+            <TableCell Name="Cell209" Font="宋体, 9pt"/>
+            <TableCell Name="Cell210" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row23">
+            <TableCell Name="Cell211" Text="指标" Font="宋体, 9pt"/>
+            <TableCell Name="Cell212" Text="本月数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell213" Text="去年同期数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell214" Text="增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell215" Text="增长率" Font="宋体, 9pt"/>
+            <TableCell Name="Cell216" Text="本年累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell217" Text="去年同期累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell218" Text="累计增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell219" Text="累计同比增长率" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data4" Top="415.26" Width="869.4" Height="20.16" DataSource="Table12">
+      <TableObject Name="Table6" Width="869.4" Height="20.16" Dock="Fill">
+        <TableColumn Name="Column42" Width="134.4"/>
+        <TableColumn Name="Column43" Width="96.6"/>
+        <TableColumn Name="Column44" Width="87.15"/>
+        <TableColumn Name="Column45" Width="87.15"/>
+        <TableColumn Name="Column46" Width="87.15"/>
+        <TableColumn Name="Column47" Width="96.6"/>
+        <TableColumn Name="Column48" Width="96.6"/>
+        <TableColumn Name="Column49" Width="87.15"/>
+        <TableColumn Name="Column50" Width="96.6"/>
+        <TableRow Name="Row17" Height="20.16">
+          <TableCell Name="Cell157" Text="[效率指标.指标]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell158" Text="[效率指标.本月数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell159" Text="[效率指标.去年同期数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell160" Text="[效率指标.增减数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell161" Text="[效率指标.增长率]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell162" Text="[效率指标.本年累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell163" Text="[效率指标.去年同期累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell164" Text="[效率指标.去年同期累计数]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell165" Text="[效率指标.累计同比增长率]" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader4" Top="368.42" Width="869.4" Height="42.84">
+        <TableObject Name="Table13" Width="869.4" Height="42.84" Dock="Fill">
+          <TableColumn Name="Column78" Width="134.4"/>
+          <TableColumn Name="Column79" Width="96.6"/>
+          <TableColumn Name="Column80" Width="87.15"/>
+          <TableColumn Name="Column81" Width="87.15"/>
+          <TableColumn Name="Column82" Width="87.15"/>
+          <TableColumn Name="Column83" Width="96.6"/>
+          <TableColumn Name="Column84" Width="96.6"/>
+          <TableColumn Name="Column85" Width="87.15"/>
+          <TableColumn Name="Column86" Width="96.6"/>
+          <TableRow Name="Row24" Height="23.31">
+            <TableCell Name="Cell220" Text="五、效率指标" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell221" Font="宋体, 9pt"/>
+            <TableCell Name="Cell222" Font="宋体, 9pt"/>
+            <TableCell Name="Cell223" Font="宋体, 9pt"/>
+            <TableCell Name="Cell224" Font="宋体, 9pt"/>
+            <TableCell Name="Cell225" Font="宋体, 9pt"/>
+            <TableCell Name="Cell226" Font="宋体, 9pt"/>
+            <TableCell Name="Cell227" Font="宋体, 9pt"/>
+            <TableCell Name="Cell228" Font="宋体, 9pt"/>
+          </TableRow>
+          <TableRow Name="Row25" Height="19.53">
+            <TableCell Name="Cell229" Text="指标" Font="宋体, 9pt"/>
+            <TableCell Name="Cell230" Text="本月数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell231" Text="去年同期数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell232" Text="增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell233" Text="增长率" Font="宋体, 9pt"/>
+            <TableCell Name="Cell234" Text="本年累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell235" Text="去年同期累计数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell236" Text="累计增减数" Font="宋体, 9pt"/>
+            <TableCell Name="Cell237" Text="累计同比增长率" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="439.42" Width="869.4" Height="66.15" PrintOn="OddPages, EvenPages">
+      <TextObject Name="Text4" Top="18.9" Width="94.5" Height="18.9" Text="上级主管:" HorzAlign="Right" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text5" Left="198.45" Top="18.9" Width="94.5" Height="18.9" Text="负责人:" HorzAlign="Right" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text6" Left="387.45" Top="18.9" Width="94.5" Height="18.9" Text="财务负责人:" HorzAlign="Right" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text7" Left="585.9" Top="18.9" Width="94.5" Height="18.9" Text="制表人:" HorzAlign="Right" VertAlign="Center" Font="宋体, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

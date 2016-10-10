@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html style="width:100%;height:100%;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Css")
+    @Styles.Render("~/Css/easyui")
+    @Styles.Render("~/Css/datetimepicker")
+    @Styles.Render("~/Css/select2")
+    @Styles.Render("~/Css/confirm")
+    @RenderSection("themes", required: false)
+</head>
+<body class="easyui-layout">
+    @RenderBody()
+    @Scripts.Render("~/Js/jquery")
+    @Scripts.Render("~/Js/jqueryval")
+    @Scripts.Render("~/Js/bootstrap")
+    @Scripts.Render("~/Js/easyui")
+    @Scripts.Render("~/Js/datetimepicker")
+    @Scripts.Render("~/Js/select2")
+    @Scripts.Render("~/Js/confirm")
+    @Scripts.Render("~/Js/usp")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

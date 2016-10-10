@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+@FastReport.Web.WebReportGlobals.ScriptsWOjQuery()
+@FastReport.Web.WebReportGlobals.StylesWOjQuery()
+<style>
+    .frtoolbar {
+        height: 40px !important;
+    }
+</style>
+<div class="panel panel-info">
+    <div class="panel-heading" style="margin-bottom:15px">
+        <span class="glyphicon glyphicon-edit"></span> 员工查询
+    </div>
+    <div class="form-horizontal">
+        <div class="form-body">
+            <div class="form-group ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label class="control-label">日期</label>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div>
+                                    <input class="easyui-datebox" id="datetime" name="datetime" style="width:150px;height:31px">
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="datetime" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-md-2 control-label">工号</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入员工工号" id="gonghao" name="gonghao" placeholder="员工工号" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="gonghao" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary" onclick="iframeLoad()"><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                        </div>
+                        </div>
+                    </div>
+                       </div>
+                    </div>
+
+                </div>
+            </div>
+  
+</div>
+<iframe id="fastreportIframe" frameborder="0" style="overflow:hidden;height:100%;width:100%;"></iframe>
+@section scripts{
+
+    <script>
+        usp.init();
+       
+        function iframeLoad() {
+            var gonghao = $("#gonghao").val()
+            var date = $("#datetime").datebox('getValue');
+            if (gonghao && date) {
+                $("#fastreportIframe").attr("src", "UserInfo?Date=" + date + "&GongHao=" + gonghao)
+            } else {
+                toastr.error("工号不能为空！");
+            }
+        }
+    </script>
+}
+
+
+
+@*@model USP.Models.POCO.Employee
+    @{
+        ViewBag.Title = "Search";
+    }
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-edit"></i>员工信息表查询
+        </div>
+        <br />
+        <br />
+
+    @using (Html.BeginForm())
+    {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GongHao , htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.GongHao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.GongHao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                </div>
+            </div>
+    }*@

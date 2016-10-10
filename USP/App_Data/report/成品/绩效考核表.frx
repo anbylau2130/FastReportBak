@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/05/2016 08:51:22" ReportInfo.Modified="09/05/2016 09:35:59" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <Parameter Name="工号" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="290">
+    <ReportTitleBand Name="ReportTitle1" Width="1020.6" Height="66.15">
+      <TextObject Name="Text1" Left="217.35" Top="18.9" Width="463.05" Height="28.35" Text="考核指标表（_____体系-________部）" HorzAlign="Justify" VertAlign="Center" Font="宋体, 16pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="70.32" Width="1020.6" Height="18.9">
+      <TextObject Name="Text2" Width="75.6" Height="18.9" Text="被考核人:" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text3" Left="75.6" Width="85.05" Height="18.9" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text4" Left="160.65" Width="47.25" Height="18.9" Text="职级:" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text5" Left="207.9" Width="94.5" Height="18.9" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text6" Left="302.4" Width="56.7" Height="18.9" Text="部门:" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text7" Left="359.1" Width="94.5" Height="18.9" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text8" Left="453.6" Width="75.6" Height="18.9" Text="考核日期:" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text9" Left="529.2" Width="94.5" Height="18.9" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text10" Left="623.7" Width="28.35" Height="18.9" Text="--" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text11" Left="652.05" Width="94.5" Height="18.9" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text12" Left="746.55" Width="94.5" Height="18.9" Text="考核周期:" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text13" Left="841.05" Width="113.4" Height="18.9" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="93.38" Width="1020.6" Height="34.02">
+      <TableObject Name="Table1" Width="1020.62" Height="34.02">
+        <TableColumn Name="Column1" Width="52.34"/>
+        <TableColumn Name="Column2" Width="80.69"/>
+        <TableColumn Name="Column3" Width="80.69"/>
+        <TableColumn Name="Column4" Width="80.69"/>
+        <TableColumn Name="Column5" Width="80.69"/>
+        <TableColumn Name="Column6" Width="80.69"/>
+        <TableColumn Name="Column7" Width="80.69"/>
+        <TableColumn Name="Column8" Width="80.69"/>
+        <TableColumn Name="Column9" Width="80.69"/>
+        <TableColumn Name="Column10" Width="80.69"/>
+        <TableColumn Name="Column11" Width="80.69"/>
+        <TableColumn Name="Column12" Width="80.69"/>
+        <TableColumn Name="Column13" Width="80.69"/>
+        <TableRow Name="Row1" Height="34.02">
+          <TableCell Name="Cell1" Border.Lines="All" Text="分类" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="序号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="指标名称" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="指标名称" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="内容定义" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="计算公式/考核方式" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="目标值" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="评分方法" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="当期目标值" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="当期实际值" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="达成率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="得分" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="数据提供人" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data2" Top="131.57" Width="1020.6" Height="34.02">
+      <TableObject Name="Table2" Width="1020.62" Height="34.02">
+        <TableColumn Name="Column14" Width="52.34"/>
+        <TableColumn Name="Column15" Width="80.69"/>
+        <TableColumn Name="Column16" Width="80.69"/>
+        <TableColumn Name="Column17" Width="80.69"/>
+        <TableColumn Name="Column18" Width="80.69"/>
+        <TableColumn Name="Column19" Width="80.69"/>
+        <TableColumn Name="Column20" Width="80.69"/>
+        <TableColumn Name="Column21" Width="80.69"/>
+        <TableColumn Name="Column22" Width="80.69"/>
+        <TableColumn Name="Column23" Width="80.69"/>
+        <TableColumn Name="Column24" Width="80.69"/>
+        <TableColumn Name="Column25" Width="80.69"/>
+        <TableColumn Name="Column26" Width="80.69"/>
+        <TableRow Name="Row2" Height="34.02">
+          <TableCell Name="Cell34" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell35" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell36" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell37" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell38" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell39" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell40" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell41" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell42" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell43" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell44" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell45" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="169.76" Width="1020.6" Height="18.9">
+      <TextObject Name="Text14" Width="66.15" Height="18.9" Text="制表人：" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text15" Left="189" Width="94.5" Height="18.9" Text="制表审核人：" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text16" Left="387.45" Width="94.5" Height="18.9" Text=" 责任人：" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text17" Left="585.9" Width="94.5" Height="18.9" Text=" 审核人： " HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text18" Left="765.45" Width="94.5" Height="18.9" Text="审批人：" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

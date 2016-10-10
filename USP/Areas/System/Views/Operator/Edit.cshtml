@@ -1,0 +1,91 @@
+﻿
+@model USP.Models.POCO.OperaterAddEdit
+
+@{
+    ViewBag.Title = "Create";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.operator.css" rel="stylesheet" />
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-edit"></i>编辑操作员
+        <div style="float: right;">
+            <a href="Index"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <input type="hidden" id="hdid" name="ID" value="@Model.ID" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoginName, new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LoginName, new {htmlAttributes = new {@class = "form-control", id = "LoginName", placeholder = "登录名必填"}})
+                    @Html.ValidationMessageFor(model => model.LoginName, "", new {@class = "text-danger",id = "errorname" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">姓名</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RealName, new {htmlAttributes = new {@class = "form-control", id = "RealName", placeholder = "姓名必填"}})
+                    @Html.ValidationMessageFor(model => model.RealName, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">手机号</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", id = "Mobile" } })
+                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">身份证号</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IdCard, new { htmlAttributes = new { @class = "form-control", id = "IdCard" } })
+                    @Html.ValidationMessageFor(model => model.IdCard, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Email</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">角色</label>
+                <div class="col-md-10">
+                    <div class="tree-role col-md-4">
+                        <ul id="operatorRole"></ul>
+                    </div>
+                    <input type="hidden" id="hdrole" name="Role" data-val="true" value="" data-val-required="请选择角色" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" id="submit-btn" class="btn btn-primary" onclick="return usp.system.operator.checkRole()"><i class="glyphicon glyphicon-edit"></i>&nbsp;编&nbsp;辑</button>
+                    @Html.ValidationMessage("errorresult", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.operator.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.system.operator.initRoleTree('#operatorRole', '/System/Operator/Edit');
+            usp.system.operator.checkEditLoginName('@Model.LoginName');
+            if ('@TempData["returnMsgType"]' == 'error') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        });
+    </script>
+}

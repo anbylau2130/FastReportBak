@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "公司类型管理";
+}
+<table id="corptype"></table>
+<div id="tb">
+
+    <span style="float: right;">
+        公司类型名称:<input class="easyui-textbox js-param" id="name" name="name" value="" />
+        <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="usp.system.corptype.search('#corptype', '#tb')">查询</a>
+    </span>
+
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><a href="/System/SysCorpType/Add" class="easyui-linkbutton" plain="true" icon="icon-add">添加</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-edit" onclick="usp.system.corptype.edit('#corptype')">编辑</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-remove" onclick="usp.system.corptype.cancel('#corptype', '/System/SysCorpType/Cancel')">注销</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-redo" onclick="usp.system.corptype.active('#corptype', '/System/SysCorpType/Active')">激活</a></td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="/Static/Js/usp/usp.system.corptype.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.system.corptype.initCorptypeGrid('#corptype', '#tb', '/System/SysCorpType/Index', $('#name').val());
+
+
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            } else if ('@TempData["returnMsgType"]' == 'error') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        });
+    </script>
+}

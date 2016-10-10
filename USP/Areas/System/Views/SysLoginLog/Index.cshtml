@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "登录日志";
+}
+<table id="sysLoginLog"></table><br />
+<div id="tb" style="height: auto">
+    <table>
+        <tr>
+            <td>开始时间:</td>
+            <td>
+                <input name="startTime" id="startTime" class="easyui-datebox js-param" data-options="sharedCalendar:'#cc'">
+            </td>
+            <td>结束时间:</td>
+            <td>
+                <input name="endTime" id="endTime" class="easyui-datebox js-param" data-options="sharedCalendar:'#cc'">
+            </td>
+            <td>
+                <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="usp.sysloginlog.search('#sysLoginLog', '#tb')">查询</a>
+            </td>
+        </tr>
+    </table>
+    <div id="cc" class="easyui-calendar"></div>
+</div>
+@section scripts{
+
+    <script src="~/Static/Js/usp/usp.sysloginlog.js"></script>
+    <script>
+        $(function () {
+            usp.sysloginlog.initLogGrid("#sysLoginLog", "/System/SysLoginLog/Index", $('#startTime').datebox('getValue'), $('#endTime').datebox('getValue'));
+        });
+    </script>
+}
+

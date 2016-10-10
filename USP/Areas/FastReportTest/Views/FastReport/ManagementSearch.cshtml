@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+@FastReport.Web.WebReportGlobals.ScriptsWOjQuery()
+@FastReport.Web.WebReportGlobals.StylesWOjQuery()
+<style>
+    .frtoolbar {
+        height: 40px !important;
+    }
+</style>
+<div class="panel panel-info">
+    <div class="panel-heading" style="margin-bottom:15px">
+        <span class="glyphicon glyphicon-edit"></span> 经营分析表
+    </div>
+    <div class="form-horizontal">
+        <div class="form-body">
+            <div class="form-group ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label class="control-label">年</label>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="form-group">
+                                <div >
+                                    <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入年" id="year" name="year" placeholder="年" value="">
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="year" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 ">
+                            <label class="control-label">月</label>
+                        </div>
+                            <div class="col-md-2">
+                                <div class="form-group ">
+                                    
+                                    <div>
+                                        <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入月" id="month" name="month" placeholder="月" value="">
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="month" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-md-1 ">
+                            <label class="control-label">组织</label>
+                        </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    <div>
+                                        <input id="orgTree" width="250">
+                                        <input type="hidden" id="hdOrg" name="org" value="" />
+                                        @*<input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入员工工号" id="ORGID" name="ORGID" placeholder="员工工号" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="ORGID" data-valmsg-replace="true"></span>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group ">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" onclick="iframeLoad()"><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<iframe id="fastreportIframe" frameborder="0" style="overflow:hidden;height:100%;width:100%;"></iframe>
+@section scripts{
+    <script>
+        usp.init();
+        $(function () {
+            $("#orgTree").combotree({
+                method: 'post',
+                width: 290,
+                height: 34,
+                queryParams: { actionName: 'orgTree' },
+                url: '/FastReportTest/FastReport/Management',
+                required: true,
+                onChange: function (newValue, oldValue) {
+                    $("#hdOrg").val(newValue)
+                }
+            });
+        })
+        function iframeLoad() {
+            var orgid = $("#hdOrg").val();
+            var year = $("#year").val();
+            var month = $("#month").val();
+            if (orgid && year && month) {
+                $("#fastreportIframe").attr("src", "Management?MONTH=" + month + "&YEAR=" + year + "&ORGID=" + orgid)
+            } else {
+                toastr.error("查询条件不能为空！");
+            }
+        }
+    </script>
+}
+
+
+
+@*@model USP.Models.POCO.Employee
+    @{
+        ViewBag.Title = "Search";
+    }
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-edit"></i>员工信息表查询
+        </div>
+        <br />
+        <br />
+
+    @using (Html.BeginForm())
+    {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GongHao , htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.GongHao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.GongHao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                </div>
+            </div>
+    }*@

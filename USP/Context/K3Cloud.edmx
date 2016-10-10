@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="K3CloudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CMK_LS_Branch">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FFormId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FNUMBER" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FDOCUMENTSTATUS" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FFORBIDSTATUS" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FMODIFIERID" Type="int" Nullable="false" />
+          <Property Name="FCREATORID" Type="int" Nullable="false" />
+          <Property Name="FCREATEDATE" Type="datetime" />
+          <Property Name="FMODIFYDATE" Type="datetime" />
+          <Property Name="FAPPROVERID" Type="int" Nullable="false" />
+          <Property Name="FAPPROVEDATE" Type="datetime" />
+          <Property Name="FCITY" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FPROVINCIAL" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FORGID" Type="int" Nullable="false" />
+          <Property Name="FADDR" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FOPENDATE" Type="datetime" />
+          <Property Name="FPAYDATE" Type="datetime" />
+          <Property Name="FCHANGDATE" Type="datetime" />
+          <Property Name="FREOPENDATE" Type="datetime" />
+          <Property Name="FCOMPOPENDATE" Type="datetime" />
+          <Property Name="FBEGINHIREDATE" Type="datetime" />
+          <Property Name="FENDHIREDATE" Type="datetime" />
+          <Property Name="FCLOSEDATE" Type="datetime" />
+          <Property Name="FRANK" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FCountry" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FSTAFFNUM" Type="int" Nullable="false" />
+          <Property Name="FAREA" Type="decimal" Precision="23" Scale="10" Nullable="false" />
+          <Property Name="FLONGITUDE" Type="decimal" Precision="23" Scale="10" Nullable="false" />
+          <Property Name="FLATITUDE" Type="decimal" Precision="23" Scale="10" Nullable="false" />
+          <Property Name="FQUDAO" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FDAQU" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FORGTYPE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FSHENGQU" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FBranchType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FCOUNTRYID" Type="int" Nullable="false" />
+          <Property Name="FREGIONID" Type="int" Nullable="false" />
+          <Property Name="FCITYID" Type="int" Nullable="false" />
+          <Property Name="FCOUNTYID" Type="int" Nullable="false" />
+          <Property Name="FSTREETID" Type="int" Nullable="false" />
+          <Property Name="FCODE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FPARENTORGID" Type="int" Nullable="false" />
+          <Property Name="FISZNBH" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CMK_LS_Branch_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="int" Nullable="false" />
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FLocaleID" Type="int" Nullable="false" />
+          <Property Name="FNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FDESCRIPTION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FNUMBER" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FSEX" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FDOCUMENTSTATUS" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FFORBIDSTATUS" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FMODIFIERID" Type="int" Nullable="false" />
+          <Property Name="FCREATORID" Type="int" Nullable="false" />
+          <Property Name="FCREATEDATE" Type="datetime" />
+          <Property Name="FMODIFYDATE" Type="datetime" />
+          <Property Name="FCHECKERID" Type="int" Nullable="false" />
+          <Property Name="FCHECKDATE" Type="datetime" />
+          <Property Name="FGROUPID" Type="int" Nullable="false" />
+          <Property Name="FBIRTHDATE" Type="datetime" />
+          <Property Name="FCARDNUMBER" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FMARRIAGE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FCARDADDRESS" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FADDRESS" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FHUKOUTYPE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FPHONE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FEMAIL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FLIANXIREN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FLIANXIPHONE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FYUANXIAO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FZHUANYE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FXUELI" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FBIYEDATE" Type="datetime" />
+          <Property Name="FYUANXIAOTYPE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FJIAOYUTYPE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FJOINDATE" Type="datetime" />
+          <Property Name="FYINGPIN" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FYONGGONGTYPE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FNATION" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FIMAGE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_HXN_IMAGE" Type="image" />
+          <Property Name="FFAXIN" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FWORKCITY" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FCITY" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FGANGWEI" Type="int" Nullable="false" />
+          <Property Name="FZHIJI" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FYGSTATE" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FZHENGZHI" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_EMPLOYEE_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="int" Nullable="false" />
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FLocaleID" Type="int" Nullable="false" />
+          <Property Name="FNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FDESCRIPTION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FNUMBER" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FDOCUMENTSTATUS" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FFORBIDSTATUS" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FMODIFIERID" Type="int" Nullable="false" />
+          <Property Name="FCREATORID" Type="int" Nullable="false" />
+          <Property Name="FCREATEDATE" Type="datetime" />
+          <Property Name="FMODIFYDATE" Type="datetime" />
+          <Property Name="FCHECKERID" Type="int" Nullable="false" />
+          <Property Name="FCHECKDATE" Type="datetime" />
+          <Property Name="FDEPARTMENTID" Type="int" Nullable="false" />
+          <Property Name="FPARENTID" Type="int" Nullable="false" />
+          <Property Name="FJIDENG" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FGROUPID" Type="int" Nullable="false" />
+          <Property Name="FTIXI" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FMOSHI" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG_Group">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FNUMBER" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FGROUPID" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FPARENTID" Type="bigint" Nullable="false" />
+          <Property Name="FFULLPARENTID" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="FLEFT" Type="int" Nullable="false" />
+          <Property Name="FRIGHT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG_Group_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="int" Nullable="false" />
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FLocaleID" Type="int" Nullable="false" />
+          <Property Name="FNAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FDESCRIPTION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="int" Nullable="false" />
+          <Property Name="FID" Type="int" Nullable="false" />
+          <Property Name="FLocaleID" Type="int" Nullable="false" />
+          <Property Name="FNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FDESCRIPTION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Function Name="HXN_HR_Tsui_UserInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="GongHao" Type="varchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="K3CloudModelStoreContainer">
+          <EntitySet Name="CMK_LS_Branch" EntityType="Self.CMK_LS_Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMK_LS_Branch_L" EntityType="Self.CMK_LS_Branch_L" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HXN_HR_EMPLOYEE" EntityType="Self.HXN_HR_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HXN_HR_EMPLOYEE_L" EntityType="Self.HXN_HR_EMPLOYEE_L" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HXN_HR_ORG" EntityType="Self.HXN_HR_ORG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HXN_HR_ORG_Group" EntityType="Self.HXN_HR_ORG_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HXN_HR_ORG_Group_L" EntityType="Self.HXN_HR_ORG_Group_L" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HXN_HR_ORG_L" EntityType="Self.HXN_HR_ORG_L" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="K3CloudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="K3CloudEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HXN_HR_EMPLOYEE" EntityType="K3CloudModel.HXN_HR_EMPLOYEE" />
+          <EntitySet Name="HXN_HR_EMPLOYEE_L" EntityType="K3CloudModel.HXN_HR_EMPLOYEE_L" />
+          <FunctionImport Name="HXN_HR_Tsui_UserInfo" ReturnType="Collection(K3CloudModel.HXN_HR_Tsui_UserInfo_Result)">
+          <Parameter Name="GongHao" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="HXN_HR_ORG" EntityType="K3CloudModel.HXN_HR_ORG" />
+          <EntitySet Name="HXN_HR_ORG_Group" EntityType="K3CloudModel.HXN_HR_ORG_Group" />
+          <EntitySet Name="HXN_HR_ORG_Group_L" EntityType="K3CloudModel.HXN_HR_ORG_Group_L" />
+          <EntitySet Name="HXN_HR_ORG_L" EntityType="K3CloudModel.HXN_HR_ORG_L" />
+          <EntitySet Name="CMK_LS_Branch" EntityType="K3CloudModel.CMK_LS_Branch" />
+          <EntitySet Name="CMK_LS_Branch_L" EntityType="K3CloudModel.CMK_LS_Branch_L" />
+        </EntityContainer>
+        <EntityType Name="HXN_HR_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FNUMBER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FSEX" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FDOCUMENTSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FFORBIDSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FMODIFIERID" Type="Int32" Nullable="false" />
+          <Property Name="FCREATORID" Type="Int32" Nullable="false" />
+          <Property Name="FCREATEDATE" Type="DateTime" Precision="3" />
+          <Property Name="FMODIFYDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCHECKERID" Type="Int32" Nullable="false" />
+          <Property Name="FCHECKDATE" Type="DateTime" Precision="3" />
+          <Property Name="FGROUPID" Type="Int32" Nullable="false" />
+          <Property Name="FBIRTHDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCARDNUMBER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FMARRIAGE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FCARDADDRESS" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FADDRESS" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FHUKOUTYPE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FPHONE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEMAIL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FLIANXIREN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FLIANXIPHONE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FYUANXIAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FZHUANYE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FXUELI" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FBIYEDATE" Type="DateTime" Precision="3" />
+          <Property Name="FYUANXIAOTYPE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FJIAOYUTYPE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FJOINDATE" Type="DateTime" Precision="3" />
+          <Property Name="FYINGPIN" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FYONGGONGTYPE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FNATION" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FIMAGE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="F_HXN_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FFAXIN" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FWORKCITY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FCITY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FGANGWEI" Type="Int32" Nullable="false" />
+          <Property Name="FZHIJI" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FYGSTATE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FZHENGZHI" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_EMPLOYEE_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="Int32" Nullable="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FLocaleID" Type="Int32" Nullable="false" />
+          <Property Name="FNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FDESCRIPTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="HXN_HR_Tsui_UserInfo_Result">
+          <Property Type="String" Name="GWID" Nullable="true" />
+          <Property Type="String" Name="SJGW" Nullable="true" />
+          <Property Type="String" Name="XJGW" Nullable="true" />
+          <Property Type="String" Name="ORGID" Nullable="true" />
+          <Property Type="String" Name="姓名" Nullable="true" />
+          <Property Type="String" Name="员工工号" Nullable="true" />
+          <Property Type="String" Name="岗位" Nullable="true" />
+          <Property Type="String" Name="所属组织" Nullable="true" />
+          <Property Type="String" Name="职级" Nullable="true" />
+          <Property Type="String" Name="入职日期" Nullable="true" />
+          <Property Type="String" Name="出生日期" Nullable="true" />
+          <Property Type="String" Name="年龄" Nullable="true" />
+          <Property Type="String" Name="户口所在地" Nullable="true" />
+          <Property Type="String" Name="学历" Nullable="true" />
+          <Property Type="String" Name="专业" Nullable="true" />
+          <Property Type="String" Name="毕业院校" Nullable="true" />
+          <Property Type="String" Name="联系方式" Nullable="true" />
+          <Property Type="String" Name="一级部门" Nullable="true" />
+          <Property Type="String" Name="二级部门" Nullable="true" />
+          <Property Type="String" Name="三级部门" Nullable="true" />
+          <Property Type="String" Name="四级部门" Nullable="true" />
+          <Property Type="String" Name="五级部门" Nullable="true" />
+          <Property Type="String" Name="直接上级" Nullable="true" />
+          <Property Type="String" Name="直接下级人数" Nullable="true" />
+          <Property Type="String" Name="直接下级经理级以上" Nullable="true" />
+          <Property Type="String" Name="直接下级经理级以下" Nullable="true" />
+          <Property Type="String" Name="间接下级人数" Nullable="true" />
+          <Property Type="String" Name="间接下级经理级以上" Nullable="true" />
+          <Property Type="String" Name="间接下级经理级以下" Nullable="true" />
+          <Property Type="String" Name="间接下级绩优人员" Nullable="true" />
+          <Property Type="String" Name="间接下级绩差人员" Nullable="true" />
+          <Property Type="String" Name="团队总人数" Nullable="true" />
+          <Property Type="String" Name="平均年龄" Nullable="true" />
+          <Property Type="String" Name="平均司龄" Nullable="true" />
+          <Property Type="String" Name="满编率" Nullable="true" />
+          <Property Type="String" Name="男员工占比" Nullable="true" />
+          <Property Type="String" Name="大专以上占比" Nullable="true" />
+          <Property Type="String" Name="本地人员占比" Nullable="true" />
+          <Property Type="String" Name="月人员流失率" Nullable="true" />
+          <Property Type="String" Name="工资销额比" Nullable="true" />
+          <Property Type="String" Name="备注" Nullable="true" />
+          <Property Type="String" Name="公司工龄" Nullable="true" />
+          <Property Type="String" Name="团队月工资" Nullable="true" />
+          <Property Type="String" Name="销售额" Nullable="true" />
+          <Property Type="String" Name="A90后占比" Nullable="true" />
+          <Property Type="String" Name="人均月工资" Nullable="true" />
+          <Property Type="String" Name="人均劳效" Nullable="true" />
+          <Property Type="String" Name="体系模式" Nullable="true" />
+          </ComplexType>
+        <EntityType Name="HXN_HR_ORG">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FNUMBER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FDOCUMENTSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FFORBIDSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FMODIFIERID" Type="Int32" Nullable="false" />
+          <Property Name="FCREATORID" Type="Int32" Nullable="false" />
+          <Property Name="FCREATEDATE" Type="DateTime" Precision="3" />
+          <Property Name="FMODIFYDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCHECKERID" Type="Int32" Nullable="false" />
+          <Property Name="FCHECKDATE" Type="DateTime" Precision="3" />
+          <Property Name="FDEPARTMENTID" Type="Int32" Nullable="false" />
+          <Property Name="FPARENTID" Type="Int32" Nullable="false" />
+          <Property Name="FJIDENG" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FGROUPID" Type="Int32" Nullable="false" />
+          <Property Name="FTIXI" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FMOSHI" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG_Group">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FNUMBER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FGROUPID" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FPARENTID" Type="Int64" Nullable="false" />
+          <Property Name="FFULLPARENTID" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FLEFT" Type="Int32" Nullable="false" />
+          <Property Name="FRIGHT" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG_Group_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="Int32" Nullable="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FLocaleID" Type="Int32" Nullable="false" />
+          <Property Name="FNAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FDESCRIPTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HXN_HR_ORG_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="Int32" Nullable="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FLocaleID" Type="Int32" Nullable="false" />
+          <Property Name="FNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FDESCRIPTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CMK_LS_Branch">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FFormId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FNUMBER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FDOCUMENTSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FFORBIDSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FMODIFIERID" Type="Int32" Nullable="false" />
+          <Property Name="FCREATORID" Type="Int32" Nullable="false" />
+          <Property Name="FCREATEDATE" Type="DateTime" Precision="3" />
+          <Property Name="FMODIFYDATE" Type="DateTime" Precision="3" />
+          <Property Name="FAPPROVERID" Type="Int32" Nullable="false" />
+          <Property Name="FAPPROVEDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCITY" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FPROVINCIAL" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FORGID" Type="Int32" Nullable="false" />
+          <Property Name="FADDR" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FOPENDATE" Type="DateTime" Precision="3" />
+          <Property Name="FPAYDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCHANGDATE" Type="DateTime" Precision="3" />
+          <Property Name="FREOPENDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCOMPOPENDATE" Type="DateTime" Precision="3" />
+          <Property Name="FBEGINHIREDATE" Type="DateTime" Precision="3" />
+          <Property Name="FENDHIREDATE" Type="DateTime" Precision="3" />
+          <Property Name="FCLOSEDATE" Type="DateTime" Precision="3" />
+          <Property Name="FRANK" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FCountry" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FSTAFFNUM" Type="Int32" Nullable="false" />
+          <Property Name="FAREA" Type="Decimal" Nullable="false" Precision="23" Scale="10" />
+          <Property Name="FLONGITUDE" Type="Decimal" Nullable="false" Precision="23" Scale="10" />
+          <Property Name="FLATITUDE" Type="Decimal" Nullable="false" Precision="23" Scale="10" />
+          <Property Name="FQUDAO" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FDAQU" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FORGTYPE" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FSHENGQU" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FBranchType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FCOUNTRYID" Type="Int32" Nullable="false" />
+          <Property Name="FREGIONID" Type="Int32" Nullable="false" />
+          <Property Name="FCITYID" Type="Int32" Nullable="false" />
+          <Property Name="FCOUNTYID" Type="Int32" Nullable="false" />
+          <Property Name="FSTREETID" Type="Int32" Nullable="false" />
+          <Property Name="FCODE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FPARENTORGID" Type="Int32" Nullable="false" />
+          <Property Name="FISZNBH" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CMK_LS_Branch_L">
+          <Key>
+            <PropertyRef Name="FPKID" />
+          </Key>
+          <Property Name="FPKID" Type="Int32" Nullable="false" />
+          <Property Name="FID" Type="Int32" Nullable="false" />
+          <Property Name="FLocaleID" Type="Int32" Nullable="false" />
+          <Property Name="FNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FDESCRIPTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="K3CloudModelStoreContainer" CdmEntityContainer="K3CloudEntities">
+          <EntitySetMapping Name="HXN_HR_EMPLOYEE">
+            <EntityTypeMapping TypeName="K3CloudModel.HXN_HR_EMPLOYEE">
+              <MappingFragment StoreEntitySet="HXN_HR_EMPLOYEE">
+                <ScalarProperty Name="FZHENGZHI" ColumnName="FZHENGZHI" />
+                <ScalarProperty Name="FYGSTATE" ColumnName="FYGSTATE" />
+                <ScalarProperty Name="FZHIJI" ColumnName="FZHIJI" />
+                <ScalarProperty Name="FGANGWEI" ColumnName="FGANGWEI" />
+                <ScalarProperty Name="FCITY" ColumnName="FCITY" />
+                <ScalarProperty Name="FWORKCITY" ColumnName="FWORKCITY" />
+                <ScalarProperty Name="FFAXIN" ColumnName="FFAXIN" />
+                <ScalarProperty Name="F_HXN_IMAGE" ColumnName="F_HXN_IMAGE" />
+                <ScalarProperty Name="FIMAGE" ColumnName="FIMAGE" />
+                <ScalarProperty Name="FNATION" ColumnName="FNATION" />
+                <ScalarProperty Name="FYONGGONGTYPE" ColumnName="FYONGGONGTYPE" />
+                <ScalarProperty Name="FYINGPIN" ColumnName="FYINGPIN" />
+                <ScalarProperty Name="FJOINDATE" ColumnName="FJOINDATE" />
+                <ScalarProperty Name="FJIAOYUTYPE" ColumnName="FJIAOYUTYPE" />
+                <ScalarProperty Name="FYUANXIAOTYPE" ColumnName="FYUANXIAOTYPE" />
+                <ScalarProperty Name="FBIYEDATE" ColumnName="FBIYEDATE" />
+                <ScalarProperty Name="FXUELI" ColumnName="FXUELI" />
+                <ScalarProperty Name="FZHUANYE" ColumnName="FZHUANYE" />
+                <ScalarProperty Name="FYUANXIAO" ColumnName="FYUANXIAO" />
+                <ScalarProperty Name="FLIANXIPHONE" ColumnName="FLIANXIPHONE" />
+                <ScalarProperty Name="FLIANXIREN" ColumnName="FLIANXIREN" />
+                <ScalarProperty Name="FEMAIL" ColumnName="FEMAIL" />
+                <ScalarProperty Name="FPHONE" ColumnName="FPHONE" />
+                <ScalarProperty Name="FHUKOUTYPE" ColumnName="FHUKOUTYPE" />
+                <ScalarProperty Name="FADDRESS" ColumnName="FADDRESS" />
+                <ScalarProperty Name="FCARDADDRESS" ColumnName="FCARDADDRESS" />
+                <ScalarProperty Name="FMARRIAGE" ColumnName="FMARRIAGE" />
+                <ScalarProperty Name="FCARDNUMBER" ColumnName="FCARDNUMBER" />
+                <ScalarProperty Name="FBIRTHDATE" ColumnName="FBIRTHDATE" />
+                <ScalarProperty Name="FGROUPID" ColumnName="FGROUPID" />
+                <ScalarProperty Name="FCHECKDATE" ColumnName="FCHECKDATE" />
+                <ScalarProperty Name="FCHECKERID" ColumnName="FCHECKERID" />
+                <ScalarProperty Name="FMODIFYDATE" ColumnName="FMODIFYDATE" />
+                <ScalarProperty Name="FCREATEDATE" ColumnName="FCREATEDATE" />
+                <ScalarProperty Name="FCREATORID" ColumnName="FCREATORID" />
+                <ScalarProperty Name="FMODIFIERID" ColumnName="FMODIFIERID" />
+                <ScalarProperty Name="FFORBIDSTATUS" ColumnName="FFORBIDSTATUS" />
+                <ScalarProperty Name="FDOCUMENTSTATUS" ColumnName="FDOCUMENTSTATUS" />
+                <ScalarProperty Name="FSEX" ColumnName="FSEX" />
+                <ScalarProperty Name="FNUMBER" ColumnName="FNUMBER" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HXN_HR_EMPLOYEE_L">
+            <EntityTypeMapping TypeName="K3CloudModel.HXN_HR_EMPLOYEE_L">
+              <MappingFragment StoreEntitySet="HXN_HR_EMPLOYEE_L">
+                <ScalarProperty Name="FDESCRIPTION" ColumnName="FDESCRIPTION" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="FLocaleID" ColumnName="FLocaleID" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="FPKID" ColumnName="FPKID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="HXN_HR_Tsui_UserInfo" FunctionName="K3CloudModel.Store.HXN_HR_Tsui_UserInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="K3CloudModel.HXN_HR_Tsui_UserInfo_Result">
+                <ScalarProperty Name="GWID" ColumnName="GWID" />
+                <ScalarProperty Name="SJGW" ColumnName="SJGW" />
+                <ScalarProperty Name="XJGW" ColumnName="XJGW" />
+                <ScalarProperty Name="ORGID" ColumnName="ORGID" />
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="员工工号" ColumnName="员工工号" />
+                <ScalarProperty Name="岗位" ColumnName="岗位" />
+                <ScalarProperty Name="所属组织" ColumnName="所属组织" />
+                <ScalarProperty Name="职级" ColumnName="职级" />
+                <ScalarProperty Name="入职日期" ColumnName="入职日期" />
+                <ScalarProperty Name="出生日期" ColumnName="出生日期" />
+                <ScalarProperty Name="年龄" ColumnName="年龄" />
+                <ScalarProperty Name="户口所在地" ColumnName="户口所在地" />
+                <ScalarProperty Name="学历" ColumnName="学历" />
+                <ScalarProperty Name="专业" ColumnName="专业" />
+                <ScalarProperty Name="毕业院校" ColumnName="毕业院校" />
+                <ScalarProperty Name="联系方式" ColumnName="联系方式" />
+                <ScalarProperty Name="一级部门" ColumnName="一级部门" />
+                <ScalarProperty Name="二级部门" ColumnName="二级部门" />
+                <ScalarProperty Name="三级部门" ColumnName="三级部门" />
+                <ScalarProperty Name="四级部门" ColumnName="四级部门" />
+                <ScalarProperty Name="五级部门" ColumnName="五级部门" />
+                <ScalarProperty Name="直接上级" ColumnName="直接上级" />
+                <ScalarProperty Name="直接下级人数" ColumnName="直接下级人数" />
+                <ScalarProperty Name="直接下级经理级以上" ColumnName="直接下级经理级以上" />
+                <ScalarProperty Name="直接下级经理级以下" ColumnName="直接下级经理级以下" />
+                <ScalarProperty Name="间接下级人数" ColumnName="间接下级人数" />
+                <ScalarProperty Name="间接下级经理级以上" ColumnName="间接下级经理级以上" />
+                <ScalarProperty Name="间接下级经理级以下" ColumnName="间接下级经理级以下" />
+                <ScalarProperty Name="间接下级绩优人员" ColumnName="间接下级绩优人员" />
+                <ScalarProperty Name="间接下级绩差人员" ColumnName="间接下级绩差人员" />
+                <ScalarProperty Name="团队总人数" ColumnName="团队总人数" />
+                <ScalarProperty Name="平均年龄" ColumnName="平均年龄" />
+                <ScalarProperty Name="平均司龄" ColumnName="平均司龄" />
+                <ScalarProperty Name="满编率" ColumnName="满编率" />
+                <ScalarProperty Name="男员工占比" ColumnName="男员工占比" />
+                <ScalarProperty Name="大专以上占比" ColumnName="大专以上占比" />
+                <ScalarProperty Name="本地人员占比" ColumnName="本地人员占比" />
+                <ScalarProperty Name="月人员流失率" ColumnName="月人员流失率" />
+                <ScalarProperty Name="工资销额比" ColumnName="工资销额比" />
+                <ScalarProperty Name="备注" ColumnName="备注" />
+                <ScalarProperty Name="公司工龄" ColumnName="公司工龄" />
+                <ScalarProperty Name="团队月工资" ColumnName="团队月工资" />
+                <ScalarProperty Name="销售额" ColumnName="销售额" />
+                <ScalarProperty Name="A90后占比" ColumnName="A90后占比" />
+                <ScalarProperty Name="人均月工资" ColumnName="人均月工资" />
+                <ScalarProperty Name="人均劳效" ColumnName="人均劳效" />
+                <ScalarProperty Name="体系模式" ColumnName="体系模式" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="HXN_HR_ORG">
+            <EntityTypeMapping TypeName="K3CloudModel.HXN_HR_ORG">
+              <MappingFragment StoreEntitySet="HXN_HR_ORG">
+                <ScalarProperty Name="FMOSHI" ColumnName="FMOSHI" />
+                <ScalarProperty Name="FTIXI" ColumnName="FTIXI" />
+                <ScalarProperty Name="FGROUPID" ColumnName="FGROUPID" />
+                <ScalarProperty Name="FJIDENG" ColumnName="FJIDENG" />
+                <ScalarProperty Name="FPARENTID" ColumnName="FPARENTID" />
+                <ScalarProperty Name="FDEPARTMENTID" ColumnName="FDEPARTMENTID" />
+                <ScalarProperty Name="FCHECKDATE" ColumnName="FCHECKDATE" />
+                <ScalarProperty Name="FCHECKERID" ColumnName="FCHECKERID" />
+                <ScalarProperty Name="FMODIFYDATE" ColumnName="FMODIFYDATE" />
+                <ScalarProperty Name="FCREATEDATE" ColumnName="FCREATEDATE" />
+                <ScalarProperty Name="FCREATORID" ColumnName="FCREATORID" />
+                <ScalarProperty Name="FMODIFIERID" ColumnName="FMODIFIERID" />
+                <ScalarProperty Name="FFORBIDSTATUS" ColumnName="FFORBIDSTATUS" />
+                <ScalarProperty Name="FDOCUMENTSTATUS" ColumnName="FDOCUMENTSTATUS" />
+                <ScalarProperty Name="FNUMBER" ColumnName="FNUMBER" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HXN_HR_ORG_Group">
+            <EntityTypeMapping TypeName="K3CloudModel.HXN_HR_ORG_Group">
+              <MappingFragment StoreEntitySet="HXN_HR_ORG_Group">
+                <ScalarProperty Name="FRIGHT" ColumnName="FRIGHT" />
+                <ScalarProperty Name="FLEFT" ColumnName="FLEFT" />
+                <ScalarProperty Name="FFULLPARENTID" ColumnName="FFULLPARENTID" />
+                <ScalarProperty Name="FPARENTID" ColumnName="FPARENTID" />
+                <ScalarProperty Name="FGROUPID" ColumnName="FGROUPID" />
+                <ScalarProperty Name="FNUMBER" ColumnName="FNUMBER" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HXN_HR_ORG_Group_L">
+            <EntityTypeMapping TypeName="K3CloudModel.HXN_HR_ORG_Group_L">
+              <MappingFragment StoreEntitySet="HXN_HR_ORG_Group_L">
+                <ScalarProperty Name="FDESCRIPTION" ColumnName="FDESCRIPTION" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="FLocaleID" ColumnName="FLocaleID" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="FPKID" ColumnName="FPKID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HXN_HR_ORG_L">
+            <EntityTypeMapping TypeName="K3CloudModel.HXN_HR_ORG_L">
+              <MappingFragment StoreEntitySet="HXN_HR_ORG_L">
+                <ScalarProperty Name="FDESCRIPTION" ColumnName="FDESCRIPTION" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="FLocaleID" ColumnName="FLocaleID" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="FPKID" ColumnName="FPKID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMK_LS_Branch">
+            <EntityTypeMapping TypeName="K3CloudModel.CMK_LS_Branch">
+              <MappingFragment StoreEntitySet="CMK_LS_Branch">
+                <ScalarProperty Name="FISZNBH" ColumnName="FISZNBH" />
+                <ScalarProperty Name="FPARENTORGID" ColumnName="FPARENTORGID" />
+                <ScalarProperty Name="FCODE" ColumnName="FCODE" />
+                <ScalarProperty Name="FSTREETID" ColumnName="FSTREETID" />
+                <ScalarProperty Name="FCOUNTYID" ColumnName="FCOUNTYID" />
+                <ScalarProperty Name="FCITYID" ColumnName="FCITYID" />
+                <ScalarProperty Name="FREGIONID" ColumnName="FREGIONID" />
+                <ScalarProperty Name="FCOUNTRYID" ColumnName="FCOUNTRYID" />
+                <ScalarProperty Name="FBranchType" ColumnName="FBranchType" />
+                <ScalarProperty Name="FSHENGQU" ColumnName="FSHENGQU" />
+                <ScalarProperty Name="FORGTYPE" ColumnName="FORGTYPE" />
+                <ScalarProperty Name="FDAQU" ColumnName="FDAQU" />
+                <ScalarProperty Name="FQUDAO" ColumnName="FQUDAO" />
+                <ScalarProperty Name="FLATITUDE" ColumnName="FLATITUDE" />
+                <ScalarProperty Name="FLONGITUDE" ColumnName="FLONGITUDE" />
+                <ScalarProperty Name="FAREA" ColumnName="FAREA" />
+                <ScalarProperty Name="FSTAFFNUM" ColumnName="FSTAFFNUM" />
+                <ScalarProperty Name="FCountry" ColumnName="FCountry" />
+                <ScalarProperty Name="FRANK" ColumnName="FRANK" />
+                <ScalarProperty Name="FCLOSEDATE" ColumnName="FCLOSEDATE" />
+                <ScalarProperty Name="FENDHIREDATE" ColumnName="FENDHIREDATE" />
+                <ScalarProperty Name="FBEGINHIREDATE" ColumnName="FBEGINHIREDATE" />
+                <ScalarProperty Name="FCOMPOPENDATE" ColumnName="FCOMPOPENDATE" />
+                <ScalarProperty Name="FREOPENDATE" ColumnName="FREOPENDATE" />
+                <ScalarProperty Name="FCHANGDATE" ColumnName="FCHANGDATE" />
+                <ScalarProperty Name="FPAYDATE" ColumnName="FPAYDATE" />
+                <ScalarProperty Name="FOPENDATE" ColumnName="FOPENDATE" />
+                <ScalarProperty Name="FADDR" ColumnName="FADDR" />
+                <ScalarProperty Name="FORGID" ColumnName="FORGID" />
+                <ScalarProperty Name="FPROVINCIAL" ColumnName="FPROVINCIAL" />
+                <ScalarProperty Name="FCITY" ColumnName="FCITY" />
+                <ScalarProperty Name="FAPPROVEDATE" ColumnName="FAPPROVEDATE" />
+                <ScalarProperty Name="FAPPROVERID" ColumnName="FAPPROVERID" />
+                <ScalarProperty Name="FMODIFYDATE" ColumnName="FMODIFYDATE" />
+                <ScalarProperty Name="FCREATEDATE" ColumnName="FCREATEDATE" />
+                <ScalarProperty Name="FCREATORID" ColumnName="FCREATORID" />
+                <ScalarProperty Name="FMODIFIERID" ColumnName="FMODIFIERID" />
+                <ScalarProperty Name="FFORBIDSTATUS" ColumnName="FFORBIDSTATUS" />
+                <ScalarProperty Name="FDOCUMENTSTATUS" ColumnName="FDOCUMENTSTATUS" />
+                <ScalarProperty Name="FNUMBER" ColumnName="FNUMBER" />
+                <ScalarProperty Name="FFormId" ColumnName="FFormId" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMK_LS_Branch_L">
+            <EntityTypeMapping TypeName="K3CloudModel.CMK_LS_Branch_L">
+              <MappingFragment StoreEntitySet="CMK_LS_Branch_L">
+                <ScalarProperty Name="FDESCRIPTION" ColumnName="FDESCRIPTION" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="FLocaleID" ColumnName="FLocaleID" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="FPKID" ColumnName="FPKID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

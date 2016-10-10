@@ -1,0 +1,104 @@
+﻿@model USP.Models.POCO.Login
+
+@{
+    ViewBag.Title = "登录";
+}
+@section themes{
+    <link href="~/Static/Css/usp/usp.login.css" rel="stylesheet" />
+}
+<style>
+    .bg{  
+        background-image:url(/Static/Img/2.png) ;background-attachment:fixed;background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;
+       }  
+    .loginKDLogo {
+        padding:0px;
+        width:164px;
+        height:60px;
+        background-image:url(/Static/Img/ilogo2.png);
+        background-size:contain;
+        background-repeat:no-repeat;
+        margin-top: 10px;
+        margin-left: 80px;
+        display: inline-block;
+    }
+    .loginCopyright {
+    text-align:center;
+    font-size:1.1em;
+    text-wrap:none;
+    padding:15px;
+    background-color:RGB(242,242,242);
+    color:RGB(169,169,169);
+}
+</style>
+<div class="loginKDLogo">
+</div>
+<div class="container-fluid bg">
+  
+        <div class="container ">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-md-offset-8">
+                    <div class="account-wall">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-signin">
+                                <div class="text-center"><h1><b> 员工自助平台</b></h1></div>
+                                <div class="form-group">
+                                    <div class="input-group" style="margin-top: -2px;margin-bottom: 10px">
+                                        <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @Value = "" } })
+
+                                    </div>
+                                    <div class="input-group" style="margin-top: -2px;margin-bottom: 10px">
+                                        <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Value = "", @Type = "password" } })
+
+                                    </div>
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <div class="col-md-6">
+                                            <div class="input-group" style="margin-bottom: 10px;">
+                                                <span class="input-group-addon  glyphicon glyphicon-ok"></span>
+                                                @Html.EditorFor(model => model.Captcha, new { htmlAttributes = new { @class = "form-control" } })
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <img style="top: 0px;height: 45px" src="/Captcha/Index" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(model => model.Captcha, "", new { @class = "text-danger" })
+                                        <input type="submit" value="登 录" style="margin-bottom: 20px" class="btn btn-lg btn-primary btn-block" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                        }
+                    </div>
+                </div>
+            </div>
+            <br />
+          
+        </div>
+   
+</div>
+
+<div class="container">
+    <div class="row loginCopyright" style="height:30px">
+        © 2015-2016好想你枣业股份有限公司版权所有
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/Js/Usp")
+    <script>
+        $(function () {
+            usp.init();
+            if (window.top != window) {
+                window.top.document.location.href = window.location.href;
+            }
+        });
+    </script>
+}

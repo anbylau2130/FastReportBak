@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<table id="privileges"></table>
+<div id="toolbar">
+    <span style="float: right;">
+        所属菜单:<input id="menuId" value="-1" />
+        <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="usp.sysytem.privilege.searchPrivilege()">查询</a>
+    </span>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><a href="/System/Privilege/AddPrivilege" class="easyui-linkbutton" plain="true" icon="icon-add">添加</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-edit" onclick="usp.sysytem.privilege.editPrivilege()">编辑</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-remove" onclick="usp.sysytem.privilege.cancelPrivilege()">注销</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-redo" onclick="usp.sysytem.privilege.activePrivilege()">激活</a></td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.privilege.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.sysytem.privilege.init('#privileges', '/System/Privilege/Index', '#toolbar', '#menuId', '/System/Privilege/Index', '/System/Privilege/CancelPrivilege', '/System/Privilege/ActivePrivilege');
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            }
+        });
+    </script>
+}

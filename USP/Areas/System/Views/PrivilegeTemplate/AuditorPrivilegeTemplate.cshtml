@@ -1,0 +1,68 @@
+﻿@using USP.Common
+@using USP.Models.POCO
+@model USP.Models.POCO.PrivilegeTemplateResult
+@{
+    ViewBag.Title = "AuditorPrivilegeTemplate";
+    Layout = "~/Areas/System/Views/Shared/_Layout.cshtml";
+}
+@section themes{
+    <link href="~/Static/Css/usp/usp.privilegeTemplate.auditorPrivilegeTemplate.css" rel="stylesheet" />
+}
+<div id="p" class="easyui-panel" style="width: 100%; height: 100%">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="pull-right"><a href="javascript:history.go(-1)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-chevron-left"></span>返回</a></div>
+            <span class="glyphicon glyphicon-ok"></span> 审核权限模板
+        </div>
+    </div>
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.CorpType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.DropDownListFor(u => u.CorpType, (List<SelectListItem>)ViewData["CorpTypeList"], "-- Select Contact --", new { @class = "form-control", disabled = "true" })*@
+                    <input name="CorpTypeName" class="form-control" value="@ViewBag.CorpTypeName" readonly="readonly" />
+                    <input type="hidden" name="CorpType" id="CorpType" value="@Model.CorpType" />
+                      @Html.ValidationMessageFor(model => model.CorpType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Privileges, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="easyui-panel" style="width: 400px">
+                        @Html.TreeListFor(u => u.Privileges, ViewData["TreeList"] as TreeOptions, new { @class = "form-control" })
+                        @Html.HiddenFor(u => u.Privileges)
+                    </div>
+                    @Html.ValidationMessage("Privileges", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group form-actions">
+                <div class="col-md-offset-2 col-xs-1 ">
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>审核通过</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+    <script src="~/Static/Js/usp/usp.privilegeTemplate.auditorPrivilegeTemplate.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.init();
+        //    usp.privilegeTemplate.auditorPrivilegeTemplate.init("#btnReturn", "#Privileges", "#PrivilegesTree", "GetPrivilegeTree", "#CorpType", '/System/PrivilegeTemplate/PrivilegeTemplates');
+
+            usp.privilegeTemplate.auditorPrivilegeTemplate.init("#btnReturn",
+                "#Privileges",
+                "#PrivilegesTree",
+                "AddPrivilegeTemplate",
+                "#CorpType");
+        });
+
+    </script>
+}

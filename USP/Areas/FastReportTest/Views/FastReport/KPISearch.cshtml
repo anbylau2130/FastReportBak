@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+@FastReport.Web.WebReportGlobals.ScriptsWOjQuery()
+@FastReport.Web.WebReportGlobals.StylesWOjQuery()
+<style>
+    .frtoolbar {
+        height: 40px !important;
+    }
+</style>
+<div class="panel panel-info">
+    <div class="panel-heading" style="margin-bottom:15px">
+        <span class="glyphicon glyphicon-edit"></span> KPI查询
+    </div>
+    <div class="form-horizontal">
+        <div class="form-body">
+            <div class="form-group ">
+                <label class="col-md-2 control-label">工号</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入员工工号" id="gonghao" name="gonghao" placeholder="员工工号" value="">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="gonghao" data-valmsg-replace="true"></span>
+                </div>
+                <div class="col-md-5">
+                    <button type="submit" class="btn btn-primary" onclick="iframeLoad()"><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<iframe id="fastreportIframe" frameborder="0" style="overflow:hidden;height:100%;width:100%;"></iframe>
+@section scripts{
+
+    <script>
+        usp.init();
+        function iframeLoad() {
+            var gonghao = $("#gonghao").val()
+            if (gonghao) {
+                $("#fastreportIframe").attr("src", "KPI?GongHao=" + gonghao)
+            } else {
+                toastr.error("工号不能为空！");
+            }
+        }
+    </script>
+}
+

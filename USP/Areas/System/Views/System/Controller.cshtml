@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<table id="controlers"></table>
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.controller.js"></script>
+    <script>
+        $(function () {
+            usp.sysytem.controller.initGrid("#controlers", "/System/System/Controllers");
+        });
+    </script>
+}

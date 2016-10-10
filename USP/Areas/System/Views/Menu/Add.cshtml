@@ -1,0 +1,127 @@
+﻿@model  USP.Models.Entity.SysMenu
+@{
+    ViewBag.Title = @ViewBag.PanelTitle;
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-right"><a href="javascript:history.go(-1)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-chevron-left"></span>返回</a></div>
+        @{
+            if (ViewBag.Id == 0)
+            {
+                <span class="glyphicon glyphicon-plus"></span> @ViewBag.PanelTitle
+            }
+            else
+            {
+                <span class="glyphicon glyphicon-edit"></span> @ViewBag.PanelTitle
+            }
+        }
+    </div>
+</div>
+@using (Html.BeginForm("Add", "Menu", new { area = "System" }, FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Parent, "上级菜单", new { @class = "col-sm-3 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(model => model.Parent, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Parent, "", new { @class = "text-danger", id = "errormenu" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "菜单名称", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", id = "errorname" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Icon, "图标", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Icon, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Icon, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Clazz, "Class", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Clazz, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Area, "Area", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Area, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Controller, "Controller", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Controller, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Method, "Action", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Method, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Parameter, "Parameter", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Parameter, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Url, "Url", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Remark, "备注", new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-6">
+            @Html.TextAreaFor(model => model.Remark, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            @{
+                if (ViewBag.Id == 0)
+                {  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>@ViewBag.BtnTitle</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>@ViewBag.BtnTitle</button>
+                }
+            }
+        </div>
+    </div>
+                }
+
+@section scripts{
+    @Scripts.Render("~/Js/Usp")
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.menu.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.sysytem.menu.initMenuCombotree('#Parent', '/System/Menu/Add');
+            usp.sysytem.menu.checkMenuName('#Name', '#ID', '#Parent', '/System/Menu/Add', '#errorname');
+            if ('@TempData["returnMsgType"]' == 'false') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        })
+    </script>
+}
+
+

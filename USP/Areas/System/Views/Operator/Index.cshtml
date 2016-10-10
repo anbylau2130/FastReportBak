@@ -1,0 +1,97 @@
+﻿@model USP.Models.Entity.SysOperator
+@{
+    ViewBag.Title = "Index";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.operator.css" rel="stylesheet" />
+}
+<!--操作按钮开始-->
+<div id="operatortoolbarmenu" class="datagrid-toolbar" style="padding-bottom:3px">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="usp.system.operator.append();">添加</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="usp.system.operator.edit();">编辑</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="usp.system.operator.cancel();">注销</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="usp.system.operator.active(); ">激活</a>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="usp.system.operator.supplier();">关联供应商</a>
+            </td>
+            @*<td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-ok" plain="true" onclick="usp.system.operator.audit();">审核</a>
+            </td>*@
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-lock" plain="true" onclick="usp.system.operator.resetPassword();">重置密码</a>
+            </td>
+       </tr>
+     </table>
+</div>
+<!--操作按钮结束-->   
+
+ <!--搜索开始-->
+<div id="operatortoolbarsearch" style="padding:3px" class="datagrid-toolbar">
+    <form>
+        <span>状态</span>
+        <select name="status" id="status" editable=false panelHeight=auto style="width: 80px">
+        </select>
+
+        <input class="easyui-searchbox" id="name" data-options="prompt:'请输入',menu:'#mm',searcher:usp.system.operator.search" style="width:300px">
+        <div id="mm">
+            <div data-options="name:'LoginName'">登录名</div>
+            <div data-options="name:'RealName'">姓名</div>
+        </div>
+    </form>
+</div>
+<!--搜索结束-->
+
+<!--列表-->
+<table id="operator"></table>
+
+<!--弹出新窗口-->
+<div id="resetpassword" title="重置密码" class="easyui-dialog" closed="true" style="width:300px;height:150px;" @*style="padding:5px;width:400px;height:200px;"*@>
+
+    <form style="padding: 30px 30px 10px 30px;" >
+        <p>新密码：<input type="text" id="newpassword" class="easyui-textbox" value="123456"/>
+        </p>
+    </form>
+
+</div>
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.operator.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.system.operator.init('#operator', '/System/Operator/Index', 'operatortoolbarmenu', 'operatortoolbarsearch', '/System/Operator/Auditor', '/System/Operator/Cancel', '/System/Operator/Active', '/System/Operator/ResetPassword', '#status', '/System/Operator/Index');
+            if ('@TempData["resultMsgType"]' == 'success') {
+                toastr.success('@TempData["resultMsg"]');
+            } else if ('@TempData["resultMsgType"]' == 'error') {
+                toastr.error('@TempData["resultMsg"]');
+            }
+        });
+</script>
+}
+

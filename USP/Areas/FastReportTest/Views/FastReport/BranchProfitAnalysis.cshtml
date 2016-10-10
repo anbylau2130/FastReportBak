@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@FastReport.Web.WebReportGlobals.ScriptsWOjQuery()
+@FastReport.Web.WebReportGlobals.StylesWOjQuery()
+<style>
+    .frtoolbar {
+        height: 30px !important;
+    }
+</style>
+
+<div style="overflow:hidden">
+    @ViewBag.WebReport.GetHtml()
+</div>

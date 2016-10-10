@@ -1,0 +1,41 @@
+﻿#home-head-operator
+{
+    position:fixed;
+    top:55px;
+    left:9px
+}
+#home-head-corp
+{
+    position:fixed;
+    top:0px;
+    left:300px;
+}
+#home-head-menu
+{
+    position:fixed;
+    top:10px;
+    right:9px
+}
+#home-head-timer
+{
+    position:fixed;
+    top:55px;
+    right:9px
+}
+
+iframe {
+    display: block;       /* iframes are inline by default */
+    scrolling:auto;
+    //border: none;         /* Reset default border */
+    //height: 100vh;        /* Viewport-relative units */
+    //width: 100vw;
+    //overflow:auto;
+}
+
+.easyui-accordion .menu_item {
+    padding:2px 2px 2px 8px;
+    text-decoration:none;
+    cursor:pointer;
+    display:block;
+}
+

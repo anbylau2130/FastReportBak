@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<table id="menus"></table>
+<div id="tb" style="height: auto">
+    <span style="float: right;">
+        菜单名称:<input class="easyui-textbox js-param" id="name" name="name" value="@ViewBag.Name" />
+        <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="usp.sysytem.menu.search('#menus', '#tb')">查询</a>
+    </span>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <a href="/System/Menu/Add" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
+            </td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true" onclick="usp.sysytem.menu.edit('#menus')">编辑</a>
+            </td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true" onclick="usp.sysytem.menu.audit('#menus')">审核</a>
+            </td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true" onclick="usp.sysytem.menu.cancel('#menus')">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.menu.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.sysytem.menu.initMenusDataGrid("#menus", "/System/Menu/Index", $('#name').val());
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            }
+        })
+    </script>
+}

@@ -1,0 +1,106 @@
+﻿@model USP.Models.POCO.OperatorSupplier
+@{
+    ViewBag.Title = "OperatorSupplier";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.operator.relationsupplier.css" rel="stylesheet" />
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-edit"></i>关联供应商
+        <div style="float: right;">
+            <a href="Index"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <input type="hidden" id="hdid" name="ID" value="@Model.ID" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoginName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LoginName, new { htmlAttributes = new { @class = "form-control", id = "LoginName", placeholder = "登录名必填" } })
+                    @Html.ValidationMessageFor(model => model.LoginName, "", new { @class = "text-danger", id = "errorname" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">姓名</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RealName, new { htmlAttributes = new { @class = "form-control", id = "RealName", placeholder = "姓名必填" } })
+                    @Html.ValidationMessageFor(model => model.RealName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-md-2">K3Cloud组织名称</label>
+                <div class="col-md-10">
+                    <div class="tree-role col-md-4">
+                        <input id="k3orgnizations" width="250" />
+                        <input type="hidden" id="hdorgnizations" name="Orgnization" data-val="true" value="" data-val-required="请选择供应商" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">供应商</label>
+                <div class="col-md-10">
+                    <div class="tree-role col-md-4">
+                        <input id="operatorSupplier" width="250"  />
+                        <input type="hidden" id="hdsupplier" name="Supplier" data-val="true" value="" data-val-required="请选择供应商" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" id="submit-btn" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;关&nbsp;联</button>
+                    @Html.ValidationMessage("errorresult", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.operator.relationsupplier.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            $('#operatorSupplier').combotree();
+            $("#k3orgnizations").combotree({
+                method: 'post',
+                width: 290,
+                queryParams: { actionName: 'orgtree' },
+                url: '/System/Operator/RelationSupplier',
+                required: true,
+                onChange: function (newValue, oldValue) {
+                    $("#hdorgnizations").val(newValue);
+                    $('#operatorSupplier').combotree({
+                        method: 'post',
+                        width: 290,
+                        queryParams: { actionName: 'suppliertree', orgid: newValue },
+                        url: '/System/Operator/RelationSupplier',
+                        required: true,
+                        onChange: function (newValue, oldValue) {
+                            $("#hdsupplier").val(newValue);
+                        },
+                        onLoadSuccess: function (node, data) {
+                            if ("@Model.Supplier" != '') {
+                                $('#operatorSupplier').combotree('setValue', '@Model.Supplier');
+                            }
+                        }
+                    });
+                },
+                onLoadSuccess: function (node, data) {
+                    if ("@Model.Orgnization" != '') {
+                        $('#k3orgnizations').combotree('setValue', '@Model.Orgnization');
+                    }
+                }
+            });
+
+        });
+    </script>
+}

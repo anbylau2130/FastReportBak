@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "公司管理列表";
+}
+@section themes{
+
+    <link href="~/Static/Css/usp/usp.corporation.corpations.css" rel="stylesheet" />
+}
+
+
+<div id="cc" class="easyui-layout" style="width:100%;height:100%;">
+    <div data-options="region:'center'" style="border: 0px">
+        <table id="corporations"></table>
+        <div id="dialog"></div>
+    </div>
+</div>
+
+
+<div id="corporationsearch" style="padding:3px">
+    <form>
+        <span>状态</span>
+        <select name="status" id="status" editable=false panelHeight=auto style="width: 80px"></select>
+
+        <span id="search">
+            公司名称:<input class="easyui-textbox" id="corpName" name="corpName" />
+            <a class="easyui-linkbutton" iconCls="icon-search" onclick="usp.corporatin.corporations.searchCorp()">查询</a>
+        </span>
+    </form>
+</div>
+@section scripts{
+    <script src="~/Static/Js/usp/usp.corporatin.corporations.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.init();
+            usp.corporatin.corporations.initGrid("#corporations",
+                "/System/Corporation/Corporations",
+                "AddCorporation",
+                "EditCorporation",
+                "CancelCorporation",
+                "EnableCorporation",
+                "AuditorCorporation");
+
+            //$('#Status').combobox({
+            //    url: '/System/Corporation/GetSysCorpStatus',
+            //    valueField: 'id',
+            //    textField: 'text'
+            //});
+
+            usp.corporatin.corporations.initCombobox("#status", "/System/Corporation/Corporations");
+
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            } else if ('@TempData["returnMsgType"]' == 'error') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        });
+    </script>
+}

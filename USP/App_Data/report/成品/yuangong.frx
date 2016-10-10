@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/17/2016 19:36:04" ReportInfo.Modified="10/08/2016 11:35:47" ReportInfo.CreatorVersion="2014.4.8.0" PrintSettings.SavePrinterWithReport="true">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void Cell31_BeforePrint(object sender, EventArgs e)
+    {
+           //Cell31.FillColor=Color.Red  ; 
+    }
+
+    private void Page1_StartPage(object sender, EventArgs e)
+    {
+
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlquQ+MGUuFmwCkhAb0ntbeLNzC7sK8p+JIv/aYxEi/dDLK5qUTaroHqda6ZvH32vUKIlCXO0FAoFRuJaB4jKzV44bAVnXQyonz5K+w1LVlzy0iR+qxLmf7DnykPcPj43Fzu+snnBnu7MnCjG7+/7w2twlwOcb1fmeLQvXElFe/rBMjk387xmPVKRwtc/2+NAg8uCWuDBxeOzI1skHx6gYMtQ==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="exec HXN_HR_Tsui_UserInfo @GongHao,@Date">
+        <Column Name="GWID" DataType="System.String"/>
+        <Column Name="SJGW" DataType="System.String"/>
+        <Column Name="XJGW" DataType="System.String"/>
+        <Column Name="ORGID" DataType="System.String"/>
+        <Column Name="姓名" DataType="System.String"/>
+        <Column Name="员工工号" DataType="System.String"/>
+        <Column Name="岗位" DataType="System.String"/>
+        <Column Name="所属组织" DataType="System.String"/>
+        <Column Name="职级" DataType="System.String"/>
+        <Column Name="入职日期" DataType="System.String"/>
+        <Column Name="公司工龄" DataType="System.String"/>
+        <Column Name="出生日期" DataType="System.String"/>
+        <Column Name="年龄" DataType="System.String"/>
+        <Column Name="户口所在地" DataType="System.String"/>
+        <Column Name="学历" DataType="System.String"/>
+        <Column Name="专业" DataType="System.String"/>
+        <Column Name="毕业院校" DataType="System.String"/>
+        <Column Name="联系方式" DataType="System.String"/>
+        <Column Name="体系模式" DataType="System.String"/>
+        <Column Name="一级部门" DataType="System.String"/>
+        <Column Name="二级部门" DataType="System.String"/>
+        <Column Name="三级部门" DataType="System.String"/>
+        <Column Name="四级部门" DataType="System.String"/>
+        <Column Name="五级部门" DataType="System.String"/>
+        <Column Name="直接上级" DataType="System.String"/>
+        <Column Name="直接下级人数" DataType="System.String"/>
+        <Column Name="直接下级经理级以上" DataType="System.String"/>
+        <Column Name="直接下级经理级以下" DataType="System.String"/>
+        <Column Name="间接下级人数" DataType="System.String"/>
+        <Column Name="间接下级经理级以上" DataType="System.String"/>
+        <Column Name="间接下级经理级以下" DataType="System.String"/>
+        <Column Name="间接下级绩优人员" DataType="System.String"/>
+        <Column Name="间接下级绩差人员" DataType="System.String"/>
+        <Column Name="团队总人数" DataType="System.String"/>
+        <Column Name="上级团队总人数" DataType="System.String"/>
+        <Column Name="平均年龄" DataType="System.String"/>
+        <Column Name="平均司龄" DataType="System.String"/>
+        <Column Name="满编率" DataType="System.String"/>
+        <Column Name="团队月工资" DataType="System.String"/>
+        <Column Name="销售额" DataType="System.String"/>
+        <Column Name="男员工占比" DataType="System.String"/>
+        <Column Name="参考男员工占比" DataType="System.String"/>
+        <Column Name="大专以上占比" DataType="System.String"/>
+        <Column Name="参考大专以上占比" DataType="System.String"/>
+        <Column Name="A90后占比" DataType="System.String"/>
+        <Column Name="参考A90后占比" DataType="System.String"/>
+        <Column Name="本地人员占比" DataType="System.String"/>
+        <Column Name="参考本地人员占比" DataType="System.String"/>
+        <Column Name="月人员流失率" DataType="System.String"/>
+        <Column Name="参考月人员流失率" DataType="System.String"/>
+        <Column Name="工资销额比" DataType="System.String"/>
+        <Column Name="参考工资销额比" DataType="System.String"/>
+        <Column Name="人均月工资" DataType="System.String"/>
+        <Column Name="参考人均月工资" DataType="System.String"/>
+        <Column Name="人均劳效" DataType="System.String"/>
+        <Column Name="参考人均劳效" DataType="System.String"/>
+        <Column Name="备注" DataType="System.String"/>
+        <Column Name="岗位任职时间" DataType="System.String"/>
+        <Column Name="资格证书" DataType="System.String"/>
+        <Column Name="Year" DataType="System.String"/>
+        <Column Name="Month" DataType="System.String"/>
+        <Column Name="Date" DataType="System.String"/>
+        <CommandParameter Name="GongHao" DataType="22" Expression="[工号]"/>
+        <CommandParameter Name="Date" DataType="22" Expression="[日期]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="工号" DataType="System.String"/>
+    <Parameter Name="制表人" DataType="System.String"/>
+    <Parameter Name="人资主管" DataType="System.String"/>
+    <Parameter Name="日期" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="290" PaperHeight="210" Guides="0" Watermark.Enabled="true" Watermark.TextRotation="BackwardDiagonal" StartPageEvent="Page1_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Width="1020.6" Height="66.15" Guides="47.25,47.25">
+      <TextObject Name="Text1" Left="122.85" Top="9.45" Width="774.9" Height="47.25" Text="&lt;b&gt;[Table.Year]年[Table.Month]月  好想你公司管理人员信息表（经理级以上）&lt;/b&gt;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 16pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text2" Left="822.15" Top="47.25" Width="170.1" Height="18.9" Text="(截止 [Table.Date] 数据)" Font="宋体, 9pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="70.32" Width="1020.6" Height="624.11" Guides="292.95">
+      <TableObject Name="Table1" Width="1020.6" Height="624.11" Dock="Fill">
+        <TableColumn Name="Column1" Width="100.17"/>
+        <TableColumn Name="Column2" Width="100.17"/>
+        <TableColumn Name="Column3" Width="100.17"/>
+        <TableColumn Name="Column4" Width="100.17"/>
+        <TableColumn Name="Column5" Width="100.17"/>
+        <TableColumn Name="Column6" Width="100.17"/>
+        <TableColumn Name="Column7" Width="90.72"/>
+        <TableColumn Name="Column8" Width="109.62"/>
+        <TableColumn Name="Column9" Width="119.07"/>
+        <TableColumn Name="Column10" Width="100.17"/>
+        <TableRow Name="Row1" Height="38.69">
+          <TableCell Name="Cell1" Border.Lines="All" Text="&lt;b&gt;姓名&lt;/b&gt;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt" HtmlTags="true"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[Table.姓名]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="工号&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[Table.员工工号]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="体系/模式&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="[Table.体系模式]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="一级部门&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="[Table.一级部门]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="二级部门&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="[Table.二级部门]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="38.69">
+          <TableCell Name="Cell6" Border.Lines="All" Text="三级部门&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[Table.三级部门]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="四级部门&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="[Table.四级部门]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="岗位&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell31" Border.Lines="All" BeforePrintEvent="Cell31_BeforePrint" Text="[Table.岗位]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="职级&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="[Table.职级]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="现岗位任职时间&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell35" Border.Lines="All" Text="[Table.岗位任职时间]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="38.69">
+          <TableCell Name="Cell11" Border.Lines="All" Text="入职时间&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell12" Border.Lines="All" Text="[Table.入职日期]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell13" Border.Lines="All" Text="公司工龄&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell14" Border.Lines="All" Text="[Table.公司工龄]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell15" Border.Lines="All" Text="出生日期&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell36" Border.Lines="All" Text="[Table.出生日期]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="年龄&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="[Table.年龄]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell39" Border.Lines="All" Text="户口所在地&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell40" Border.Lines="All" Text="[Table.户口所在地]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="38.69">
+          <TableCell Name="Cell16" Border.Lines="All" Text="学历&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell17" Border.Lines="All" Text="[Table.学历]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell18" Border.Lines="All" Text="专业&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell19" Border.Lines="All" Text="[Table.专业]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell20" Border.Lines="All" Text="学校&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell41" Border.Lines="All" Text="[Table.毕业院校]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell42" Border.Lines="All" Text="资格证书&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell43" Border.Lines="All" Text="[Table.资格证书]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell44" Border.Lines="All" Text="联系方式&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell45" Border.Lines="All" Text="[Table.联系方式]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="38.69">
+          <TableCell Name="Cell21" Border.Lines="All" Text="直接上级&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell22" Border.Lines="All" Text="[Table.直接上级]" VertAlign="Center" Font="宋体, 9pt" ColSpan="9"/>
+          <TableCell Name="Cell23" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell24" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell25" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell46" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell47" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell48" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell49" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell50" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="38.69">
+          <TableCell Name="Cell51" Border.Lines="All" Text="直接下级&#13;&#10;&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" RowSpan="2"/>
+          <TableCell Name="Cell52" Border.Lines="All" Text="[Table.直接下级人数]" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+          <TableCell Name="Cell53" Border.Lines="All" Text="经理级以上&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell54" Border.Lines="All" Text="[Table.直接下级经理级以上]" VertAlign="Center" Font="宋体, 9pt" ColSpan="7"/>
+          <TableCell Name="Cell55" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell56" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell57" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell58" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell59" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell60" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="38.69">
+          <TableCell Name="Cell61" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell62" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell63" Border.Lines="All" Text="经理级以下&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell64" Border.Lines="All" Text="[Table.直接下级经理级以下]" VertAlign="Center" Font="宋体, 9pt" ColSpan="7"/>
+          <TableCell Name="Cell65" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell66" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell67" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell68" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell69" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell70" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="38.69">
+          <TableCell Name="Cell71" Border.Lines="All" Text="间接下级&#13;&#10;&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" RowSpan="2"/>
+          <TableCell Name="Cell72" Border.Lines="All" Text="[Table.间接下级人数]" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+          <TableCell Name="Cell73" Border.Lines="All" Text="经理级以上&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="[Table.间接下级经理级以上]" VertAlign="Center" Font="宋体, 9pt" ColSpan="7"/>
+          <TableCell Name="Cell75" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell76" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell77" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell78" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell79" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell80" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row9" Height="38.69">
+          <TableCell Name="Cell81" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell82" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell83" Border.Lines="All" Text="经理级以下&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell84" Border.Lines="All" Text="[Table.间接下级经理级以下]" VertAlign="Center" Font="宋体, 9pt" ColSpan="7"/>
+          <TableCell Name="Cell85" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell86" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell87" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell88" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell89" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell90" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row12" Height="38.69">
+          <TableCell Name="Cell111" Border.Lines="All" Text="团队总人数&#13;&#10;&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" RowSpan="2"/>
+          <TableCell Name="Cell112" Border.Lines="All" Text="[Table.团队总人数]" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+          <TableCell Name="Cell113" Border.Lines="All" Text="平均年龄&#13;&#10;&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" RowSpan="2"/>
+          <TableCell Name="Cell114" Border.Lines="All" Text="[Table.平均年龄]" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+          <TableCell Name="Cell115" Border.Lines="All" Text="平均司龄&#13;&#10;&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" RowSpan="2"/>
+          <TableCell Name="Cell116" Border.Lines="All" Text="[Table.平均司龄]" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+          <TableCell Name="Cell117" Border.Lines="All" Text="满编率&#13;&#10;&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" RowSpan="2"/>
+          <TableCell Name="Cell118" Border.Lines="All" Text="[Table.满编率]" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+          <TableCell Name="Cell119" Border.Lines="All" Text="团队月工资（万元）&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell120" Border.Lines="All" Text="[Table.团队月工资]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row13" Height="38.69">
+          <TableCell Name="Cell121" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell122" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell123" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt" HtmlTags="true"/>
+          <TableCell Name="Cell124" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell125" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell126" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell127" Border.Lines="All" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell128" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell129" Border.Lines="All" Text="销售额（万元）&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell130" Border.Lines="All" Text="[Table.销售额]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="48.14">
+          <TableCell Name="Cell131" Border.Lines="All" Text="对比分析&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell132" Border.Lines="All" Text="男员工占比&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell133" Border.Lines="All" Text="大专以上占比&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell134" Border.Lines="All" Text="90后占比&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell135" Border.Lines="All" Text="本地人员占比&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell136" Border.Lines="All" Text="月人员流失率&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell137" Border.Lines="All" Text="工资销额比&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell138" Border.Lines="All" Text="人均月工资（元）&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell139" Border.Lines="All" Text="人均劳效（万元）&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell140" Border.Lines="All" Text="备注&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="50.11">
+          <TableCell Name="Cell141" Border.Lines="All" Text="本月数&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell142" Border.Lines="All" Text="[Table.男员工占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell143" Border.Lines="All" Text="[Table.大专以上占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell144" Border.Lines="All" Text="[Table.A90后占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell145" Border.Lines="All" Text="[Table.本地人员占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell146" Border.Lines="All" Text="[Table.月人员流失率]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell147" Border.Lines="All" Text="[Table.工资销额比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell148" Border.Lines="All" Text="[Table.人均月工资]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell149" Border.Lines="All" Text="[Table.人均劳效]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell150" Border.Lines="All" Text="[Table.备注]" VertAlign="Center" Font="宋体, 9pt" RowSpan="2"/>
+        </TableRow>
+        <TableRow Name="Row16" Height="50.11">
+          <TableCell Name="Cell151" Border.Lines="All" Text="参考值/目标值&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell152" Border.Lines="All" Text="[Table.参考男员工占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell153" Border.Lines="All" Text="[Table.参考大专以上占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell154" Border.Lines="All" Text="[Table.参考A90后占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell155" Border.Lines="All" Text="[Table.参考本地人员占比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell156" Border.Lines="All" Text="[Table.参考月人员流失率]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell157" Border.Lines="All" Text="[Table.参考工资销额比]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell158" Border.Lines="All" Text="[Table.参考人均月工资]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell159" Border.Lines="All" Text="[Table.参考人均劳效]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell160" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row17" Height="50.11">
+          <TableCell Name="Cell161" Border.Lines="All" Text="直接上级：&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
+          <TableCell Name="Cell162" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell163" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell164" Border.Lines="All" Text="责任人：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell165" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell166" Border.Lines="All" Text="人资主管：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell167" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell168" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell169" Border.Lines="All" Text="制表人：&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell170" Border.Lines="All" Text="[制表人]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

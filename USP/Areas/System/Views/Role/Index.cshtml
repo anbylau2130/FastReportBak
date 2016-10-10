@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "角色管理";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.role.css" rel="stylesheet" />
+}
+<table id="roles"></table>
+<div id="toolbar">
+    <span style="float: right;">
+        名称:<input class="easyui-textbox" id="roleName" name="roleName" />
+        <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="usp.sysytem.role.searchRole()">查询</a>
+    </span>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><a href="/System/role/addrole" class="easyui-linkbutton" plain="true" icon="icon-add">添加</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-edit" onclick="usp.sysytem.role.editRole()">编辑</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-remove" onclick="usp.sysytem.role.cancelRole()">注销</a></td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td><a href="#" class="easyui-linkbutton" plain="true" icon="icon-redo" onclick="usp.sysytem.role.activeRole()">激活</a></td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script type="text/javascript" src="/Static/Js/usp/usp.system.role.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.sysytem.role.init('#roles', '/System/Role/Index', '#toolbar', '#roleName', '/System/Role/CancelRole', '/System/Role/ActiveRole');
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            }else if ('@TempData["returnMsgType"]' == 'error') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        });
+    </script>
+}
+

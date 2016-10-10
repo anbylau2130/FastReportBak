@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "BankList";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.bank.css" rel="stylesheet" />
+}
+<!--操作按钮开始-->
+<div id="banktoolbar" class="datagrid-toolbar" style="padding-bottom:3px">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="usp.system.bank.append();">添加</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="usp.system.bank.eidt();">编辑</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="usp.system.bank.cancel();">注销</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="usp.system.bank.active();">激活</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <span>银行卡类型</span>
+                <select name="type" id="type" editable="false" panelHeight="auto">
+                    <option value="-1" selected="selected">全部</option>
+                    <option value="1">储蓄卡</option>
+                    <option value="2">信用卡</option>
+                    <option value="3">支付宝</option>
+                </select>
+
+                <input class="easyui-searchbox" id="name" data-options="prompt:'请输入',menu:'#mm',searcher:usp.system.bank.search" style="width:300px">
+                <div id="mm">
+                    <div data-options="name:'BankName'">银行名称</div>
+                    <div data-options="name:'NiceName'">别名</div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--操作按钮结束-->
+
+<!--列表-->
+<table id="bank"></table>
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.bank.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.system.bank.init("#bank", "/System/Bank/Index", "#banktoolbar", "/System/bank/Cancle", "/System/bank/Active");
+            if ('@TempData["resultMsgType"]' == 'success') {
+                toastr.success('@TempData["resultMsg"]');
+            } else if ('@TempData["resultMsgType"]' == 'error') {
+                toastr.error('@TempData["resultMsg"]');
+            }
+        });
+
+        $("#type").combobox({
+            onSelect: function () {
+                usp.system.bank.search();
+            }
+        });
+    </script>
+}

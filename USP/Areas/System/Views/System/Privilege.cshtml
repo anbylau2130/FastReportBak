@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<table id="privileges"></table>
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.privilege.js"></script>
+    <script>
+        $(function () {
+            usp.sysytem.privilege.initGrid("#privileges", "/System/System/Privileges");
+        });
+    </script>
+}

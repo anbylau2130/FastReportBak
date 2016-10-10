@@ -1,0 +1,379 @@
+﻿
+@using USP.Models.Entity
+@model SysCorp
+@{
+    ViewBag.Title = "编辑公司";
+}
+@*@section themes{
+        <link href="~/Static/Css/usp/usp.corporation.editCorporation.css" rel="stylesheet" />
+    }*@
+<div id="p" class="easyui-panel" style="width: 100%; height: 100%">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="pull-right"><a href="javascript:history.go(-1)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-chevron-left"></span>返回</a></div>
+            <span class="glyphicon glyphicon-ok"></span> 审核通过
+        </div>
+    </div>
+    @using (Html.BeginForm("AuditorCorporation", "Corporation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form form-horizontal" role="form">
+            <fieldset id="flt-baseInfo">
+                <legend>基础信息</legend>
+                <div class="form-group" id="fg-ID">
+                    @*@Html.LabelFor(u => u.ID, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "ID" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.ID, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                            @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+                        </div>*@
+                    @Html.HiddenFor(x => x.ID)
+                    @Html.LabelFor(u => u.Parent, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Parent" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Parent, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Parent, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Priority">
+                    @Html.LabelFor(u => u.Name, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Name, new { htmlAttributes = new { @class = "form-control", type = "text", placeholder = "Name", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.BriefName, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.BriefName, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.BriefName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(u => u.LogoIcon, htmlAttributes: new {@class = "col-sm-2 control-label"})*@
+                    <label class="col-sm-2 control-label">公司图标</label>
+                    <div class="col-sm-4">
+                        <input id="LogoIcon" name="IconUpload" class="easyui-filebox" data-options="buttonText: '选择文件'" />
+                        <input name="LogoIcon" type="hidden" value="@Model.LogoIcon" />
+                        @Html.ValidationMessage("iconerror", new { @class = "text-danger" })
+                    </div>
+                    @*@Html.LabelFor(u => u.LogoUrl, htmlAttributes: new {@class = "col-sm-2 control-label"})*@
+                    <label class="col-sm-2 control-label">公司Logo</label>
+                    <div class="col-sm-4">
+                        <input id="LogoUrl" name="UrlUpload" class="easyui-filebox" data-options="buttonText: '选择文件'" />
+                        <input name="LogoUrl" type="hidden" value="@Model.LogoUrl" />
+                        @Html.ValidationMessage("urlerror", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @if (Model.LogoIcon != "" & Model.LogoIcon != null)
+                    {
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-4">
+                            <img src="@Model.LogoIcon" id="previewIcon" width="200" height="200" alt="找不到图片" />
+                        </div>
+                    }
+                    @if (Model.LogoUrl != "" & Model.LogoUrl != null)
+                    {
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-4">
+                            <img src="@Model.LogoUrl" id="previewUrl" width="200" height="200" alt="找不到图片" />
+                        </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(u => u.Priority, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Priority" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Priority, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "number",@readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Certificate, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Certificate" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Certificate, new { htmlAttributes = new { @class = "form-control", type = "text",@readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Certificate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(u => u.CertificateNumber, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "CertificateNumber" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.CertificateNumber, new { htmlAttributes = new { @class = "form-control", type = "text",@readonly = true } })
+                        @Html.ValidationMessageFor(model => model.CertificateNumber, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Ceo, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Ceo" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Ceo, new { htmlAttributes = new { @class = "form-control", type = "text",@readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Ceo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(u => u.Status, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Status" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.Status, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>*@
+                    @Html.LabelFor(u => u.Grade, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Grade" })
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(u => u.Grade, (List<SelectListItem>)ViewData["GradeList"], new { @class = "form-control", @readonly = true })
+                        @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(u => u.Vocation, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Vocation" })
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(u => u.Vocation, (List<SelectListItem>)ViewData["VocationList"], new { @class = "form-control",@readonly = true })
+                        @Html.ValidationMessageFor(model => model.Vocation, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+
+            </div>
+            <fieldset></fieldset>
+            <div class="form-group">
+                @Html.LabelFor(u => u.Type, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Type" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(u => u.Type, (List<SelectListItem>)ViewData["CorpTypeList"], new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <fieldset id="flt-contact">
+                <legend>联系方式</legend>
+                <div class="form-group" id="fg-Postcode">
+                    @Html.LabelFor(u => u.Postcode, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Postcode" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Postcode, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Faxcode, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Faxcode" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Faxcode, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Faxcode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Linkman">
+                    @Html.LabelFor(u => u.Linkman, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Linkman" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Linkman, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Linkman, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Mobile, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Mobile" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Mobile, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Email">
+                    @Html.LabelFor(u => u.Email, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Email" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Email, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Qq, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Qq" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Qq, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Qq, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Wechat">
+                    @Html.LabelFor(u => u.Wechat, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Wechat" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Wechat, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Wechat, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Weibo, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Weibo" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Weibo, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Weibo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Province">
+                    @Html.LabelFor(u => u.Province, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Province" })
+                    <div class="col-sm-10">
+                        @*@Html.DropDownListFor(u => u.Province, (List<SelectListItem>)ViewData["ProvinceList"], new { @class = "form-control", required = "true", onclick = "usp.corporation.editCorporation.provinceChange" })*@
+                        <select class="easyui-combobox" id="province" name="Province" style="width:280px;" ></select>
+                        @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Area">
+                    @Html.LabelFor(u => u.Area, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Area" })
+                    <div class="col-sm-10">
+                        @*@Html.DropDownListFor(u => u.Area, (List<SelectListItem>)ViewData["AreaList"], new { @class = "form-control" })*@
+                        <select class="easyui-combobox" id="area" name="Area" style="width:280px;"></select>
+                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-County">
+                    @Html.LabelFor(u => u.County, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "County" })
+                    <div class="col-sm-10">
+                        @*@Html.DropDownListFor(u => u.County, (List<SelectListItem>)ViewData["CountyList"], new { @class = "form-control" })*@
+                        <select class="easyui-combobox" id="county" name="County" style="width:280px;"></select>
+                        @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Community">
+                    @Html.LabelFor(u => u.Community, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Community" })
+                    <div class="col-sm-10">
+                        @*@Html.EditorFor(u => u.Community, new { htmlAttributes = new { @class = "form-control", type = "text" } })*@
+                        <select class="easyui-combobox" id="community" name="Community" style="width:280px;" ></select>
+                        @Html.ValidationMessageFor(model => model.Community, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Address">
+                    @Html.LabelFor(u => u.Address, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Address" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(u => u.Address, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="flt-sysConfig">
+                <legend>系统配置</legend>
+                <div class="form-group" id="fg-VirtualIntegral">
+                    @Html.LabelFor(u => u.VirtualIntegral, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "VirtualIntegral" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.VirtualIntegral, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.VirtualIntegral, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.RealIntegral, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "RealIntegral" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.RealIntegral, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.RealIntegral, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-FeeType">
+                    @Html.LabelFor(u => u.FeeType, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "FeeType" })
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(u => u.FeeType, (List<SelectListItem>)ViewData["FeeTypeList"], new { @class = "form-control", @readonly = true })
+                        @Html.ValidationMessageFor(model => model.FeeType, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.PrepayValve, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "PrepayValve" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.PrepayValve, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "text", precision = "2", name = "PrepayValve", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.PrepayValve, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Balance">
+                    @Html.LabelFor(u => u.Balance, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Balance" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Balance, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "text", precision = "2", name = "Balance", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Balance, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.FrozenBalance, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "FrozenBalance" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.FrozenBalance, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "text", precision = "2", name = "FrozenBalance", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.FrozenBalance, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-IncomingBalance">
+                    @Html.LabelFor(u => u.IncomingBalance, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "IncomingBalance" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.IncomingBalance, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "text", precision = "2", name = "IncomingBalance", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.IncomingBalance, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(u => u.Commission, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Commission" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Commission, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "text", precision = "2", name = "Commission", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Commission, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="fg-Discount">
+                    @Html.LabelFor(u => u.Discount, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Discount" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(u => u.Discount, new { htmlAttributes = new { @class = "form-control", @value = "0", @type = "text", precision = "2", name = "Discount", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="flt-createInfo">
+                <legend>创建信息</legend>
+                <div class="form-group" id="fg-Reserve">
+                    @*@Html.LabelFor(u => u.Reserve, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Reserve" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.Reserve, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Reserve, "", new { @class = "text-danger" })
+                        </div>*@
+                    @Html.LabelFor(u => u.Remark, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Remark" })
+                    <div class="col-sm-4">
+                        @Html.EditorFor(u => u.Remark, new { htmlAttributes = new { @class = "form-control", type = "text", @readonly = true } })
+                        @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="form-group" id="fg-Creator">
+                        @Html.LabelFor(u => u.Creator, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Creator" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.Creator, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Creator, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(u => u.CreateTime, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "CreateTime" })
+                        <div class="col-sm-4">
+
+                            @Html.EditorFor(u => u.CreateTime, new { htmlAttributes = new { @class = "form-control datepicker", name = "CreateTime" } })
+                            @Html.ValidationMessageFor(model => model.CreateTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="fg-Auditor">
+                        @Html.LabelFor(u => u.Auditor, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Auditor" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.Auditor, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Auditor, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(u => u.AuditTime, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "AuditTime" })
+                        <div class="col-sm-4">
+
+                            @Html.EditorFor(u => u.AuditTime, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.AuditTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="fg-Canceler">
+                        @Html.LabelFor(u => u.Canceler, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "Canceler" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.Canceler, new { htmlAttributes = new { @class = "form-control", type = "text", maxlength = "8" } })
+                            @Html.ValidationMessageFor(model => model.Canceler, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(u => u.CancelTime, htmlAttributes: new { @class = "col-sm-2 control-label", @for = "CancelTime" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(u => u.CancelTime, new { htmlAttributes = new { @class = "form-control datepicker", name = "CancelTime" } })
+                            @Html.ValidationMessageFor(model => model.CancelTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+            </fieldset>
+            <div class="form-group form-actions">
+                <div class="col-md-offset-2 col-xs-4 ">
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> 审核通过</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+    @*<script src="~/Static/Js/usp/usp.corporation.editCorporation.js"></script>*@
+    <script src="~/Static/Js/usp/usp.system.area.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.init();
+            //usp.corporation.editCorporation.init(
+            //    "#btnReturn", "#Province",
+            //    "#Area", "GetAreaDropDown",
+            //    "#County", "GetCountyDropDown",
+            //    "/System/Corporation/Corporations"
+            //    );
+
+            usp.sysytem.area.getAreaLinkage('#province', '#area', '#county', '#community',
+            '@ViewBag.Province', '@ViewBag.Area', '@ViewBag.County', '@ViewBag.Community',
+            '/System/Test/GetProvinceData', '/System/Test/GetAreaData?code=@ViewBag.Province',
+            '/System/Test/GetCountyData?code=@ViewBag.Area', '/System/Test/GetCommunityData?code=@ViewBag.County',
+            '/System/Test/GetChildrens');
+
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            }
+
+            if ('@TempData["returnMsgType"]' == 'error') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        })
+    </script>
+}
+
+

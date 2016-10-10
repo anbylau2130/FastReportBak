@@ -1,0 +1,33 @@
+﻿.formtitle {
+    color: #dcdcdc;
+    background: #4169e1
+}
+
+
+  table {
+         width: 98%;
+         color: black;
+         margin-bottom: 5px;
+         margin-top: 5px;
+         margin-left: 15px;
+         margin-right: 15px;
+         border-left: solid 1px; 
+         border-left-color: darkgray;
+         border-top: solid 1px;
+         border-top-color: darkgray;
+     }
+    table th {
+        text-align: right;
+        background-color: #F1F6FF;
+        border-right: solid 1px; 
+        border-right-color: darkgray;
+        border-bottom: solid 1px;
+        border-bottom-color: darkgray;
+    }
+   table td{
+       background-color: #FAFCFF;
+        border-right: solid 1px; 
+        border-right-color: darkgray;
+        border-bottom: solid 1px;
+        border-bottom-color: darkgray;
+    }

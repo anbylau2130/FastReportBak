@@ -1,0 +1,77 @@
+﻿
+@model USP.Models.POCO.OperaterAddEdit
+
+@{
+    ViewBag.Title = "Create";
+}
+@section themes{
+    <link href="/Static/Css/usp/usp.operator.css" rel="stylesheet" />
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-plus"></i>添加操作员
+        <div style="float: right;">
+            <a href="Index"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoginName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LoginName, new { htmlAttributes = new { @class = "form-control", id = "LoginName", placeholder = "登录名必填" } })
+                    @Html.ValidationMessageFor(model => model.LoginName, "", new { @class = "text-danger" , id = "errorname" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">姓名</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RealName, new { htmlAttributes = new { @class = "form-control", id = "RealName", placeholder = "姓名必填" } })
+                    @Html.ValidationMessageFor(model => model.RealName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">密码</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Type = "password", placeholder = "密码必填" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">确认密码</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PasswordConfirm, new { htmlAttributes = new { @class = "form-control", @Type = "password", placeholder = "确认密码必填" } })
+                    @Html.ValidationMessageFor(model => model.PasswordConfirm, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">角色</label>
+                <div class="col-md-10">
+                    <div class="tree-role col-md-4">
+                        <ul id="operatorRole"></ul>
+                    </div>
+                    <input type="hidden" id="hdrole" name="Role" data-val="true" value="" data-val-required="请选择角色"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" id="submit-btn" class="btn btn-primary" onclick="return usp.system.operator.checkRole()"><i class="glyphicon glyphicon-plus"></i>&nbsp;添&nbsp;加</button>
+                    @Html.ValidationMessage("errorresult", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.operator.js"></script>
+<script>
+        $(function () {
+            usp.system.operator.initRoleTree('#operatorRole', '/System/Operator/Create');
+            usp.system.operator.checkCreateLoginName();
+        });
+</script>
+}

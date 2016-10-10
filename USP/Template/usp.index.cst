@@ -1,0 +1,462 @@
+﻿<%@ CodeTemplate Inherits="CodeTemplate"TargetLanguage="Text" Description="NetTiers main template."Debug="True" ResponseEncoding="UTF-8"%>
+
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+
+<%-- 要打印的表 --%>
+<%@ Property Name="Table" Type="TableSchema" DeepLoad="True" Optional="False" Category="01. Getting Started - Required" Description="Database that the tables views, and stored procedures shouldbe based on. IMPORTANT!!! If SourceTables and SourceViews are left blank, theEntire Database will then be generated." %>
+<%@ Property Name="Area" Type="String" DeepLoad="True" Optional="False" Category="01. Getting Started - Required" Description="Database that the tables views, and stored procedures shouldbe based on. IMPORTANT!!! If SourceTables and SourceViews are left blank, theEntire Database will then be generated." %>
+<%@ Property Name="Controller" Type="String" DeepLoad="True" Optional="False" Category="01. Getting Started - Required" Description="Database that the tables views, and stored procedures shouldbe based on. IMPORTANT!!! If SourceTables and SourceViews are left blank, theEntire Database will then be generated." %>
+<%@ Property Name="Action" Type="String" DeepLoad="True" Optional="False" Category="01. Getting Started - Required" Description="Database that the tables views, and stored procedures shouldbe based on. IMPORTANT!!! If SourceTables and SourceViews are left blank, theEntire Database will then be generated." %>
+
+
+
+
+@{
+    ViewBag.Title = "Title";
+}
+
+@section themes{
+    <link href="~/Static/Css/usp/usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.css" rel="stylesheet" />
+}
+<!--操作按钮开始-->
+<div id="toolbarmenu" class="datagrid-toolbar" style="padding-bottom: 3px">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.add('/<%=Area%>/<%=Controller%>/Add');">添加</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.edit('#datagrid', '/<%=Area%>/<%=Controller%>/Edit?id=');">编辑</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.cancel('#datagrid', '/<%=Area%>/<%=Controller%>/Cancel');">注销</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.active('#datagrid', '/<%=Area%>/<%=Controller%>/Active'); ">激活</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-ok" plain="true" onclick="usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.audit('#datagrid', '/<%=Area%>/<%=Controller%>/Audit');">审核</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--操作按钮结束-->  
+
+<!--操作按钮结束-->
+<!--搜索开始-->
+<div id="toolbarsearch" style="padding:3px" class="datagrid-toolbar">
+    <input id="searchbox" />
+    <div id="mm"></div>
+</div>
+<!--搜索结束-->
+<!--列表-->
+<table id="datagrid"></table>
+
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.js"></script>
+    <script>
+        (function () {
+            usp.namespace("usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>");
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.iniCount = 0;
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.initGrid = function (id, url, toolbarmenu, toolbarsearch) {
+                
+                
+                $(id).datagrid({
+                    url: url,
+                    title: '列表信息',
+                    queryParams: { actionName: '<%=Action.ToLower()%>datagrid' },
+                    iconCls: 'icon-clientService',
+                    fit: true,
+                    nowrap: false,
+                    striped: true,
+                    columns: [
+                        [
+                            {
+                                field: '交货日期', title: '交货日期', width: 150,
+                                formatter: function (val) {
+                                    return usp.ParseUTCDate(val);
+                                }
+                            },
+                        ]
+                    ],
+                    toolbar: toolbarmenu + "," + toolbarsearch,
+                    pagination: true,
+                    rownumbers: true,
+                    singleSelect: true,
+                    onLoadSuccess: function () {
+                        if (usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.iniCount === 0) {
+                            var fields = $(datagrid).datagrid('getColumnFields');
+                            var muit = "";
+                            for (var i = 0; i < fields.length; i++) {
+                                var opts = $(datagrid).datagrid('getColumnOption', fields[i]);
+                                muit += "<div data-options=\"name:'" + fields[i] + "'\" >" + opts.title + "</div>";
+                            };
+                            $("#mm").html(muit);
+                            $('#searchbox').searchbox({
+                                prompt: '请输入',
+                                searcher: function () {
+                                    var type = $('#searchbox').searchbox('getName');
+                                    var name = $('#searchbox').searchbox('getValue');
+                                    $(datagrid).datagrid('load', { actionName: '<%=Action.ToLower()%>datagrid', type: type, name: name });
+                                },
+                                menu: "#mm",
+                                width: 300
+                            });
+                            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.iniCount++;
+                        }
+                    }
+                });
+            }
+
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.add = function (url) {
+                location.href = url;
+            }
+
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.edit = function (datagrid, url) {
+                var model = $(datagrid).datagrid("getSelected");
+                if (model) {
+                    location.href = url + model.ID;
+                } else {
+                    $.messager.alert('提示信息', '请选择要编辑数据！');
+                }
+            }
+
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.audit = function (datagrid, url) {
+                var model = $(datagrid).datagrid("getSelected");
+                if (model) {
+                    if (model.Auditor != null) {
+                        toastr.warning('数据已通过审核，无需重复操作！');
+                        return;
+                    }
+                    if (model.Canceler != null) {
+                        toastr.warning('数据处于注销状态，无法审核！');
+                        return;
+                    }
+                    $.messager.confirm('提示信息', '确定要审核通过此操作员？', function (r) {
+                        if (r) {
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: { id: model.ID },
+                                success: function (data) {
+                                    if (data.flag) {
+                                        toastr.success('审核通过成功！');
+                                        $(datagrid).datagrid('reload');
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                },
+                                error: function () {
+                                    toastr.error('您没有操作权限！');
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    toastr.error('请选择要审核通过的数据！');
+                }
+            }
+
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.cancel = function (datagrid, url) {
+                var model = $(datagrid).datagrid('getSelected');
+                if (model) {
+                    if (model.Canceler != null) {
+                        toastr.warning('权限处于注销状态，无需重复操作！');
+                        return;
+                    }
+                    $.messager.confirm('提示信息', '确定要注销此数据？', function (r) {
+                        if (r) {
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: { id: model.ID },
+                                success: function (data) {
+                                    if (data.flag) {
+                                        toastr.success('注销成功！');
+                                        $(datagrid).datagrid('reload');
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                },
+                                error: function () {
+                                    toastr.error('您没有操作权限！');
+                                }
+                            })
+                        }
+                    });
+                } else {
+                    toastr.error('请选择要注销的数据！');
+                }
+            }
+
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.active = function (datagrid, url) {
+                var model = $(datagrid).datagrid("getSelected");
+                if (model) {
+                    if (model.Canceler == null) {
+                        toastr.warning('权限处于激活状态，无需重复操作！');
+                        return;
+                    }
+                    $.messager.confirm('提示信息', '确定要激活此操作员？', function (r) {
+                        if (r) {
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: { id: model.ID },
+                                success: function (data) {
+                                    if (data.flag) {
+                                        toastr.success('激活成功！');
+                                        $(datagrid).datagrid('reload');
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                },
+                                error: function () {
+                                    toastr.error('您没有操作权限！');
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    toastr.error('请选择要激活的数据！');
+                }
+            }
+
+            usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.init = function (id, url, toolbarmenu, toolbarsearch) {
+                usp.<%=Controller.ToLower()%>.<%=Action.ToLower()%>.initGrid(id, url, toolbarmenu, toolbarsearch);
+            }
+        })(this);
+        $(function () {
+            usp.init();
+            usp.order.<%=Action.ToLower()%>.init("#datagrid", '/<%=Area%>/<%=Controller%>/<%=Action%>', "#toolbarmenu", "#toolbarsearch");
+
+            if ('@TempData["resultMsgType"]' == 'success') {
+                toastr.success('@TempData["resultMsg"]');
+            } else if ('@TempData["resultMsgType"]' == 'error') {
+                toastr.error('@TempData["resultMsg"]');
+            }
+        });
+    </script>
+}
+
+///////////////////////////////////////////////////////
+
+        [MenuItem(Parent = "父菜单", Name = "子菜单", Icon = "glyphicon glyphicon-info-sign")]
+        // GET: Supplier/Order
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(string actionName)
+        {
+            return OtherAction(actionName);
+        }
+        private ActionResult OtherAction(string ac)
+        {
+            switch (ac)
+            {
+                case "<%=Action.ToLower()%>datagrid":
+                    return <%=Action%>GetDataGrid();//列表页数据
+                default:
+                    return Content("");
+            }
+        }
+
+        private ActionResult <%=Action%>GetDataGrid()
+        {
+            string wherestr = string.Empty;
+
+            int page;
+            if (!int.TryParse(Request["page"], out page))
+            {
+                page = 1;
+            }
+            int rows;
+            if (!int.TryParse(Request["rows"], out rows))
+            {
+                rows = 10;
+            }
+            string type = Request["type"];
+            string name = Request["name"];
+            if (!string.IsNullOrEmpty(type))
+            {
+                wherestr += "  and [" + type + "] like '%" + name + "%' ";
+            }
+            var currentUser = HttpContext.Session[Constants.USER_KEY] as User;
+            //if (currentUser != null&&currentUser.SysOperator.ID!=0)
+            //    wherestr += " and FSUPPLIERID='" +currentUser.Supplier.FSUPPLIERID + "'";
+            var result = k3CloudProcBll.GetOrderList(page, rows, wherestr, "", "");
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+    }
+
+///////////////////////////////////////////////////////
+
+Create PROC UP_Show**
+@PageIndex int = 1,      
+@PageSize int = 10,   
+@WhereStr nvarchar(200)='',   
+@strOrder varchar(MAX) = '',      
+@strOrderType varchar(max) = 'ASC' 
+AS
+SELECT * from(      
+    select convert(bigint, ROW_NUMBER() OVER(order by ID asc)) as RowNo,      
+    convert(bigint, COUNT(0) OVER()) as RowCnt, *      
+    FROM(
+          //查询语句
+		) AS a where 1=1   
+	) AS temp
+WHERE RowNo BETWEEN (@PageIndex-1)*@PageSize+1 AND @PageIndex*@PageSize
+
+
+
+
+
+<script runat="template">
+
+//将数据库类型转化为C#类型
+
+public string DataType2CSharpType(System.Data.DbType dbType)
+
+{
+
+    switch (dbType)
+
+    {
+
+        case DbType.AnsiString:
+
+            return "string";
+
+        case DbType.AnsiStringFixedLength:
+
+            return "string";
+
+        case DbType.Binary:
+
+            return "byte[]";
+
+        case DbType.Boolean:
+
+            return "bool";
+
+        case DbType.Byte:
+
+            return "byte";
+
+        case DbType.Currency:
+
+            return "decimal";
+
+        case DbType.Date:
+
+            return "DateTime";
+
+        case DbType.DateTime:
+
+            return "DateTime";
+
+        case DbType.DateTime2:
+
+            return "DateTime";
+
+        case DbType.DateTimeOffset:
+
+            return "DateTime";
+
+        case DbType.Decimal:
+
+            return "decimal";
+
+        case DbType.Double:
+
+            return "double";
+
+        case DbType.Guid:
+
+            return "Guid";
+
+        case DbType.Int16:
+
+            return "short";
+
+        case DbType.Int32:
+
+            return "int";
+
+        case DbType.Int64:
+
+            return "long";
+
+        case DbType.Object:
+
+            return "object";
+
+        case DbType.SByte:
+
+            return "sbyte";
+
+        case DbType.Single:
+
+            return "float";
+
+        case DbType.String:
+
+            return "string";
+
+        case DbType.StringFixedLength:
+
+            return "string";
+
+        case DbType.Time:
+
+            return "TimeSpan";
+
+        case DbType.UInt16:
+
+            return "ushort";
+
+        case DbType.UInt32:
+
+            return "uint";
+
+        case DbType.UInt64:
+
+            return "ulong";
+
+        case DbType.VarNumeric:
+
+            return "decimal";
+
+        case DbType.Xml:
+
+            return "string";
+
+        default:
+
+            return "object";
+
+    }
+
+}
+
+</script>

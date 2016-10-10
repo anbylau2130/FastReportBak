@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "权限模板管理";
+}
+@section themes{
+    <link href="~/Static/Css/usp/usp.privilegeTemplate.privilegeTemplates.css" rel="stylesheet" />
+}
+<table id="privilegeTemplate"></table>
+<div id="easyui_toolbar" style="height: auto">
+    <table>
+        <tr>
+            <td>
+                <label for="">公司类型:</label>
+                <select width="200px" class="easyui-searchbox" data-options="editable:false" id="combCorpType" name="corpType"></select>
+            </td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td>
+                <a id="js-edit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">设置</a>
+            </td>
+            <td>
+                <div class="datagrid-btn-separator"></div>
+            </td>
+            <td>
+                <a id="js-audit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true">审核</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@section scripts{
+
+    <script src="~/Static/Js/usp/usp.privilegeTemplate.privilegeTemplates.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.init();
+
+            usp.privilegeTemplate.privilegeTemplates.initGrid('#privilegeTemplate', '/System/PrivilegeTemplate/PrivilegeTemplates', '#easyui_toolbar', 0);
+
+            usp.privilegeTemplate.privilegeTemplates.corpTypeInit("#combCorpType", '/System/PrivilegeTemplate/PrivilegeTemplates', "#privilegeTemplates");
+
+            $('#js-edit').on('click', function () {
+                usp.privilegeTemplate.privilegeTemplates.configClick('#combCorpType', 'AddPrivilegeTemplate?corpType=')
+            })
+
+            $('#js-audit').on('click', function () {
+                usp.privilegeTemplate.privilegeTemplates.configClick('#combCorpType', 'AuditorPrivilegeTemplate?corpType=')
+            })
+            if ('@TempData["returnMsgType"]' == 'success') {
+                toastr.success('@TempData["returnMsg"]');
+            } else if ('@TempData["returnMsgType"]' == 'error') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        });
+
+    </script>
+}

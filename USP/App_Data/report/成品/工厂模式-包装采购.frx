@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/26/2016 14:03:07" ReportInfo.Modified="10/08/2016 11:28:37" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlquQ+MGUuFmwCkhAb0ntbeLNzC7sK8p+JIv/aYxEi/dDLK5qUTaroHqda6ZvH32vUKIlCXO0FAoFRuJaB4jKzV44bAVnXQyonz5K+w1LVlzy0iR+qxLmf7DnykPcPj43Fzu+snnBnu7MnCjG7+/7w2twlwOcb1fmeLQvXElFe/rBMjk387xmPVKRwtc/2+NAg8lmi08Yepqwb5AVEykpvXMA==">
+      <TableDataSource Name="Table" Alias="CaiGouZhiBiao" DataType="System.Int32" Enabled="true" SelectCommand="exec HXN_HR_TSUI_CaiGouZhiBiao @year,@month,@ORGID,3">
+        <Column Name="XMGROUPID" DataType="System.String"/>
+        <Column Name="XMGROUPFNUMBER" DataType="System.String"/>
+        <Column Name="XMGROUPNAME" DataType="System.String"/>
+        <Column Name="TYPEID" DataType="System.String"/>
+        <Column Name="TYPENUMBER" DataType="System.String"/>
+        <Column Name="TYPENAME" DataType="System.String"/>
+        <Column Name="XMID" DataType="System.String"/>
+        <Column Name="XMFNUMBER" DataType="System.String"/>
+        <Column Name="项目" DataType="System.String"/>
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <CommandParameter Name="year" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="month" DataType="22" Expression="[月]"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table8" Alias="CaiGouZhiLiangZhiBiao" DataType="System.Int32" Enabled="true" SelectCommand="exec HXN_HR_TSUI_CaiGouZhiLiangZhiBiao @year,@month,@ORGID,3">
+        <Column Name="XMGROUPID" DataType="System.String"/>
+        <Column Name="XMGROUPFNUMBER" DataType="System.String"/>
+        <Column Name="XMGROUPNAME" DataType="System.String"/>
+        <Column Name="TYPEID" DataType="System.String"/>
+        <Column Name="TYPENUMBER" DataType="System.String"/>
+        <Column Name="TYPENAME" DataType="System.String"/>
+        <Column Name="XMID" DataType="System.String"/>
+        <Column Name="XMFNUMBER" DataType="System.String"/>
+        <Column Name="项目" DataType="System.String"/>
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <CommandParameter Name="year" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="month" DataType="22" Expression="[月]"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table9" Alias="FeiYongKongZhiQingKuang" DataType="System.Int32" Enabled="true" SelectCommand="exec HXN_HR_TSUI_FeiYongKongZhiQingKuang @year,@month,@ORGID,3">
+        <Column Name="XMGROUPID" DataType="System.String"/>
+        <Column Name="XMGROUPFNUMBER" DataType="System.String"/>
+        <Column Name="XMGROUPNAME" DataType="System.String"/>
+        <Column Name="TYPEID" DataType="System.String"/>
+        <Column Name="TYPENUMBER" DataType="System.String"/>
+        <Column Name="TYPENAME" DataType="System.String"/>
+        <Column Name="XMID" DataType="System.String"/>
+        <Column Name="XMFNUMBER" DataType="System.String"/>
+        <Column Name="项目" DataType="System.String"/>
+        <Column Name="本月数" DataType="System.Decimal"/>
+        <Column Name="去年同期数" DataType="System.Decimal"/>
+        <Column Name="增减数" DataType="System.Decimal"/>
+        <Column Name="增长率" DataType="System.Decimal"/>
+        <Column Name="本年累计数" DataType="System.Decimal"/>
+        <Column Name="去年同期累计数" DataType="System.Decimal"/>
+        <Column Name="累计增减数" DataType="System.Decimal"/>
+        <Column Name="累计同比增长率" DataType="System.Decimal"/>
+        <CommandParameter Name="year" DataType="22" Expression="[年]"/>
+        <CommandParameter Name="month" DataType="22" Expression="[月]"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table11" Alias="ReportHeadInfo" DataType="System.Int32" Enabled="true" SelectCommand="EXEC HXN_HR_TSUI_JYFX_GetBaseInfo @ORGID">
+        <Column Name="负责人" DataType="System.String"/>
+        <Column Name="职级" DataType="System.String"/>
+        <Column Name="管辖部门" DataType="System.String"/>
+        <Column Name="管理总人数" DataType="System.String"/>
+        <Column Name="后勤人员" DataType="System.String"/>
+        <Column Name="一线员工" DataType="System.String"/>
+        <Column Name="直接上级" DataType="System.String"/>
+        <Column Name="直接下级" DataType="System.String"/>
+        <CommandParameter Name="ORGID" DataType="22" Expression="[组织ID]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="年" DataType="System.String"/>
+    <Parameter Name="月" DataType="System.String"/>
+    <Parameter Name="组织ID" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="250">
+    <ReportTitleBand Name="ReportTitle1" Width="869.4" Height="94.5" PrintOn="FirstPage">
+      <TextObject Name="Text1" Left="274.05" Top="9.45" Width="264.6" Height="28.35" Text="好想你枣业股份有限公司" HorzAlign="Justify" Font="宋体, 16pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text2" Left="170.1" Top="47.25" Width="529.2" Height="28.35" Text="[年]年[月]月份 供应链中心总体《经营管理分析表》" HorzAlign="Justify" Font="宋体, 16pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text12" Left="708.75" Top="66.15" Width="94.5" Height="18.9" Text="金额单位：万元" Font="宋体, 9pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="98.67" Width="869.4" Height="113.4" PrintOn="FirstPage">
+      <TableObject Name="Table1" Width="869.4" Height="113.4" Dock="Top">
+        <TableColumn Name="Column11" Width="144.9"/>
+        <TableColumn Name="Column12" Width="144.9"/>
+        <TableColumn Name="Column13" Width="144.9"/>
+        <TableColumn Name="Column14" Width="144.9"/>
+        <TableColumn Name="Column15" Width="144.9"/>
+        <TableColumn Name="Column16" Width="144.9"/>
+        <TableRow Name="Row6" Height="37.8">
+          <TableCell Name="Cell26" Border.Lines="All" Text="一、基本情况" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true" ColSpan="6"/>
+          <TableCell Name="Cell27" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell49" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell50" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="37.8">
+          <TableCell Name="Cell31" Border.Lines="All" Text="负责人" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="[ReportHeadInfo.负责人]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="职    务" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell52" Border.Lines="All" Text="[ReportHeadInfo.职级]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell53" Border.Lines="All" Text="管辖部门" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell54" Border.Lines="All" Text="[ReportHeadInfo.管辖部门]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="37.8">
+          <TableCell Name="Cell36" Border.Lines="All" Text="管理总人数" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="[ReportHeadInfo.管理总人数]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="后勤人员" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell55" Border.Lines="All" Text="[ReportHeadInfo.后勤人员]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell56" Border.Lines="All" Text="一线员工" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          <TableCell Name="Cell57" Border.Lines="All" Text="[ReportHeadInfo.一线员工]" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="289.7" Width="869.4" Height="34.65" DataSource="Table">
+      <TableObject Name="Table3" Width="869.4" Height="34.65">
+        <TableColumn Name="Column17" Width="96.6"/>
+        <TableColumn Name="Column18" Width="96.6"/>
+        <TableColumn Name="Column19" Width="96.6"/>
+        <TableColumn Name="Column20" Width="96.6"/>
+        <TableColumn Name="Column21" Width="96.6"/>
+        <TableColumn Name="Column22" Width="96.6"/>
+        <TableColumn Name="Column23" Width="96.6"/>
+        <TableColumn Name="Column24" Width="96.6"/>
+        <TableColumn Name="Column25" Width="96.6"/>
+        <TableRow Name="Row9" Height="34.65">
+          <TableCell Name="Cell149" Border.Lines="All" Text="[CaiGouZhiBiao.项目]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell150" Border.Lines="All" Text="[CaiGouZhiBiao.本月数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell151" Border.Lines="All" Text="[CaiGouZhiBiao.去年同期数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell152" Border.Lines="All" Text="[CaiGouZhiBiao.增减数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell153" Border.Lines="All" Text="[CaiGouZhiBiao.增长率]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell154" Border.Lines="All" Text="[CaiGouZhiBiao.本年累计数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell155" Border.Lines="All" Text="[CaiGouZhiBiao.去年同期累计数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell156" Border.Lines="All" Text="[CaiGouZhiBiao.累计增减数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell157" Border.Lines="All" Text="[CaiGouZhiBiao.累计同比增长率]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader1" Top="216.23" Width="869.4" Height="69.3">
+        <TableObject Name="Table2" Width="869.4" Height="69.3" Dock="Bottom">
+          <TableColumn Name="Column44" Width="96.6"/>
+          <TableColumn Name="Column45" Width="96.6"/>
+          <TableColumn Name="Column46" Width="96.6"/>
+          <TableColumn Name="Column47" Width="96.6"/>
+          <TableColumn Name="Column48" Width="96.6"/>
+          <TableColumn Name="Column49" Width="96.6"/>
+          <TableColumn Name="Column50" Width="96.6"/>
+          <TableColumn Name="Column51" Width="96.6"/>
+          <TableColumn Name="Column52" Width="96.6"/>
+          <TableRow Name="Row15" Height="34.65">
+            <TableCell Name="Cell194" Border.Lines="All" Text="二、采购指标" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell195" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell196" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell197" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell198" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell199" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell200" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell201" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell202" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row16" Height="34.65">
+            <TableCell Name="Cell203" Border.Lines="All" Text="项目" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell204" Border.Lines="All" Text="本月数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell205" Border.Lines="All" Text="去年同期数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell206" Border.Lines="All" Text="增减数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell207" Border.Lines="All" Text="增长率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell208" Border.Lines="All" Text="本年累计数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell209" Border.Lines="All" Text="去年同期累计数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell210" Border.Lines="All" Text="累计增减数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell211" Border.Lines="All" Text="累计同比增长率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data2" Top="401.98" Width="869.4" Height="34.65" DataSource="Table8">
+      <TableObject Name="Table5" Width="869.4" Height="34.65">
+        <TableColumn Name="Column62" Width="96.6"/>
+        <TableColumn Name="Column63" Width="96.6"/>
+        <TableColumn Name="Column64" Width="96.6"/>
+        <TableColumn Name="Column65" Width="96.6"/>
+        <TableColumn Name="Column66" Width="96.6"/>
+        <TableColumn Name="Column67" Width="96.6"/>
+        <TableColumn Name="Column68" Width="96.6"/>
+        <TableColumn Name="Column69" Width="96.6"/>
+        <TableColumn Name="Column70" Width="96.6"/>
+        <TableRow Name="Row19" Height="34.65">
+          <TableCell Name="Cell230" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.项目]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell231" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.本月数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell232" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.去年同期数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell233" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.增减数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell234" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.增长率]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell235" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.本年累计数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell236" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.去年同期累计数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell237" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.累计增减数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell238" Border.Lines="All" Text="[CaiGouZhiLiangZhiBiao.累计同比增长率]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader2" Top="328.52" Width="869.4" Height="69.3">
+        <TableObject Name="Table4" Width="869.4" Height="69.3">
+          <TableColumn Name="Column53" Width="96.6"/>
+          <TableColumn Name="Column54" Width="96.6"/>
+          <TableColumn Name="Column55" Width="96.6"/>
+          <TableColumn Name="Column56" Width="96.6"/>
+          <TableColumn Name="Column57" Width="96.6"/>
+          <TableColumn Name="Column58" Width="96.6"/>
+          <TableColumn Name="Column59" Width="96.6"/>
+          <TableColumn Name="Column60" Width="96.6"/>
+          <TableColumn Name="Column61" Width="96.6"/>
+          <TableRow Name="Row17" Height="34.65">
+            <TableCell Name="Cell212" Border.Lines="All" Text="三、采购质量指标" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell213" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell214" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell215" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell216" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell217" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell218" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell219" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell220" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row18" Height="34.65">
+            <TableCell Name="Cell221" Border.Lines="All" Text="项目" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell222" Border.Lines="All" Text="本月数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell223" Border.Lines="All" Text="去年同期数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell224" Border.Lines="All" Text="增减数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell225" Border.Lines="All" Text="增长率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell226" Border.Lines="All" Text="本年累计数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell227" Border.Lines="All" Text="去年同期累计数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell228" Border.Lines="All" Text="累计增减数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell229" Border.Lines="All" Text="累计同比增长率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data3" Top="514.27" Width="869.4" Height="34.65" DataSource="Table9">
+      <TableObject Name="Table7" Width="869.4" Height="34.65">
+        <TableColumn Name="Column80" Width="96.6"/>
+        <TableColumn Name="Column81" Width="96.6"/>
+        <TableColumn Name="Column82" Width="96.6"/>
+        <TableColumn Name="Column83" Width="96.6"/>
+        <TableColumn Name="Column84" Width="96.6"/>
+        <TableColumn Name="Column85" Width="96.6"/>
+        <TableColumn Name="Column86" Width="96.6"/>
+        <TableColumn Name="Column87" Width="96.6"/>
+        <TableColumn Name="Column88" Width="96.6"/>
+        <TableRow Name="Row22" Height="34.65">
+          <TableCell Name="Cell257" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.项目]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell258" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.本月数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell259" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.去年同期数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell260" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.增减数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell261" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.增长率]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell262" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.本年累计数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell263" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.去年同期累计数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell264" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.累计增减数]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell265" Border.Lines="All" Text="[FeiYongKongZhiQingKuang.累计同比增长率]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader3" Top="440.8" Width="869.4" Height="69.3">
+        <TableObject Name="Table6" Width="869.4" Height="69.3">
+          <TableColumn Name="Column71" Width="96.6"/>
+          <TableColumn Name="Column72" Width="96.6"/>
+          <TableColumn Name="Column73" Width="96.6"/>
+          <TableColumn Name="Column74" Width="96.6"/>
+          <TableColumn Name="Column75" Width="96.6"/>
+          <TableColumn Name="Column76" Width="96.6"/>
+          <TableColumn Name="Column77" Width="96.6"/>
+          <TableColumn Name="Column78" Width="96.6"/>
+          <TableColumn Name="Column79" Width="96.6"/>
+          <TableRow Name="Row20" Height="34.65">
+            <TableCell Name="Cell239" Border.Lines="All" Text="四、费用控制状况" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold" ColSpan="9"/>
+            <TableCell Name="Cell240" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell241" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell242" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell243" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell244" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell245" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell246" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell247" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row21" Height="34.65">
+            <TableCell Name="Cell248" Border.Lines="All" Text="项目" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell249" Border.Lines="All" Text="本月数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell250" Border.Lines="All" Text="去年同期数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell251" Border.Lines="All" Text="增减数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell252" Border.Lines="All" Text="增长率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell253" Border.Lines="All" Text="本年累计数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell254" Border.Lines="All" Text="去年同期累计数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell255" Border.Lines="All" Text="累计增减数" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+            <TableCell Name="Cell256" Border.Lines="All" Text="累计同比增长率" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="553.08" Width="869.4" Height="75.6" PrintOn="LastPage">
+      <TextObject Name="Text3" Width="113.4" Height="18.9" Text="图示及箭头说明：" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text4" Left="189" Width="132.3" Height="18.9" Text=" ：表示经营指标良好" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text5" Left="444.15" Width="198.45" Height="18.9" Text="  ：表示经营指标出现较大偏差" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text6" Left="189" Top="18.9" Width="226.8" Height="18.9" Text="：表示经营指标非良性发展，需警示" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <ShapeObject Name="Shape1" Left="132.3" Width="47.25" Height="18.9" Fill.Color="Red"/>
+      <ShapeObject Name="Shape2" Left="396.9" Width="47.25" Height="18.9" Fill.Color="DarkOliveGreen"/>
+      <ShapeObject Name="Shape3" Left="132.3" Top="18.9" Width="47.25" Height="18.9" Fill.Color="Yellow"/>
+      <TextObject Name="Text7" Top="37.8" Width="85.05" Height="18.9" Text="上级主管:" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text8" Left="189" Top="37.8" Width="66.15" Height="18.9" Text="负责人：" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text9" Left="368.55" Top="37.8" Width="94.5" Height="18.9" Text=" 财务负责人：" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text10" Left="557.55" Top="37.8" Width="66.15" Height="18.9" Text="制表人：" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+      <TextObject Name="Text11" Top="56.7" Width="132.3" Height="18.9" Text="经营管理分析评价：" HorzAlign="Center" Font="宋体, 9pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

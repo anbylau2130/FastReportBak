@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="099bb2c761c243e1a11a80d72fce99aa" Name="Diagram1" ZoomLevel="29">
+        <EntityTypeShape EntityType="UspModel.IdCardImg" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatform" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformAccessToken" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformDefaultMsg" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMenu" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMenuType" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMO" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMsg" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMsgChildren" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMsgKey" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMsgType" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformMT" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformSubscriber" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformUserInfo" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="UspModel.SysArea" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.SysCorp" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="UspModel.SysCorpFeeType" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="UspModel.SysCorpGrade" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="UspModel.SysCorpStatus" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="UspModel.SysCorpType" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.SysCorpVocation" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UspModel.SysLoginLog" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UspModel.SysMenu" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="UspModel.SysMenuTemplate" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="UspModel.SysOperator" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="UspModel.SysOperatorGrade" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="UspModel.SysOperatorStar" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.SysOperatorStatus" Width="1.5" PointX="16.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UspModel.SysPrivilege" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UspModel.SysPrivilegeTemplate" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="UspModel.SysRole" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="UspModel.SysRoleMenu" Width="1.5" PointX="2.75" PointY="17.75" />
+        <EntityTypeShape EntityType="UspModel.SysRoleOperator" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UspModel.SysRolePrivilege" Width="1.5" PointX="18.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UspModel.SysSkin" Width="1.5" PointX="18.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UspModel.OpenPlatformType" Width="1.5" PointX="18.75" PointY="12.75" />
+        <EntityTypeShape EntityType="UspModel.Area" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="UspModel.SysBank" Width="1.5" PointX="15.375" PointY="18.75" />
+        <EntityTypeShape EntityType="UspModel.UserInfo" Width="1.5" PointX="17.375" PointY="18.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

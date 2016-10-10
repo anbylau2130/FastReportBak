@@ -1,0 +1,292 @@
+﻿
+@{
+    ViewBag.Title = "Title";
+}
+
+@section themes{
+    <link href="~/Static/Css/usp/usp.order.supplieramount.css" rel="stylesheet" />
+}
+<!--操作按钮开始-->
+<div id="toolbarmenu" class="datagrid-toolbar" style="padding-bottom: 3px">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+               对账日期: <input id="amountDate" class="easyui-datetimespinner" value="" data-options="formatter:usp.order.supplieramount.dateformatter,parser:usp.order.supplieramount.parser,selections:[[0,4],[5,7]]" style="width:100%;height:26px;">
+                <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="usp.order.supplieramount.search('#amountDate')">查询</a>
+
+             </td>
+            @*<td>
+                <a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="usp.order.supplieramount.add('/Supplier/Order/Add');">添加</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="usp.order.supplieramount.edit('#datagrid', '/Supplier/Order/Edit?id=');">编辑</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="usp.order.supplieramount.cancel('#datagrid', '/Supplier/Order/Cancel');">注销</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="usp.order.supplieramount.active('#datagrid', '/Supplier/Order/Active'); ">激活</a>
+            </td>
+            <td>
+                <span class="datagrid-btn-separator"></span>
+            </td>
+            <td>
+                <a class="easyui-linkbutton" iconCls="icon-ok" plain="true" onclick="usp.order.supplieramount.audit('#datagrid', '/Supplier/Order/Audit');">审核</a>
+            </td>*@
+        </tr>
+    </table>
+</div>
+<!--操作按钮结束-->
+<!--操作按钮结束-->
+<!--搜索开始-->
+@*<div id="toolbarsearch" style="padding:3px" class="datagrid-toolbar">
+    <input id="searchbox" />
+    <div id="mm"></div>
+</div>*@
+<!--搜索结束-->
+<!--列表-->
+<table id="datagrid"></table>
+
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.order.supplieramount.js"></script>
+    <script>
+
+
+        (function() {
+            usp.namespace("usp.order.supplieramount");
+            usp.order.supplieramount.iniCount = 0;
+            usp.order.supplieramount.initGrid = function(id, url, toolbarmenu, toolbarsearch) {
+         
+
+                $(id).datagrid({
+                    url: url,
+                    title: '供应商对账信息',
+                    queryParams: { actionName: 'supplieramountdatagrid' },
+                    iconCls: 'icon-clientService',
+                    fit: true,
+                    nowrap: false,
+                    striped: true,
+                    columns: [
+                        [
+                            { field: '供应商编号', title: '供应商编号', width: 150 },
+                            { field: '供应商名称', title: '供应商名称', width: 150 },
+                            {
+                                field: '日期',
+                                title: '日期',
+                                width: 150,
+                                formatter: function(val) {
+                                    return usp.ParseUTCDate(val);
+                                }
+                            },
+                            { field: '入库单编号', title: '入库单编号', width: 150 },
+                            { field: '入库单金额', title: '入库单金额', width: 150 },
+                            { field: '付款单编号', title: '付款单编号', width: 150 },
+                            { field: '付款单金额', title: '付款单金额', width: 150 } //,
+                            //{ field: 'RowNo', title: 'RowNo', width: 150 },
+                            //{ field: 'RowCnt', title: 'RowCnt', width: 150 }
+                        ]
+                    ],
+                    toolbar: toolbarmenu, //+ "," + toolbarsearch,
+                    pagination: true,
+                    rownumbers: true,
+                    singleSelect: true,
+                    onLoadSuccess: function() {
+                        //if (usp.order.supplieramount.iniCount === 0) {
+                        //    var fields = $(datagrid).datagrid('getColumnFields');
+                        //    var muit = "";
+                        //    for (var i = 0; i < fields.length; i++) {
+                        //        var opts = $(datagrid).datagrid('getColumnOption', fields[i]);
+                        //        if (opts.title == '') {
+                        //            continue;
+                        //        }
+                        //        muit += "<div data-options=\"name:'" + fields[i] + "'\" >" + opts.title + "</div>";
+                        //    };
+                        //    $("#mm").html(muit);
+                        //    $('#searchbox').searchbox({
+                        //        prompt: '请输入',
+                        //        searcher: function() {
+                        //            var type = $('#searchbox').searchbox('getName');
+                        //            var name = $('#searchbox').searchbox('getValue');
+                        //            $(datagrid).datagrid('load', { actionName: 'supplieramountdatagrid', type: type, name: name });
+                        //        },
+                        //        menu: "#mm",
+                        //        width: 300
+                        //    });
+                        //    usp.order.supplieramount.iniCount++;
+                        //}
+                    }
+                });
+            }
+
+            usp.order.supplieramount.add = function(url) {
+                location.href = url;
+            }
+
+            usp.order.supplieramount.edit = function(datagrid, url) {
+                var model = $(datagrid).datagrid("getSelected");
+                if (model) {
+                    location.href = url + model.ID;
+                } else {
+                    $.messager.alert('提示信息', '请选择要编辑数据！');
+                }
+            }
+
+            usp.order.supplieramount.audit = function(datagrid, url) {
+                var model = $(datagrid).datagrid("getSelected");
+                if (model) {
+                    if (model.Auditor != null) {
+                        toastr.warning('数据已通过审核，无需重复操作！');
+                        return;
+                    }
+                    if (model.Canceler != null) {
+                        toastr.warning('数据处于注销状态，无法审核！');
+                        return;
+                    }
+                    $.messager.confirm('提示信息', '确定要审核通过此操作员？', function(r) {
+                        if (r) {
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: { id: model.ID },
+                                success: function(data) {
+                                    if (data.flag) {
+                                        toastr.success('审核通过成功！');
+                                        $(datagrid).datagrid('reload');
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error('您没有操作权限！');
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    toastr.error('请选择要审核通过的数据！');
+                }
+            }
+
+            usp.order.supplieramount.cancel = function(datagrid, url) {
+                var model = $(datagrid).datagrid('getSelected');
+                if (model) {
+                    if (model.Canceler != null) {
+                        toastr.warning('权限处于注销状态，无需重复操作！');
+                        return;
+                    }
+                    $.messager.confirm('提示信息', '确定要注销此数据？', function(r) {
+                        if (r) {
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: { id: model.ID },
+                                success: function(data) {
+                                    if (data.flag) {
+                                        toastr.success('注销成功！');
+                                        $(datagrid).datagrid('reload');
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error('您没有操作权限！');
+                                }
+                            })
+                        }
+                    });
+                } else {
+                    toastr.error('请选择要注销的数据！');
+                }
+            }
+
+            usp.order.supplieramount.active = function(datagrid, url) {
+                var model = $(datagrid).datagrid("getSelected");
+                if (model) {
+                    if (model.Canceler == null) {
+                        toastr.warning('权限处于激活状态，无需重复操作！');
+                        return;
+                    }
+                    $.messager.confirm('提示信息', '确定要激活此操作员？', function(r) {
+                        if (r) {
+                            $.ajax({
+                                url: url,
+                                type: 'post',
+                                dataType: 'json',
+                                data: { id: model.ID },
+                                success: function(data) {
+                                    if (data.flag) {
+                                        toastr.success('激活成功！');
+                                        $(datagrid).datagrid('reload');
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error('您没有操作权限！');
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    toastr.error('请选择要激活的数据！');
+                }
+            }
+
+            usp.order.supplieramount.init = function(id, url, toolbarmenu, toolbarsearch, datetimespinner) {
+                usp.order.supplieramount.initGrid(id, url, toolbarmenu, toolbarsearch);
+                $(datetimespinner).datetimespinner("setValue", new Date().getFullYear() + "-" + (new Date().getMonth()));
+            }
+
+            usp.order.supplieramount.dateformatter = function(date) {
+                if (!date) {
+                    return '';
+                }
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                return y + '-' + (m < 10 ? ('0' + m) : m);
+            }
+            usp.order.supplieramount.parser = function(s) {
+                if (!s) {
+                    return null;
+                }
+                var ss = s.split('-');
+                var y = parseInt(ss[0], 10);
+                var m = parseInt(ss[1], 10);
+                if (!isNaN(y) && !isNaN(m)) {
+                    return new Date(y, m - 1, 1);
+                } else {
+                    return new Date();
+                }
+            }
+
+            usp.order.supplieramount.search = function (id) {
+                $(datagrid).datagrid('load', { actionName: 'supplieramountdatagrid', AmountDate: $(id).datetimespinner("getValue") });
+            }
+
+        })(this);
+        $(function() {
+            usp.init();
+            usp.order.supplieramount.init("#datagrid", '/Supplier/Order/SupplierAmount', "#toolbarmenu", "#toolbarsearch", "#amountDate");
+
+            if ('@TempData["resultMsgType"]' == 'success') {
+                toastr.success('@TempData["resultMsg"]');
+            } else if ('@TempData["resultMsgType"]' == 'error') {
+                toastr.error('@TempData["resultMsg"]');
+            }
+        });
+
+    </script>
+}

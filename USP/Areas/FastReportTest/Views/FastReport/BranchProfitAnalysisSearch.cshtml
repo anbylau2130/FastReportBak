@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+@FastReport.Web.WebReportGlobals.ScriptsWOjQuery()
+@FastReport.Web.WebReportGlobals.StylesWOjQuery()
+<style>
+    .frtoolbar {
+        height: 40px !important;
+    }
+</style>
+<div class="panel panel-info">
+    <div class="panel-heading" style="margin-bottom:15px">
+        <span class="glyphicon glyphicon-edit"></span> 门店盈利分析表
+    </div>
+    <div class="form-horizontal">
+        <div class="form-body">
+            <div class="form-group ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label class="control-label">日期</label>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div>
+                                    <input class="easyui-datebox" id="begindatetime" name="begindatetime" style="width:150px;height:31px">  
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="begindatetime" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                         --
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div>
+                                    <input class="easyui-datebox" id="enddatetime" name="enddatetime" style="width:150px;height:31px">
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="enddatetime" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="control-label">门店</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group ">
+                                <div>
+                                    <input  id="branchList">
+                                    @*<input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入员工工号" id="ORGID" name="ORGID" placeholder="员工工号" value="">
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ORGID" data-valmsg-replace="true"></span>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                <div>
+                                    <button type="submit" class="btn btn-primary" onclick="iframeLoad()"><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<iframe id="fastreportIframe" frameborder="0" style="overflow:hidden;height:100%;width:100%;"></iframe>
+@section scripts{
+    <script>
+        usp.init();
+        $(function () {
+
+            $('#branchList').combobox({
+                url: '/FastReportTest/FastReport/BranchProfitAnalysisSearch',
+                queryParams: { actionName: 'branchDropDownList' },
+                width:200,
+                height: 34,
+                valueField: 'Value',
+                textField: 'Text'
+            });
+        })
+        function iframeLoad() {
+            var begindate = $("#begindatetime").datebox('getValue');
+            var enddate = $("#enddatetime").datebox('getValue');
+            var branch=$('#branchList').combobox('getValue');
+            if (begindate && enddate && branch) {
+                $("#fastreportIframe").attr("src", "BranchProfitAnalysis?EndDate=" + enddate + "&BeginDate=" + begindate + "&BranchNumber=" + branch)
+            } else {
+                toastr.error("查询条件不能为空！");
+            }
+        }
+    </script>
+}

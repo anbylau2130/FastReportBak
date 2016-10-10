@@ -1,0 +1,145 @@
+﻿
+<div id="tb" style="height: auto">
+    省： <select class="easyui-combobox" id="province" style="width:100px;"></select>
+    市： <select class="easyui-combobox" id="area" style="width:100px;"></select>
+    区： <select class="easyui-combobox" id="county" style="width:100px;"></select>
+    街道： <select class="easyui-combobox" id="community" style="width:100px;"></select>
+    <br />
+    <br />
+
+
+    省1： <select class="easyui-combobox" id="province1" style="width:100px;"> </select>
+    市1： <select class="easyui-combobox" id="area1" style="width:100px;"></select>
+    <br />
+    <br />
+
+    <div id="checkboxdiv">
+    </div>
+    <br />
+    <br />
+</div>
+
+@section scripts{
+    <script src="~/Static/Js/usp/usp.system.area.js"></script>
+    <script>
+        $(function () {
+
+            usp.sysytem.area.initAreasGrid("#areas", "/System/Test/Data");
+
+            usp.sysytem.area.getAreaLinkage('#province', '#area', '#county', '#community',
+                '@ViewBag.Province', '@ViewBag.Area', '@ViewBag.County', '@ViewBag.Community',
+                '/System/Test/GetProvinceData', '/System/Test/GetAreaData?code=@ViewBag.Province',
+                '/System/Test/GetCountyData?code=@ViewBag.Area', '/System/Test/GetCommunityData?code=@ViewBag.County',
+                '/System/Test/GetChildrens');
+
+            //usp.sysytem.area.getAreaLinkage('#province', '#area', '#county', '#community',
+            //    null, null, null, null,
+            //    '/System/SysArea/GetProvinceData', '/System/SysArea/GetAreaData?code=' + null,
+            //    '/System/SysArea/GetCountyData?code=' + null, '/System/SysArea/GetCommunityData?code=' + null,
+            //    '/System/SysArea/GetChildrens');
+
+            var provinceId = '130000', areaId = '130200', countyId = '130203', communityId = '130203002';
+            // var provinceId = '', areaId = '';
+
+            var temp = '<input type="checkbox" name="$name" value="$value" checked="checked" /> $name';
+
+            var province1 = $('#province1').combobox({
+                valueField: 'id',
+                textField: 'text',
+                editable: false,
+                url: '/System/Test/GetProvinceData' + '?selectedId=' + provinceId,
+                onSelect: function (obj) {
+                    if (obj.id) {
+                        $.get('/System/Test/GetChildrens', { parentId: obj.id }, function (data) {
+                            area1.combobox("clear").combobox('loadData', data);
+                        }, 'json');
+                    }
+                }
+            });
+
+            var area1 = $('#area1').combobox({
+                valueField: 'id',
+                textField: 'text',
+                editable: false,
+                url: '/System/Test/GetChildrens' + '?parentId=' + provinceId + '&selectedId=' + areaId,
+                onSelect: function (obj) {
+                    if (obj.id) {
+                        $.get('/System/Test/GetChildrens', { parentId: obj.id }, function (data) {
+                            if (data.length > 1) {
+
+                                var cbxString = '';
+
+                                for (var n = 1; n < data.length; n++) {
+                                    cbxString += temp.replace('$name', data[n].text).replace('$value', data[0].id).replace('$name', data[n].text);
+                                }
+
+                                $('#checkboxdiv').html(cbxString);
+                            }
+                        }, 'json');
+                    }
+                }
+            });
+
+            if (!areaId) {
+                area1.combobox('loadData', [{ id: '', text: '==请选择==', selected: true }]);
+            }
+            else {
+                $.get('/System/Test/GetChildrens', { parentId: areaId }, function (data) {
+                    if (data.length > 1) {
+
+                        var cbxString = '';
+
+                        for (var n = 1; n < data.length; n++) {
+                            cbxString += temp.replace('$name', data[n].text).replace('$value', data[0].id).replace('$name', data[n].text);
+                        }
+
+                        $('#checkboxdiv').html(cbxString);
+                    }
+                }, 'json');
+            }
+
+            //var province1 = $('#province1').combobox({
+            //    valueField: 'id',
+            //    textField: 'text',
+            //    editable: false,
+            //    url: '/System/SysArea/GetProvinceData',
+            //    onSelect: function (obj) {
+            //        if (obj.id) {
+            //            $.get('/System/SysArea/GetChildrens', { parentId: obj.id }, function (data) {
+            //                area1.combobox("clear").combobox('loadData', data);
+            //            }, 'json');
+            //        }
+            //    }
+            //});
+
+            //var area1 = $('#area1').combobox({
+            //    valueField: 'id',
+            //    textField: 'text',
+            //    editable: false,
+            //    onSelect: function (obj) {
+            //        if (obj.id) {
+            //            $.get('/System/SysArea/GetChildrens', { parentId: obj.id }, function (data) {
+            //                if (data.length > 1) {
+
+            //                    var cbxString = '';
+
+            //                    for (var n = 1; n < data.length; n++) {
+            //                        cbxString += temp.replace('$name', data[n].text).replace('$value', data[0].id).replace('$name', data[n].text);
+            //                    }
+
+            //                    $('#checkboxdiv').html(cbxString);
+            //                }
+            //            }, 'json');
+            //        }
+            //    }
+            //});
+
+            //area1.combobox('loadData', [{ id: '', text: '==请选择==', selected: true }]);
+        })
+    </script>
+}
+
+
+
+
+

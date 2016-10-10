@@ -1,0 +1,51 @@
+﻿@model USP.Models.POCO.User
+@{
+    ViewBag.Title = "Home Page";
+}
+@section themes{
+    <link rel="stylesheet" type="text/css" href=@Href("~/Static/Css/usp/usp.home.css")>
+}
+<div id="header" region="north" split="false" style="height:76px; background: url(@Href(Model.SysCorp.LogoIcon)) 20px no-repeat; " class="header-area" >
+    <!--header begin-->
+    <div id="home-head-operator">欢迎您，@Model.SysOperator.RealName</div>
+    <div id="home-head-menu"><a href="#" id="changeSkin"><i class="fa fa-male"></i>&nbsp;换肤</a>| <a href="#" id="help"><i class="glyphicon glyphicon-question-sign"></i>&nbsp;帮助</a> | <a href="#" id="logout" onclick="javascript:usp.home.logout('@Href("~/User/Logout")');"><i class="glyphicon glyphicon-log-out"></i>&nbsp;退出</a></div>
+    <div id="home-head-corp" style="height:76px;width:400px;background: url() no-repeat " class="header-area"></div>
+    <div id="home-head-timer"><span id="timerYear">@DateTime.Now.Year</span>年<span id="timerMonth">@DateTime.Now.Month</span>月<span id="timerDay">@DateTime.Now.Day</span>日&nbsp;<span id="timerHour">@DateTime.Now.Hour</span>:<span id="timerMinute">@DateTime.Now.Minute</span>:<span id="timerSecond">@DateTime.Now.Second</span></div>
+</div><!--header end-->
+<div region="west" title="菜单" split="true" style="width:200px;padding:6px;" class="easyui-accordion">
+    <!--menu begin-->
+    @foreach (USP.Models.POCO.UserMenu userMenu in Model.Menus)
+    {
+        <div title="@userMenu.SysMenu.Name" data-options="iconCls:'@userMenu.SysMenu.Icon'">
+            @foreach (USP.Models.POCO.UserMenu subUserMenu in userMenu.Children)
+            {
+                <a class="menu_item" onclick="javasript:usp.addTab($('#tabContainer'),'@subUserMenu.SysMenu.Icon','@subUserMenu.SysMenu.Name','@Href(@subUserMenu.SysMenu.Url)');">
+                    <i class="@subUserMenu.SysMenu.Icon"></i>&nbsp;@subUserMenu.SysMenu.Name
+                </a>
+            }
+        </div>
+    }
+</div><!--menu end-->
+<div id="workspace" region="center" style="overflow:hidden;">
+    <!--workspace begin-->
+    <div id="tabContainer" class="easyui-tabs" fit="true" border="false">
+        <div title="首&nbsp;&nbsp;页&nbsp;" style="padding:1px;overflow:hidden;" icon="icon-home">
+            <iframe scrolling="auto" frameborder="0" src="@Href("~/OEM/Index")" style="overflow:hidden;height:100%;width:100%" onload="javascript:usp.resizeIframe(this);"></iframe>
+        </div>
+    </div>
+</div><!--workspace end-->
+<div id="footer" region="south" split="false" style="height:20px;padding:0px;">
+    <!--footer begin-->
+</div><!--footer end-->
+@section scripts{
+    @Scripts.Render("~/Js/Usp")
+    <script type="text/javascript" src="~/Static/Js/usp/usp.home.js"></script>
+    <script>
+        $(function () {
+            if (window.top != window) {
+                window.top.document.location.href = window.location.href;
+            }
+            usp.home.init($('tabContainer'), $('#timerYear'), $('#timerMonth'), $('#timerDay'), $('#timerHour'), $('#timerMinute'), $('#timerSecond'), '@Href("~/User/CheckSso")');
+        });
+    </script>
+}

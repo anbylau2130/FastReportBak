@@ -1,0 +1,119 @@
+﻿@model USP.Models.POCO.BankAddEdit
+@{
+    ViewBag.Title = "Edit";
+}
+@section themes{
+    <link href="~/Static/Css/usp/usp.bank.css" rel="stylesheet" />
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-edit"></i>编辑银行
+        <div style="float: right;">
+            <a href="Index"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+        </div>
+    </div>
+    @using (Html.BeginForm("Edit", "Bank", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-horizontal">
+            <input type="hidden" id="hdid" name="ID" value="@Model.ID" />
+            <div class="form-group">
+                <label class="col-md-2 control-label">银行代码</label>
+                <div class="col-md-10">
+                    <input id="Number" name="Number" class="form-control" type="text" value="@Model.Number" placeholder = "银行代码必填" />
+                    @Html.ValidationMessageFor(model => model.Number, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">银行名称</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "form-control", placeholder = "银行名称必填", id = "Name" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger", id = "errorname" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">简写</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShortName, new {htmlAttributes = new {@class = "form-control", placeholder = "简写必填"}})
+                    @Html.ValidationMessageFor(model => model.ShortName, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">别称</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NiceName, new {htmlAttributes = new {@class = "form-control", placeholder = "别称必填"}})
+                    @Html.ValidationMessageFor(model => model.NiceName, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">银行卡类型</label>
+                <div class="col-md-10">
+                    <select class="easyui-combobox" editable=false panelHeight=auto style="width: 90px; height: 30px;" onLoadError="none" name="Type" id="Type"> <option value="1"@if (Model.Type == 1)
+                                         {@Html.Raw(" selected=\"selected\"'")
+                                         }>储蓄卡</option>
+                        <option value="2"@if (Model.Type == 2)
+                                         {@Html.Raw(" selected=\"selected\"")
+                                         }>信用卡</option>
+                        <option value="3"@if (Model.Type == 3)
+                                         {@Html.Raw(" selected=\"selected\"")
+                                         }>支付宝</option>
+                    </select>
+                    @Html.ValidationMessage("Type", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">银行图标</label>
+                <div class="col-md-10">
+                    <input id="Logo" name="Url" class="easyui-filebox" data-options="buttonText: '选择文件'" />
+                </div>
+            </div>
+
+            @if(Model.Url!="" & Model.Url != null)
+            {
+            <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <img  src="@Model.Url" id="preview" width="200" height="200" alt="找不到图片"/>
+                </div>
+            </div>
+            }
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">备注</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Remark, new {htmlAttributes = new {@class = "form-control", placeholder = "备注选填"}})
+                    @Html.ValidationMessageFor(model => model.Remark, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group hidden">
+                <label class="col-md-2 control-label">图标</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Url, new {htmlAttributes = new {@class = "form-control", placeholder = "备注选填"}})
+                    @Html.ValidationMessageFor(model => model.Url, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" id="submit-btn" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;编&nbsp;辑</button>
+                    @Html.ValidationMessage("errorresult", new {@class = "text-danger"})
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.bank.js"></script>
+    <script>
+        $(function () {
+            usp.init();
+            usp.system.bank.checkBankName('@Model.Name');
+        })
+    </script>
+}

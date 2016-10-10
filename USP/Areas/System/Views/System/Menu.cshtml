@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<table id="menus"></table>
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.menu.js"></script>
+    <script>
+        $(function () {
+            usp.sysytem.menu.initGrid("#menus", "/System/System/Menus");
+        });
+    </script>
+}

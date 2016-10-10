@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<table id="grid"></table><br/>
+<table id="treeGrid"></table><br />
+<ul id="tree"></ul>
+
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.easyui.js"></script>
+    <script>
+        $(function () {
+            usp.easyui.initTree("#tree", "/EasyUI/AreaTree");
+            usp.easyui.initGrid("#grid", "/EasyUI/AreaGrid");
+            usp.easyui.initTreeGrid("#treeGrid", "/EasyUI/AreaGrid");
+        });
+    </script>
+}
+

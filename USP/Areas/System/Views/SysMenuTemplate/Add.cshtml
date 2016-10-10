@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "设置菜单模板";
+}
+<div class="easyui-panel" data-options="fit:true,border:false">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="pull-right"><a href="javascript:history.go(-1)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-chevron-left"></span>返回</a></div>
+            <span class="glyphicon glyphicon-edit"></span> 设置菜单模板
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Add", "SysMenuTemplate", new { area = "System" }, FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <input name="corpType" id="corpType" type="hidden" value="@ViewBag.CorpType" />
+
+        <div class="form-group">
+            <label for="lastname" class="col-md-2 control-label">公司类型</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" value="@ViewBag.CorpTypeName" readonly="readonly" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" class="col-md-2 control-label">选择菜单</label>
+            <div class="col-md-3">
+                <ul id="tree"></ul>
+                <input id="Menu" type="hidden" name="Menu" value="@ViewBag.Menu" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-md-9">
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>设置</button>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Static/Js/usp/usp.system.menutemplate.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            usp.init();
+            usp.sysytem.menutemplate.setMenuTemplate('#tree', '#Menu', '/System/SysMenuTemplate/Add', $('#corpType').val());
+           if ('@TempData["returnMsgType"]' == 'false') {
+                toastr.error('@TempData["returnMsg"]');
+            }
+        })
+    </script>
+}
+
+
+
+
