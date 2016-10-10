@@ -41,6 +41,8 @@ namespace USP.Areas.FastReportTest.Controllers
         {
             string gonghao = Request["GongHao"];
             string date = Request["Date"];
+            string zhiJieShangJi= Request["ZhiJieShangJi"];
+            string fuZeRen = Request["FuZeRen"];
             var user = (User)HttpContext.Session[Common.Constants.USER_KEY];
             WebReport webReport = new WebReport();
             var templateName = GetReportUserInfoTemplate(RouteData.Values["controller"].ToString()).TrimStart().TrimEnd();
@@ -50,16 +52,19 @@ namespace USP.Areas.FastReportTest.Controllers
             }
             SetReport(webReport, templateName);
             ViewBag.WebReport = webReport;
-            if (string.IsNullOrEmpty(gonghao)&& string.IsNullOrEmpty(date))
-            {
-                webReport.Report.Parameters.FindByName("工号").Value = user.SysOperator.LoginName;
-                webReport.Report.Parameters.FindByName("日期").Value = DateTime.Now;
-            }
-            else
-            {
-                webReport.Report.Parameters.FindByName("工号").Value = gonghao;
-                webReport.Report.Parameters.FindByName("日期").Value = Convert.ToDateTime(date) ;
-            }
+            //if (string.IsNullOrEmpty(gonghao)&& string.IsNullOrEmpty(date))
+            //{
+            //    webReport.Report.Parameters.FindByName("工号").Value = user.SysOperator.LoginName;
+            //    webReport.Report.Parameters.FindByName("日期").Value = DateTime.Now;
+            //}
+            //else
+            //{
+            webReport.Report.Parameters.FindByName("工号").Value = gonghao.Trim();
+            webReport.Report.Parameters.FindByName("制表人").Value = user.SysOperator==null ?"": user.SysOperator.RealName.Trim();
+            webReport.Report.Parameters.FindByName("直接上级").Value = zhiJieShangJi.Trim();
+            webReport.Report.Parameters.FindByName("负责人").Value = fuZeRen.Trim();
+            webReport.Report.Parameters.FindByName("日期").Value = Convert.ToDateTime(date) ;
+            //}
             return View();
         }
         [USP.Attributes.MenuItem(Parent = "报表模块", Name = "员工信息报表查询", Icon = "icon-sitemap")]

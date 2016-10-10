@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="08/17/2016 19:36:04" ReportInfo.Modified="10/08/2016 11:35:47" ReportInfo.CreatorVersion="2014.4.8.0" PrintSettings.SavePrinterWithReport="true">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/17/2016 19:36:04" ReportInfo.Modified="10/10/2016 16:30:49" ReportInfo.CreatorVersion="2014.4.8.0" PrintSettings.SavePrinterWithReport="true">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,8 +31,8 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlquQ+MGUuFmwCkhAb0ntbeLNzC7sK8p+JIv/aYxEi/dDLK5qUTaroHqda6ZvH32vUKIlCXO0FAoFRuJaB4jKzV44bAVnXQyonz5K+w1LVlzy0iR+qxLmf7DnykPcPj43Fzu+snnBnu7MnCjG7+/7w2twlwOcb1fmeLQvXElFe/rBMjk387xmPVKRwtc/2+NAg8uCWuDBxeOzI1skHx6gYMtQ==">
-      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="exec HXN_HR_Tsui_UserInfo @GongHao,@Date">
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlquQ+MGUuFmwCkhAb0ntbeLNzC7sK8p+JIv/aYxEi/dDLK5qUTaroHqda6ZvH32vUKIlCXO0FAoFRuJaB4jKzV44bAVnXQyonz5K+w1LVlzy0iR+qxLmf7DnykPcPj43Fzu+snnBnu7MnCjG7+/7w2twlwOcb1fmeLQvXElFe/rBMjk387xmPVKRwtc/2+NAg8JSbTZxsd7FBgU9xOVpWw5w==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="exec HXN_HR_Tsui_UserInfo_bak @GongHao,@ZhiBiaoRen,@Date">
         <Column Name="GWID" DataType="System.String"/>
         <Column Name="SJGW" DataType="System.String"/>
         <Column Name="XJGW" DataType="System.String"/>
@@ -95,14 +95,18 @@ namespace FastReport
         <Column Name="Year" DataType="System.String"/>
         <Column Name="Month" DataType="System.String"/>
         <Column Name="Date" DataType="System.String"/>
+        <Column Name="人资主管" DataType="System.String"/>
+        <Column Name="制表人" DataType="System.String"/>
         <CommandParameter Name="GongHao" DataType="22" Expression="[工号]"/>
         <CommandParameter Name="Date" DataType="22" Expression="[日期]"/>
+        <CommandParameter Name="ZhiBiaoRen" DataType="22" Expression="[制表人]"/>
       </TableDataSource>
     </MsSqlDataConnection>
     <Parameter Name="工号" DataType="System.String"/>
-    <Parameter Name="制表人" DataType="System.String"/>
-    <Parameter Name="人资主管" DataType="System.String"/>
+    <Parameter Name="直接上级" DataType="System.String"/>
+    <Parameter Name="负责人" DataType="System.String"/>
     <Parameter Name="日期" DataType="System.String"/>
+    <Parameter Name="制表人" DataType="System.String"/>
   </Dictionary>
   <ReportPage Name="Page1" PaperWidth="290" PaperHeight="210" Guides="0" Watermark.Enabled="true" Watermark.TextRotation="BackwardDiagonal" StartPageEvent="Page1_StartPage">
     <ReportTitleBand Name="ReportTitle1" Width="1020.6" Height="66.15" Guides="47.25,47.25">
@@ -291,15 +295,15 @@ namespace FastReport
         </TableRow>
         <TableRow Name="Row17" Height="50.11">
           <TableCell Name="Cell161" Border.Lines="All" Text="直接上级：&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold" HtmlTags="true"/>
-          <TableCell Name="Cell162" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell162" Border.Lines="All" Text="[直接上级]" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
           <TableCell Name="Cell163" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
           <TableCell Name="Cell164" Border.Lines="All" Text="责任人：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
-          <TableCell Name="Cell165" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell165" Border.Lines="All" Text="[负责人]" VertAlign="Center" Font="宋体, 9pt"/>
           <TableCell Name="Cell166" Border.Lines="All" Text="人资主管：&#13;&#10;" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
-          <TableCell Name="Cell167" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell167" Border.Lines="All" Text="[Table.人资主管]" VertAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
           <TableCell Name="Cell168" Border.Lines="All" VertAlign="Center" Font="宋体, 9pt"/>
           <TableCell Name="Cell169" Border.Lines="All" Text="制表人：&#13;&#10;" HorzAlign="Justify" VertAlign="Center" Font="宋体, 9pt, style=Bold"/>
-          <TableCell Name="Cell170" Border.Lines="All" Text="[制表人]" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell170" Border.Lines="All" Text="[Table.制表人]" VertAlign="Center" Font="宋体, 9pt"/>
         </TableRow>
       </TableObject>
     </DataBand>

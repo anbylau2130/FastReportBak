@@ -18,7 +18,7 @@
             <div class="form-group ">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <label class="control-label">日期</label>
                         </div>
                         <div class="col-md-2">
@@ -30,35 +30,71 @@
                             </div>
                         </div>
                         <label class="col-md-2 control-label">工号</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入员工工号" id="gonghao" name="gonghao" placeholder="员工工号" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="gonghao" data-valmsg-replace="true"></span>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div>
+                                    <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入员工工号" id="gonghao" name="gonghao" placeholder="员工工号" value="">
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="gonghao" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <button type="submit" class="btn btn-primary" onclick="iframeLoad()"><span class="glyphicon glyphicon-plus"></span> 查询</button>
-                        </div>
-                        </div>
-                    </div>
-                       </div>
-                    </div>
 
+                    </div>
+                </div>
+                <div class="form-group ">
+                   
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="control-label">直接上级</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <div>
+                                        <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入直接上级" id="zjsj" name="zjsj" placeholder="直接上级" value="">
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="zjsj" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                             <label class="col-md-2 control-label">负责人</label>
+                          
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div>
+                                        <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="请输入负责人" id="fzr" name="fzr" placeholder="负责人" value="">
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="fzr" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary" onclick="iframeLoad()"><span class="glyphicon glyphicon-plus"></span> 查询</button>
+                            </div>
+                        </div>
+                       
+                    </div>
                 </div>
             </div>
-  
+        </div>
+
+    </div>
 </div>
+
 <iframe id="fastreportIframe" frameborder="0" style="overflow:hidden;height:100%;width:100%;"></iframe>
 @section scripts{
 
     <script>
         usp.init();
-       
+
         function iframeLoad() {
             var gonghao = $("#gonghao").val()
+            var zjsj = $("#zjsj").val()
+            var fzr = $("#fzr").val()
             var date = $("#datetime").datebox('getValue');
             if (gonghao && date) {
-                $("#fastreportIframe").attr("src", "UserInfo?Date=" + date + "&GongHao=" + gonghao)
+                $("#fastreportIframe").attr("src", "UserInfo?Date=" + date + "&GongHao=" + gonghao + "&FuZeRen=" + fzr + "&ZhiJieShangJi=" + zjsj)
             } else {
-                toastr.error("工号不能为空！");
+                toastr.error("工号或日期不能为空！");
             }
         }
     </script>
